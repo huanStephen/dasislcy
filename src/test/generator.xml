@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <!--<properties resource="generator.properties"/>-->
+
+    <context defaultModelType="flat" id="mysql" targetRuntime="MyBatis3Simple">
+        <!-- 生成的Java文件的编码 -->
+        <property name="javaFileEncoding" value="UTF-8"/>
+        <!-- 生成根Mapper，用户可以看后边代码 -->
+        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+            <property name="mappers" value="tk.mybatis.mapper.common.Mapper"/>
+        </plugin>
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="" userId="" password="">
+            <property name="useInformationSchema" value="true"/>
+        </jdbcConnection>
+
+        <javaModelGenerator targetPackage="org.eocencle.dasislcy.entity" targetProject="src/main/java">
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="mybatis.mapper" targetProject="src/main/resources"/>
+
+        <!--
+            1，ANNOTATEDMAPPER：会生成使用Mapper接口+Annotation的方式创建（SQL生成在annotation中），不会生成对应的XML；
+            2，XMLMAPPER：会生成Mapper接口，接口完全依赖XML；
+        -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="org.eocencle.dasislcy.dao" targetProject="src/main/java"/>
+
+        <table tableName="choice_question" domainObjectName="ChoiceQuestionEntity" mapperName="ChoiceQuestionMapper">
+            <generatedKey column="ID" sqlStatement="MySQL" identity="true"/>
+        </table>
+        <table tableName="choice_question_option" domainObjectName="ChoiceQuestionOptionEntity" mapperName="ChoiceQuestionOptionMapper">
+            <generatedKey column="ID" sqlStatement="MySQL" identity="true"/>
+        </table>
+        <table tableName="subject" domainObjectName="SubjectEntity" mapperName="SubjectMapper">
+            <generatedKey column="ID" sqlStatement="MySQL" identity="true"/>
+        </table>
+        <table tableName="subject_question" domainObjectName="SubjectQuestionEntity" mapperName="SubjectQuestionMapper">
+            <generatedKey column="ID" sqlStatement="MySQL" identity="true"/>
+        </table>
+    </context>
+</generatorConfiguration>

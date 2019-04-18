@@ -1,0 +1,51 @@
+server:
+  port: 8080
+
+logging:
+  level:
+     com.eocencle.dasislcy: debug
+
+spring:
+  application:
+     name: dasislcy
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML5
+    charset: UTF-8
+    allow-request-override: false
+    cache: false
+    check-template-location: true
+    expose-request-attributes: false
+    expose-session-attributes: false
+    expose-spring-macro-helpers: false
+
+mybatis:
+   config-location: classpath:mybatis/mybatis-config.xml
+   mapper-locations: classpath:mybatis/mapper/*.xml
+   type-aliases-package: com.eocencle.dasislcy.entity
+
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
+
+servlet:
+  multipart:
+    max-file-size: 100Mb
+    max-request-size: 100Mb
+    session:
+      timeout: -100000  # 十天
+    cookie:
+      max-age: 130000s
+
+#自定义
+main:
+  page: index
+
+
+

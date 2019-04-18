@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>hello world</h1>
+    <div></div>
+    <table>
+
+    </table>
+</body>
+<script src="../js/jquery-3.3.1.min.js"></script>
+<script>
+    $.get('demo/enter', {id: 1}, function(result) {
+        if (result.status) {
+            $('div').text(JSON.stringify(result.data));
+        } else {
+            console.error(result.msg);
+        }
+    });
+</script>
+</html>
