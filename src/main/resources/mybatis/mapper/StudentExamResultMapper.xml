@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.eocencle.dasislcy.dao.StudentExamResultMapper">
+  <resultMap id="BaseResultMap" type="org.eocencle.dasislcy.entity.StudentExamResultEntity">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="STUDENT_ID" jdbcType="INTEGER" property="studentId" />
+    <result column="EXAMPAPER_ID" jdbcType="INTEGER" property="exampaperId" />
+    <result column="SORT" jdbcType="TINYINT" property="sort" />
+    <result column="QUESTION_TYPE" jdbcType="TINYINT" property="questionType" />
+    <result column="EXAMQUESTION_ID" jdbcType="INTEGER" property="examquestionId" />
+    <result column="ANSWER" jdbcType="VARCHAR" property="answer" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+</mapper>
