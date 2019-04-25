@@ -6,8 +6,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Kharna-Admin Dashboard</title>
 
-		<!--Favicon -->
-		<link rel="icon" href="assets/img/favicon.ico" type="image/x-icon"/>
+		<!--favicon -->
+		<link rel="icon" href="favicon.ico" type="image/x-icon"/>
 
 		<!--Bootstrap.min css-->
 		<link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
@@ -15,25 +15,32 @@
 		<!--Icons css-->
 		<link rel="stylesheet" href="assets/css/icons.css">
 
-		<!--Style css-->
-		<link rel="stylesheet" href="assets/css/style.css">
-
 		<!--mCustomScrollbar css-->
 		<link rel="stylesheet" href="assets/plugins/scroll-bar/jquery.mCustomScrollbar.css">
+
+		<!--Style css-->
+		<link rel="stylesheet" href="assets/css/style.css">
 
 		<!--Sidemenu css-->
 		<link rel="stylesheet" href="assets/plugins/toggle-menu/sidemenu.css">
 
-		<!--Chartist css-->
-		<link rel="stylesheet" href="assets/plugins/chartist/chartist.css">
-		<link rel="stylesheet" href="assets/plugins/chartist/chartist-plugin-tooltip.css">
+		<!--Bootstrap-daterangepicker css-->
+		<link rel="stylesheet" href="assets/plugins/bootstrap-daterangepicker/daterangepicker.css">
 
-		<!--Full calendar css-->
-		<link rel="stylesheet" href="assets/plugins/fullcalendar/stylesheet1.css">
-		
-		<!--morris css-->
-		<link rel="stylesheet" href="assets/plugins/morris/morris.css">
+		<!--Bootstrap-datepicker css-->
+		<link rel="stylesheet" href="assets/plugins/bootstrap-datepicker/bootstrap-datepicker.css">
 
+		<!--iCheck css-->
+		<link rel="stylesheet" href="assets/plugins/iCheck/all.css">
+
+		<!--Bootstrap-colorpicker css-->
+		<link rel="stylesheet" href="assets/plugins/bootstrap-colorpicker/bootstrap-colorpicker.min.css">
+
+		<!--Bootstrap-timepicker css-->
+		<link rel="stylesheet" href="assets/plugins/bootstrap-timepicker/bootstrap-timepicker.min.css">
+
+		<!--Select2 css-->
+		<link rel="stylesheet" href="assets/plugins/select2/select2.css">
 
 	</head>
 
@@ -67,7 +74,7 @@
 								</div>
 								<div class="dropdown-list-content">
 									<a href="#" class="dropdown-item dropdown-item-unread">
-										<img alt="image" src="assets/img/avatar/avatar-1.jpeg.jpg" class="rounded-circle dropdown-item-img">
+										<img alt="image" src="assets/img/avatar/avatar-1.jpeg" class="rounded-circle dropdown-item-img">
 										<div class="dropdown-item-desc">
 											<div class="dropdownmsg d-flex">
 												<div class="">
@@ -76,11 +83,10 @@
 												</div>
 												<div class="time">6 hours ago</div>
 											</div>
-
 										</div>
 									</a>
 									<a href="#" class="dropdown-item dropdown-item-unread">
-										<img alt="image" src="assets/img/avatar/avatar-2.jpeg.jpg" class="rounded-circle dropdown-item-img">
+										<img alt="image" src="assets/img/avatar/avatar-2.jpeg" class="rounded-circle dropdown-item-img">
 										<div class="dropdown-item-desc">
 											<div class="dropdownmsg d-flex">
 												<div class="">
@@ -92,7 +98,7 @@
 										</div>
 									</a>
 									<a href="#" class="dropdown-item">
-										<img alt="image" src="assets/img/avatar/avatar-4.jpeg.jpg" class="rounded-circle dropdown-item-img">
+										<img alt="image" src="assets/img/avatar/avatar-4.jpeg" class="rounded-circle dropdown-item-img">
 										<div class="dropdown-item-desc">
 											<div class="dropdownmsg d-flex">
 												<div class="">
@@ -104,7 +110,7 @@
 										</div>
 									</a>
 									<a href="#" class="dropdown-item">
-										<img alt="image" src="assets/img/avatar/avatar-3.jpeg.jpg" class="rounded-circle dropdown-item-img">
+										<img alt="image" src="assets/img/avatar/avatar-3.jpeg" class="rounded-circle dropdown-item-img">
 										<div class="dropdown-item-desc">
 											<div class="dropdownmsg d-flex">
 												<div class="">
@@ -116,7 +122,7 @@
 										</div>
 									</a>
 									<a href="#" class="dropdown-item">
-										<img alt="image" src="assets/img/avatar/avatar-5.jpeg.jpg" class="rounded-circle dropdown-item-img">
+										<img alt="image" src="assets/img/avatar/avatar-5.jpeg" class="rounded-circle dropdown-item-img">
 										<div class="dropdown-item-desc">
 											<div class="dropdownmsg d-flex">
 												<div class="">
@@ -183,7 +189,7 @@
 							</a>
 						</li>
 						<li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg">
-							<img src="assets/img/avatar/avatar-1.jpeg.jpg" alt="profile-user" class="rounded-circle w-32">
+							<img src="assets/img/avatar/avatar-1.jpeg" alt="profile-user" class="rounded-circle w-32">
 							<div class="d-sm-none d-lg-inline-block">Jessica Lee</div></a>
 							<div class="dropdown-menu dropdown-menu-right">
 								<a href="profile.html" class="dropdown-item has-icon">
@@ -207,7 +213,7 @@
 					<div class="app-sidebar__user">
 					    <div class="dropdown">
 							<a class="nav-link pl-2 pr-2 leading-none d-flex" data-toggle="dropdown" href="#">
-								<img alt="image" src="assets/img/avatar/avatar-1.jpeg.jpg" class=" avatar-md rounded-circle">
+								<img alt="image" src="assets/img/avatar/avatar-1.jpeg" class=" avatar-md rounded-circle">
 								<span class="ml-2 d-lg-block">
 									<span class="text-white app-sidebar__user-name mt-5">Jessica Lee</span><br>
 									<span class="text-muted app-sidebar__user-name text-sm"> Web-Designer</span>
@@ -318,187 +324,315 @@
 				<div class="app-content">
 					<section class="section">
                     	<ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#" class="text-muted">Home</a></li>
-                            <li class="breadcrumb-item active text-" aria-current="page">Dashboard 01</li>
+                            <li class="breadcrumb-item"><a href="#">Forms</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Advanced Form Elements</li>
                         </ol>
 
 						<div class="row">
-							<div class="col-lg-6 col-xl-3 col-md-6 col-sm-6 col-12">
-								<div class="card">
+							<div class="col-md">
+								<div class="card overflow-hidden">
+									<div class="card-header">
+										<h4>Select2</h4>
+									</div>
 									<div class="card-body">
 										<div class="row">
-											<div class="col-6">
-												<div class="dash1">
-													<h4 class="text-dark">675</h4>
-													<small class="text-muted ">Posts</small>
+											<div class="col-md-6">
+												<div class="form-group overflow-hidden">
+													<label>Minimal</label>
+													<select class="form-control select2 w-100" >
+														<option selected="selected">Alabama</option>
+														<option>Alaska</option>
+														<option>California</option>
+														<option>Delaware</option>
+														<option>Tennessee</option>
+														<option>Texas</option>
+														<option>Washington</option>
+													</select>
+												</div>
+												<div class="form-group mb-md-0 overflow-hidden">
+													<label>Disabled</label>
+													<select class="form-control select2 w-100" disabled="disabled" >
+														<option selected="selected">Alabama</option>
+														<option>Alaska</option>
+														<option>California</option>
+														<option>Delaware</option>
+														<option>Tennessee</option>
+														<option>Texas</option>
+														<option>Washington</option>
+													</select>
 												</div>
 											</div>
-											<div class="col-6">
-												<div id="chart1" class="overflow-hidden"></div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-6 col-xl-3 col-md-6 col-sm-6 col-12">
-								<div class="card">
-									<div class="card-body">
-										<div class="row">
-											<div class="col-6">
-												<div class="dash1">
-													<h4 class="text-dark">875</h4>
-													<small class="text-muted">Clicks</small>
+											<div class="col-md-6">
+												<div class="form-group overflow-hidden">
+													<label>Multiple</label>
+													<select class="form-control select2 w-100" multiple="multiple" data-placeholder="Select a State"
+														>
+														<option>Alabama</option>
+														<option>Alaska</option>
+														<option>California</option>
+														<option>Delaware</option>
+														<option>Tennessee</option>
+														<option>Texas</option>
+														<option>Washington</option>
+													</select>
 												</div>
-											</div>
-											<div class="col-6">
-												<div id="chart2" class="overflow-hidden"></div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-6 col-xl-3 col-md-6 col-sm-6 col-12">
-								<div class="card">
-									<div class="card-body">
-										<div class="row">
-											<div class="col-6">
-												<div class="dash1">
-													<h4 class="text-dark">976</h4>
-													<small class="text-muted">Shares</small>
+												<div class="form-group mb-0 overflow-hidden">
+													<label>Disabled Result</label>
+													<select class="form-control select2 w-100" >
+														<option selected="selected">Alabama</option>
+														<option>Alaska</option>
+														<option disabled="disabled">California (disabled)</option>
+														<option>Delaware</option>
+														<option>Tennessee</option>
+														<option>Texas</option>
+														<option>Washington</option>
+													</select>
 												</div>
-											</div>
-											<div class="col-6">
-												<div id="chart3" class="overflow-hidden"></div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-6 col-xl-3 col-md-6 col-sm-6 col-12">
-								<div class="card">
-									<div class="card-body">
-										<div class="row">
-											<div class="col-6">
-												<div class="dash1">
-													<h4 class="text-dark">418</h4>
-													<small class="text-muted">Remarks</small>
-												</div>
-											</div>
-											<div class="col-6">
-												<div id="chart4" class="overflow-hidden"></div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
 
-						
-
-						<div class="row ">
-							<div class="col-lg-12 col-xl-6 col-md-12 col-12 col-sm-12">
-								<div class="card">
-									<div class="card-header">
-										<h4>Monthly Sales</h4>
-									</div>
-									<div class="card-body">
-										<div id="bar-chart" class="overflow-hidden" > </div>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-12 col-xl-6 col-md-12 col-12 col-sm-12">
-								<div class="card">
-									<div class="card-header">
-										<h4>Yearly Template Sales</h4>
-									</div>
-									<div class="card-body">
-										<div id="sales-chart" class="overflow-hidden"> </div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-12 col-sm-12">
-								<div class="card">
-									<div class="card-header">
-										<h4>Account Retention</h4>
-									</div>
-									<div class="card-body">
-										<div id="index" class="overflow-hidden h-400 mx-auto text-center " ></div>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 
 						<div class="row">
-							<div class="col-lg-12 col-xl-8 col-md-12 col-12 col-sm-12">
+							<div class="col-12">
 								<div class="card">
-								<div class="pt-0 pb-0 pl-3 pr-3 card-body">
-									<div class="row">
-										<div class="col-xs-12 col-lg-5 cover-image weather-radius text-center position-relative transparent" data-image-src="assets/img/weather.jpg">
-											<div class="weather-shade">
-												<i class="wi wi-day-sleet text-white"></i>
-											</div>
-											<div class="card-body mt-5 pt-5">
-												<i class="vl_weather-day-rain text-light  mt-5 pt-5 d-block"></i>
-											</div>
-											<div class="bg-transparent border-0 text-light  pt-4">
-												<h3 class="weight300">Sunny Day</h3>
+									<div class="card-header">
+										<h4>File Upload</h4>
+									</div>
+									<div class="card-body">
+										<div class="form-group ">
+											<div class="">
+												<input type="file" class="form-control">
 											</div>
 										</div>
-										<div class="col-xs-12 col-lg-7 widgetb p-0">
-											<div class="card-body p-4">
-												<h4 class="mb-0">MONDAY <br/>
-													<span class="text-muted h5"> 22  October</span>
-												</h4>
-												<div class="fs-45 text-primary pt-4 ">
-													32<sup>o</sup>
-													<span class="h3 ">Sunny</span>
+										<div class="row">
+											<div class="col-lg-6">
+												<form method="post" >
+													<div class="form-group files mb-lg-0">
+														<input type="file" class="form-control1" multiple="">
+													</div>
+												</form>
+											</div>
+											<div class="col-lg-6">
+												<form method="post" >
+													<div class="form-group files color  mb-lg-0">
+														<input type="file" class="form-control1" multiple="">
+													</div>
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-12">
+								<div class="card">
+									<div class="card-header">
+										<h4>Input masks</h4>
+									</div>
+									<div class="card-body">
+										
+										<div class="form-group">
+											<label>US phone mask:</label>
+											<div class="input-group">
+												<div class="input-group-addon">
+													<i class="fa fa-phone"></i>
+												</div>
+												<input type="text" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask>
+											</div>
+										</div>
+										<div class="form-group">
+											<label>Intl US phone mask:</label>
+											<div class="input-group">
+												<div class="input-group-addon">
+													<i class="fa fa-phone"></i>
+												</div>
+												<input type="text" class="form-control"
+												data-inputmask="'mask': ['999-999-9999 [x99999]', '+099 99 99 9999[9]-9999']" data-mask>
+											</div>
+										</div>
+										
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-12">
+								<div class="card">
+									<div class="card-header">
+										<h4>Date picker</h4>
+									</div>
+									<div class="card-body">
+										<div class="form-group">
+											<label>Date:</label>
+											<div class="input-group date">
+												<div class="input-group-addon">
+													<i class="fa fa-calendar"></i>
+												</div>
+												<input type="text" class="form-control pull-right" id="datepicker">
+											</div>
+										</div>
+										<div class="form-group">
+											<label>Date range:</label>
+											<div class="input-group">
+												<div class="input-group-addon">
+													<i class="fa fa-calendar"></i>
+												</div>
+												<input type="text" class="form-control pull-right" id="reservation">
+											</div>
+										</div>
+										<div class="form-group">
+											<label>Date and time range:</label>
+											<div class="input-group">
+												<div class="input-group-addon">
+													<i class="fa fa-clock-o"></i>
+												</div>
+												<input type="text" class="form-control pull-right" id="reservationtime">
+											</div>
+										</div>
+										<div class="form-group mb-0">
+											<label>Date range button:</label>
+											<div class="input-group">
+												<button type="button" class="btn btn-primary pull-right" id="daterange-btn">
+													<span>
+														<i class="fa fa-calendar"></i> Date range picker
+													</span>
+													<i class="fa fa-caret-down"></i>
+												</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-12">
+								<div class="card">
+									<div class="card-header">
+										<h4>Color & Time Picker</h4>
+									</div>
+									<div class="card-body">
+										<div class="form-group">
+											<label>Color picker:</label>
+											<input type="text" class="form-control my-colorpicker1">
+										</div>
+										<div class="form-group">
+											<label>Color picker with addon:</label>
+											<div class="input-group my-colorpicker2">
+												<input type="text" class="form-control">
+												<div class="input-group-addon">
+													<i class="fa fa-sort-desc"></i>
 												</div>
 											</div>
-											<div class="card-footer bg-white text-center ">
-												<div class="row">
-													<div class="col-sm-2 col-4 mt-2 pb-2">
-														<h6 class="text-muted mb-3">TUE</h6>
-														<i class="fe fe-cloud-rain"></i>
-														<p class="mb-0 text-muted">18<sup>o</sup>c</p>
-													</div>
-													<div class="col-sm-2 col-4 mt-2 pb-2">
-														<h6 class="text-muted mb-3">WED</h6>
-														<i class="fe fe-cloud"></i>
-														<p class="mb-0 text-muted">22<sup>o</sup>c</p>
-													</div>
-													<div class="col-sm-2 col-4 mt-2 pb-2">
-														<h6 class="text-muted mb-3">THU</h6>
-														<i class="fe fe-cloud-snow"></i>
-														<p class="mb-0 text-muted">15<sup>o</sup>c</p>
-													</div>
-													<div class="col-sm-2 col-4 mt-2 pb-2">
-														<h6 class="text-muted mb-3">FRI</h6>
-														<i class="fe fe-cloud-rain"></i>
-														<p class="mb-0 text-muted">19<sup>o</sup>c</p>
-													</div>
-													<div class="col-sm-2 col-4 mt-2 pb-2">
-														<h6 class="text-muted mb-3">SAT</h6>
-														<i class="fe fe-cloud"></i>
-														<p class="mb-0 text-muted">29<sup>o</sup>c</p>
-													</div>
-													<div class="col-sm-2 col-4 mt-2 pb-2">
-														<h6 class="text-muted mb-3">SUN</h6>
-														<i class="fe fe-cloud-snow"></i>
-														<p class="mb-0 text-muted">17<sup>o</sup>c</p>
+										</div>
+										<div class="bootstrap-timepicker">
+											<div class="form-group mb-0">
+												<label>Time picker:</label>
+												<div class="input-group">
+													<input type="text" class="form-control timepicker">
+													<div class="input-group-addon">
+														<i class="fa fa-clock-o"></i>
 													</div>
 												</div>
 											</div>
 										</div>
 									</div>
 								</div>
-								</div>
 							</div>
-
-							<div class="col-lg-12 col-xl-4 col-md-12 col-12 col-sm-12">
+						</div>
+						<div class="row">
+							<div class="col-12">
 								<div class="card">
-									<div id="calendar-1"></div>
+									<div class="card-header">
+										<h4>iCheck - Checkbox &amp; Radio Inputs</h4>
+									</div>
+									<div class="card-body">
+										<div class="row">
+											<div class="col-lg-6">
+												<div class="form-group">
+													<label>
+														<input type="checkbox" class="minimal" checked>
+													</label>
+													<label>
+														<input type="checkbox" class="minimal">
+													</label>
+													<label>
+														<input type="checkbox" class="minimal" disabled>
+														Minimal checkbox
+													</label>
+												</div>
+												<div class="form-group">
+													<label>
+														<input type="radio" name="r1" class="minimal" checked>
+													</label>
+													<label>
+														<input type="radio" name="r1" class="minimal">
+													</label>
+													<label>
+														<input type="radio" name="r1" class="minimal" disabled>
+														Minimal skin radio
+													</label>
+												</div>
+												<div class="form-group mb-lg-0">
+													<label>
+														<input type="checkbox" class="minimal-purple" checked>
+													</label>
+													<label>
+														<input type="checkbox" class="minimal-purple">
+													</label>
+													<label>
+														<input type="checkbox" class="minimal-purple" disabled>
+														Skin checkbox
+													</label>
+												</div>
+											</div>
+											<div class="col-lg-6">
+												<div class="form-group">
+													<label>
+														<input type="radio" name="r2" class="minimal-purple" checked>
+													</label>
+													<label>
+														<input type="radio" name="r2" class="minimal-purple">
+													</label>
+													<label>
+														<input type="radio" name="r2" class="minimal-purple" disabled>
+														Minimal  skin radio
+													</label>
+												</div>
+
+												<div class="form-group">
+													<label>
+														<input type="checkbox" class="flat-purple" checked>
+													</label>
+													<label>
+														<input type="checkbox" class="flat-purple">
+													</label>
+													<label>
+														<input type="checkbox" class="flat-purple" disabled>
+														Flat skin checkbox
+													</label>
+												</div>
+												<div class="form-group mb-0">
+													<label>
+														<input type="radio" name="r3" class="flat-purple" checked>
+													</label>
+													<label>
+														<input type="radio" name="r3" class="flat-purple">
+													</label>
+													<label>
+														<input type="radio" name="r3" class="flat-purple" disabled>
+														Flat  skin radio
+													</label>
+												</div>
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -508,7 +642,7 @@
 
 				<footer class="main-footer">
 					<div class="text-center">
-						Copyright &copy;Kharna-Admin 2018. Design By更多模板：<a href="http://www.mycodes.net/" target="_blank">源码之家</a>
+						Copyright &copy;Kharna-Admin 2018. Design By<a href="https://spruko.com/"> Spruko</a>
 					</div>
 				</footer>
 
@@ -536,25 +670,39 @@
 		<!--Sidemenu js-->
 		<script src="assets/plugins/toggle-menu/sidemenu.js"></script>
 
+		<!--Select2 js-->
+		<script src="assets/plugins/select2/select2.full.js"></script>
+
+		<!--Inputmask js-->
+		<script src="assets/plugins/inputmask/jquery.inputmask.js"></script>
+
+		<!--Moment js-->
+		<script src="assets/plugins/moment/moment.min.js"></script>
+
+		<!--Bootstrap-daterangepicker js-->
+		<script src="assets/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+		<!--Bootstrap-datepicker js-->
+		<script src="assets/plugins/bootstrap-datepicker/bootstrap-datepicker.js"></script>
+
+		<!--Bootstrap-colorpicker js-->
+		<script src="assets/plugins/bootstrap-colorpicker/bootstrap-colorpicker.min.js"></script>
+
+		<!--Bootstrap-timepicker js-->
+		<script src="assets/plugins/bootstrap-timepicker/bootstrap-timepicker.js"></script>
+
 		<!--mCustomScrollbar js-->
 		<script src="assets/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js"></script>
 
-		<!-- ECharts -->
-		<script src="assets/plugins/echarts/dist/echarts.js"></script>
+		<!--iCheck js-->
+		<script src="assets/plugins/iCheck/icheck.min.js"></script>
 
-		<!--Min Calendar -->
-		<script src="assets/plugins/fullcalendar/calendar.min.js"></script>
-		<script src="assets/plugins/fullcalendar/custom_calendar.js"></script>
-
-		<!--Morris js-->
-		<script src="assets/plugins/morris/morris.min.js"></script>
-		<script src="assets/plugins/morris/raphael.min.js"></script>	
+		<!--forms js-->
+		<script src="assets/js/forms.js"></script>
 
 		<!--Scripts js-->
 		<script src="assets/js/scripts.js"></script>
 
-		<!--Dashboard js-->
-		<script src="assets/js/dashboard.js"></script>
-		<script src="assets/js/apexcharts.js"></script>
+
 	</body>
 </html>

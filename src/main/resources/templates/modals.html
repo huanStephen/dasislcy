@@ -5,9 +5,8 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Kharna-Admin Dashboard</title>
-
-		<!--Favicon -->
-		<link rel="icon" href="assets/img/favicon.ico" type="image/x-icon"/>
+		<!--favicon -->
+		<link rel="icon" href="favicon.ico" type="image/x-icon"/>
 
 		<!--Bootstrap.min css-->
 		<link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
@@ -15,25 +14,14 @@
 		<!--Icons css-->
 		<link rel="stylesheet" href="assets/css/icons.css">
 
-		<!--Style css-->
-		<link rel="stylesheet" href="assets/css/style.css">
-
 		<!--mCustomScrollbar css-->
 		<link rel="stylesheet" href="assets/plugins/scroll-bar/jquery.mCustomScrollbar.css">
 
+		<!--Style css-->
+		<link rel="stylesheet" href="assets/css/style.css">
+
 		<!--Sidemenu css-->
 		<link rel="stylesheet" href="assets/plugins/toggle-menu/sidemenu.css">
-
-		<!--Chartist css-->
-		<link rel="stylesheet" href="assets/plugins/chartist/chartist.css">
-		<link rel="stylesheet" href="assets/plugins/chartist/chartist-plugin-tooltip.css">
-
-		<!--Full calendar css-->
-		<link rel="stylesheet" href="assets/plugins/fullcalendar/stylesheet1.css">
-		
-		<!--morris css-->
-		<link rel="stylesheet" href="assets/plugins/morris/morris.css">
-
 
 	</head>
 
@@ -67,7 +55,7 @@
 								</div>
 								<div class="dropdown-list-content">
 									<a href="#" class="dropdown-item dropdown-item-unread">
-										<img alt="image" src="assets/img/avatar/avatar-1.jpeg.jpg" class="rounded-circle dropdown-item-img">
+										<img alt="image" src="assets/img/avatar/avatar-1.jpeg" class="rounded-circle dropdown-item-img">
 										<div class="dropdown-item-desc">
 											<div class="dropdownmsg d-flex">
 												<div class="">
@@ -76,11 +64,10 @@
 												</div>
 												<div class="time">6 hours ago</div>
 											</div>
-
 										</div>
 									</a>
 									<a href="#" class="dropdown-item dropdown-item-unread">
-										<img alt="image" src="assets/img/avatar/avatar-2.jpeg.jpg" class="rounded-circle dropdown-item-img">
+										<img alt="image" src="assets/img/avatar/avatar-2.jpeg" class="rounded-circle dropdown-item-img">
 										<div class="dropdown-item-desc">
 											<div class="dropdownmsg d-flex">
 												<div class="">
@@ -92,7 +79,7 @@
 										</div>
 									</a>
 									<a href="#" class="dropdown-item">
-										<img alt="image" src="assets/img/avatar/avatar-4.jpeg.jpg" class="rounded-circle dropdown-item-img">
+										<img alt="image" src="assets/img/avatar/avatar-4.jpeg" class="rounded-circle dropdown-item-img">
 										<div class="dropdown-item-desc">
 											<div class="dropdownmsg d-flex">
 												<div class="">
@@ -104,7 +91,7 @@
 										</div>
 									</a>
 									<a href="#" class="dropdown-item">
-										<img alt="image" src="assets/img/avatar/avatar-3.jpeg.jpg" class="rounded-circle dropdown-item-img">
+										<img alt="image" src="assets/img/avatar/avatar-3.jpeg" class="rounded-circle dropdown-item-img">
 										<div class="dropdown-item-desc">
 											<div class="dropdownmsg d-flex">
 												<div class="">
@@ -116,7 +103,7 @@
 										</div>
 									</a>
 									<a href="#" class="dropdown-item">
-										<img alt="image" src="assets/img/avatar/avatar-5.jpeg.jpg" class="rounded-circle dropdown-item-img">
+										<img alt="image" src="assets/img/avatar/avatar-5.jpeg" class="rounded-circle dropdown-item-img">
 										<div class="dropdown-item-desc">
 											<div class="dropdownmsg d-flex">
 												<div class="">
@@ -183,7 +170,7 @@
 							</a>
 						</li>
 						<li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg">
-							<img src="assets/img/avatar/avatar-1.jpeg.jpg" alt="profile-user" class="rounded-circle w-32">
+							<img src="assets/img/avatar/avatar-1.jpeg" alt="profile-user" class="rounded-circle w-32">
 							<div class="d-sm-none d-lg-inline-block">Jessica Lee</div></a>
 							<div class="dropdown-menu dropdown-menu-right">
 								<a href="profile.html" class="dropdown-item has-icon">
@@ -207,7 +194,7 @@
 					<div class="app-sidebar__user">
 					    <div class="dropdown">
 							<a class="nav-link pl-2 pr-2 leading-none d-flex" data-toggle="dropdown" href="#">
-								<img alt="image" src="assets/img/avatar/avatar-1.jpeg.jpg" class=" avatar-md rounded-circle">
+								<img alt="image" src="assets/img/avatar/avatar-1.jpeg" class=" avatar-md rounded-circle">
 								<span class="ml-2 d-lg-block">
 									<span class="text-white app-sidebar__user-name mt-5">Jessica Lee</span><br>
 									<span class="text-muted app-sidebar__user-name text-sm"> Web-Designer</span>
@@ -318,199 +305,237 @@
 				<div class="app-content">
 					<section class="section">
                     	<ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#" class="text-muted">Home</a></li>
-                            <li class="breadcrumb-item active text-" aria-current="page">Dashboard 01</li>
+                            <li class="breadcrumb-item"><a href="#">UI Elements</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Modals</li>
                         </ol>
 
 						<div class="row">
-							<div class="col-lg-6 col-xl-3 col-md-6 col-sm-6 col-12">
-								<div class="card">
-									<div class="card-body">
-										<div class="row">
-											<div class="col-6">
-												<div class="dash1">
-													<h4 class="text-dark">675</h4>
-													<small class="text-muted ">Posts</small>
-												</div>
-											</div>
-											<div class="col-6">
-												<div id="chart1" class="overflow-hidden"></div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-6 col-xl-3 col-md-6 col-sm-6 col-12">
-								<div class="card">
-									<div class="card-body">
-										<div class="row">
-											<div class="col-6">
-												<div class="dash1">
-													<h4 class="text-dark">875</h4>
-													<small class="text-muted">Clicks</small>
-												</div>
-											</div>
-											<div class="col-6">
-												<div id="chart2" class="overflow-hidden"></div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-6 col-xl-3 col-md-6 col-sm-6 col-12">
-								<div class="card">
-									<div class="card-body">
-										<div class="row">
-											<div class="col-6">
-												<div class="dash1">
-													<h4 class="text-dark">976</h4>
-													<small class="text-muted">Shares</small>
-												</div>
-											</div>
-											<div class="col-6">
-												<div id="chart3" class="overflow-hidden"></div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-6 col-xl-3 col-md-6 col-sm-6 col-12">
-								<div class="card">
-									<div class="card-body">
-										<div class="row">
-											<div class="col-6">
-												<div class="dash1">
-													<h4 class="text-dark">418</h4>
-													<small class="text-muted">Remarks</small>
-												</div>
-											</div>
-											<div class="col-6">
-												<div id="chart4" class="overflow-hidden"></div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						
-
-						<div class="row ">
-							<div class="col-lg-12 col-xl-6 col-md-12 col-12 col-sm-12">
+							<div class="col-lg-4 col-md-6 col-12">
 								<div class="card">
 									<div class="card-header">
-										<h4>Monthly Sales</h4>
+										<h4>Default Modal</h4>
 									</div>
-									<div class="card-body">
-										<div id="bar-chart" class="overflow-hidden" > </div>
+									<div class="card-body text-center">
+										<button type="button" class="btn btn-primary " data-toggle="modal" data-target="#exampleModal">Default modal</button>
 									</div>
 								</div>
 							</div>
-							<div class="col-lg-12 col-xl-6 col-md-12 col-12 col-sm-12">
+							<div class="col-lg-4 col-md-6 col-12">
 								<div class="card">
 									<div class="card-header">
-										<h4>Yearly Template Sales</h4>
+										<h4>Scrolling modal</h4>
 									</div>
-									<div class="card-body">
-										<div id="sales-chart" class="overflow-hidden"> </div>
+									<div class="card-body text-center">
+										<button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalLong">Scrolling modal</button>
 									</div>
 								</div>
 							</div>
-						</div>
-						<div class="row">
-							<div class="col-12 col-sm-12">
+							<div class="col-lg-4 col-md-6 col-12">
 								<div class="card">
 									<div class="card-header">
-										<h4>Account Retention</h4>
+										<h4>Large modal</h4>
 									</div>
-									<div class="card-body">
-										<div id="index" class="overflow-hidden h-400 mx-auto text-center " ></div>
+									<div class="card-body text-center">
+										<button class="btn btn-danger" data-toggle="modal" data-target="#largeModal">Large modal</button>
 									</div>
 								</div>
+							</div>
+							<div class="col-lg-4 col-md-6 col-12">
+								<div class="card">
+									<div class="card-header">
+										<h4>Small modal</h4>
+									</div>
+									<div class="card-body text-center">
+										<button type="button" class="btn btn-success"  data-toggle="modal" data-target="#smallModal">Small modal</button>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-4 col-md-6 col-12">
+								<div class="card">
+									<div class="card-header">
+										<h4>Grid modal</h4>
+									</div>
+									<div class="card-body text-center">
+										<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal2">Grid modal</button>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-4 col-md-6 col-12">
+								<div class="card">
+									<div class="card-header">
+										<h4>Input modal</h4>
+									</div>
+									<div class="card-body text-center">
+										<button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal3">Input modal</button>
+									</div>
+								</div>
+
 							</div>
 						</div>
-
-						<div class="row">
-							<div class="col-lg-12 col-xl-8 col-md-12 col-12 col-sm-12">
-								<div class="card">
-								<div class="pt-0 pb-0 pl-3 pr-3 card-body">
-									<div class="row">
-										<div class="col-xs-12 col-lg-5 cover-image weather-radius text-center position-relative transparent" data-image-src="assets/img/weather.jpg">
-											<div class="weather-shade">
-												<i class="wi wi-day-sleet text-white"></i>
-											</div>
-											<div class="card-body mt-5 pt-5">
-												<i class="vl_weather-day-rain text-light  mt-5 pt-5 d-block"></i>
-											</div>
-											<div class="bg-transparent border-0 text-light  pt-4">
-												<h3 class="weight300">Sunny Day</h3>
-											</div>
-										</div>
-										<div class="col-xs-12 col-lg-7 widgetb p-0">
-											<div class="card-body p-4">
-												<h4 class="mb-0">MONDAY <br/>
-													<span class="text-muted h5"> 22  October</span>
-												</h4>
-												<div class="fs-45 text-primary pt-4 ">
-													32<sup>o</sup>
-													<span class="h3 ">Sunny</span>
-												</div>
-											</div>
-											<div class="card-footer bg-white text-center ">
-												<div class="row">
-													<div class="col-sm-2 col-4 mt-2 pb-2">
-														<h6 class="text-muted mb-3">TUE</h6>
-														<i class="fe fe-cloud-rain"></i>
-														<p class="mb-0 text-muted">18<sup>o</sup>c</p>
-													</div>
-													<div class="col-sm-2 col-4 mt-2 pb-2">
-														<h6 class="text-muted mb-3">WED</h6>
-														<i class="fe fe-cloud"></i>
-														<p class="mb-0 text-muted">22<sup>o</sup>c</p>
-													</div>
-													<div class="col-sm-2 col-4 mt-2 pb-2">
-														<h6 class="text-muted mb-3">THU</h6>
-														<i class="fe fe-cloud-snow"></i>
-														<p class="mb-0 text-muted">15<sup>o</sup>c</p>
-													</div>
-													<div class="col-sm-2 col-4 mt-2 pb-2">
-														<h6 class="text-muted mb-3">FRI</h6>
-														<i class="fe fe-cloud-rain"></i>
-														<p class="mb-0 text-muted">19<sup>o</sup>c</p>
-													</div>
-													<div class="col-sm-2 col-4 mt-2 pb-2">
-														<h6 class="text-muted mb-3">SAT</h6>
-														<i class="fe fe-cloud"></i>
-														<p class="mb-0 text-muted">29<sup>o</sup>c</p>
-													</div>
-													<div class="col-sm-2 col-4 mt-2 pb-2">
-														<h6 class="text-muted mb-3">SUN</h6>
-														<i class="fe fe-cloud-snow"></i>
-														<p class="mb-0 text-muted">17<sup>o</sup>c</p>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								</div>
-							</div>
-
-							<div class="col-lg-12 col-xl-4 col-md-12 col-12 col-sm-12">
-								<div class="card">
-									<div id="calendar-1"></div>
-								</div>
-							</div>
-						</div>
-
 					</section>
 				</div>
 
 				<footer class="main-footer">
 					<div class="text-center">
-						Copyright &copy;Kharna-Admin 2018. Design By更多模板：<a href="http://www.mycodes.net/" target="_blank">源码之家</a>
+						Copyright &copy;Kharna-Admin 2018. Design By<a href="https://spruko.com/"> Spruko</a>
 					</div>
 				</footer>
+
+				<!-- Modal -->
+				<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">×</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<p class="mb-0">Modal body text goes here.</p>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+								<button type="button" class="btn btn-primary">Save changes</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!--Scrolling Modal-->
+				<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<p>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+								<p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.</p>
+								<p>These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. </p>
+								<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+								<p>No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure.</p>
+								<p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+								<button type="button" class="btn btn-primary">Save changes</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Large Modal -->
+				<div id="largeModal" class="modal fade">
+					<div class="modal-dialog modal-lg" role="document">
+						<div class="modal-content ">
+							<div class="modal-header pd-x-20">
+								<h6 class="modal-title">Message Preview</h6>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body pd-20">
+								<h5 class=" lh-3 mg-b-20"><a href="" class="font-weight-bold">Why We Use Electoral College, Not Popular Vote</a></h5>
+								<p class="mb-0">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. </p>
+							</div><!-- modal-body -->
+							<div class="modal-footer">
+								<button type="button" class="btn btn-primary">Save changes</button>
+								<button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+							</div>
+						</div>
+					</div><!-- modal-dialog -->
+				</div><!-- modal -->
+
+				<!-- small Modal -->
+				<div id="smallModal" class="modal fade">
+					<div class="modal-dialog modal-sm" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h6 class="tx-14 mg-b-0 tx-uppercase tx-inverse tx-bold">Message Preview</h6>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<p class="mb-0">This is a modal with small size</p>
+							</div><!-- modal-body -->
+							<div class="modal-footer">
+								<button type="button" class="btn btn-primary">Save changes</button>
+								<button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+							</div>
+						</div>
+					</div><!-- modal-dialog -->
+				</div><!-- modal -->
+
+				<!-- Grid Modal -->
+				<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModal2" aria-hidden="true">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="example-Modal2">Modal title</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">×</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<div class="row">
+									<div class="col-md-6">
+										<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+									</div>
+									<div class="col-md-6">
+										<p >But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the who loves toil and pain can procureor sit aspernatur  system.</p>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6">
+										<p class="mb-0">expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure desires to obtain pain.</p>
+									</div>
+									<div class="col-md-6">
+										<p class="mb-0">Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat aut odit voluptatem.</p>
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+								<button type="button" class="btn btn-primary">Save changes</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Message Modal -->
+				<div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog"  aria-hidden="true">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="example-Modal3">New message</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<form>
+									<div class="form-group">
+										<label for="recipient-name" class="form-control-label">Recipient:</label>
+										<input type="text" class="form-control" id="recipient-name">
+									</div>
+									<div class="form-group mb-0">
+										<label for="message-text" class="form-control-label">Message:</label>
+										<textarea class="form-control" id="message-text"></textarea>
+									</div>
+								</form>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+								<button type="button" class="btn btn-primary">Send message</button>
+							</div>
+						</div>
+					</div>
+				</div>
 
 			</div>
 		</div>
@@ -533,28 +558,14 @@
 		<!--Scroll-up-bar.min js-->
 		<script src="assets/plugins/scroll-up-bar/dist/scroll-up-bar.min.js"></script>
 
-		<!--Sidemenu js-->
-		<script src="assets/plugins/toggle-menu/sidemenu.js"></script>
-
 		<!--mCustomScrollbar js-->
 		<script src="assets/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js"></script>
 
-		<!-- ECharts -->
-		<script src="assets/plugins/echarts/dist/echarts.js"></script>
-
-		<!--Min Calendar -->
-		<script src="assets/plugins/fullcalendar/calendar.min.js"></script>
-		<script src="assets/plugins/fullcalendar/custom_calendar.js"></script>
-
-		<!--Morris js-->
-		<script src="assets/plugins/morris/morris.min.js"></script>
-		<script src="assets/plugins/morris/raphael.min.js"></script>	
+		<!--Sidemenu js-->
+		<script src="assets/plugins/toggle-menu/sidemenu.js"></script>
 
 		<!--Scripts js-->
 		<script src="assets/js/scripts.js"></script>
 
-		<!--Dashboard js-->
-		<script src="assets/js/dashboard.js"></script>
-		<script src="assets/js/apexcharts.js"></script>
 	</body>
 </html>
