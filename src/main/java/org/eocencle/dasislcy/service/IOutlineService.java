@@ -39,7 +39,8 @@ public interface IOutlineService {
     /**
      * 根据科目id获取大纲
      * @param subjectId
+     * @param page
      * @return
      */
-    PageAdapter<OutlineEntity> getOutlineBySubjectId(Integer subjectId);
+    PageAdapter<OutlineEntity> getOutlineBySubjectId(Integer subjectId, PageAdapter<OutlineEntity> page);
 }

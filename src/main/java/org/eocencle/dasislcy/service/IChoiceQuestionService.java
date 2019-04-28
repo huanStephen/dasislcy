@@ -2,6 +2,7 @@ package org.eocencle.dasislcy.service;
 
 import org.eocencle.dasislcy.component.PageAdapter;
 import org.eocencle.dasislcy.dto.ChoiceQuestionDto;
+import org.eocencle.dasislcy.entity.SubjectQuestionEntity;
 
 import java.util.List;
 
@@ -24,7 +25,7 @@ public interface IChoiceQuestionService {
      * 添加选择题
      * @param choiceQuestion
      */
-    void addChoiceQuestion(ChoiceQuestionDto choiceQuestion);
+    void addChoiceQuestion(ChoiceQuestionDto choiceQuestion, SubjectQuestionEntity subjectQuestion);
 
     /**
      * 删除选择题

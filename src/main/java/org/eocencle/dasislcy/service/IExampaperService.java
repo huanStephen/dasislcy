@@ -39,14 +39,16 @@ public interface IExampaperService {
     /**
      * 根据科目id获取试卷
      * @param subjectId
+     * @param page
      * @return
      */
-    PageAdapter<ExampaperEntity> getExampapersBySubjectId(Integer subjectId);
+    PageAdapter<ExampaperEntity> getExampapersBySubjectId(Integer subjectId, PageAdapter<ExampaperEntity> page);
 
     /**
      * 根据大纲id获取试卷
      * @param outlineId
+     * @param page
      * @return
      */
-    PageAdapter<ExampaperEntity> getExampapersByOutlineId(Integer outlineId);
+    PageAdapter<ExampaperEntity> getExampapersByOutlineId(Integer outlineId, PageAdapter<ExampaperEntity> page);
 }

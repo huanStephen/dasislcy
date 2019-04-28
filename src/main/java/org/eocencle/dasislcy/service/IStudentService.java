@@ -39,7 +39,8 @@ public interface IStudentService {
     /**
      * 根据班级id获取学生
      * @param classId
+     * @param page
      * @return
      */
-    PageAdapter<StudentEntity> getStudentsByClassId(Integer classId);
+    PageAdapter<StudentEntity> getStudentsByClassId(Integer classId, PageAdapter<StudentEntity> page);
 }

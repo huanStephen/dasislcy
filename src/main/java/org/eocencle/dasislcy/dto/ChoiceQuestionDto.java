@@ -5,11 +5,21 @@ import org.eocencle.dasislcy.entity.ChoiceQuestionOptionEntity;
 import java.util.List;
 
 /**
- * @Auther: shizh26250
+ * 选择题DTO
+ * @Auther: huanStephen
  * @Date: 2019/4/10 13:57
  * @Description:
  */
 public class ChoiceQuestionDto extends ChoiceQuestionEntity {
+
+    public ChoiceQuestionDto() {
+
+    }
+
+    public ChoiceQuestionDto(ChoiceQuestionEntity entity) {
+        this.setType(entity.getType());
+        this.setTitle(entity.getTitle());
+    }
 
     private List<ChoiceQuestionOptionEntity> options;
 
