@@ -23,6 +23,7 @@ public class Result<T> {
 
     public Result(Integer status) {
         this.status = status;
+        this.msg = "请求成功！";
     }
 
     public Integer getStatus() {
