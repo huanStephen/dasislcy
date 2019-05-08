@@ -1,10 +1,15 @@
 package org.eocencle.dasislcy.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import org.eocencle.dasislcy.component.PageAdapter;
 import org.eocencle.dasislcy.dao.ClassMapper;
 import org.eocencle.dasislcy.entity.ClassEntity;
 import org.eocencle.dasislcy.service.IClassService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * 班级service
@@ -37,5 +42,16 @@ public class ClassService implements IClassService {
     @Override
     public void updateClass(ClassEntity cls) {
         this.classMapper.updateByPrimaryKeySelective(cls);
+    }
+
+    @Override
+    public PageAdapter<ClassEntity> getClasses(PageAdapter<ClassEntity> page) {
+        PageHelper.startPage(page.getCurrPage(), page.getPageSize());
+        List<ClassEntity> list = this.classMapper.selectAll();
+        PageInfo<ClassEntity> info = new PageInfo<ClassEntity>(list);
+        page.setList(list);
+        page.setTotal(new Long(info.getTotal()).intValue());
+
+        return page;
     }
 }

@@ -1,5 +1,6 @@
 package org.eocencle.dasislcy.service;
 
+import org.eocencle.dasislcy.component.PageAdapter;
 import org.eocencle.dasislcy.entity.ClassEntity;
 
 /**
@@ -34,4 +35,11 @@ public interface IClassService {
      * @param cls
      */
     void updateClass(ClassEntity cls);
+
+    /**
+     * 获取班级列表
+     * @param page
+     * @return
+     */
+    PageAdapter<ClassEntity> getClasses(PageAdapter<ClassEntity> page);
 }

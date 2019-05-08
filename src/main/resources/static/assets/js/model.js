@@ -250,9 +250,6 @@
                             }
                         }
                     }));
-                    if (this.initLoadRenderComplete) {
-                        this.initLoadRenderComplete(this._initData);
-                    }
                     this.initRenderComplete && this.initRenderComplete(this._initData);
                 } else {
                     console.error(result.msg);
