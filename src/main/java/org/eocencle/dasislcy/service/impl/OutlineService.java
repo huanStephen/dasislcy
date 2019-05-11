@@ -45,16 +45,10 @@ public class OutlineService implements IOutlineService {
     }
 
     @Override
-    public PageAdapter<OutlineEntity> getOutlineBySubjectId(Integer subjectId, PageAdapter<OutlineEntity> page) {
+    public List<OutlineEntity> getOutlineBySubjectId(Integer subjectId) {
         OutlineEntity record = new OutlineEntity();
         record.setSubjectId(subjectId);
 
-        PageHelper.startPage(page.getCurrPage(), page.getPageSize());
-        List<OutlineEntity> list = this.outlineMapper.select(record);
-        PageInfo<OutlineEntity> info = new PageInfo<OutlineEntity>(list);
-        page.setList(list);
-        page.setTotal(new Long(info.getTotal()).intValue());
-
-        return page;
+        return this.outlineMapper.select(record);
     }
 }

@@ -5,9 +5,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * 页面跳转
+ * 页面跳转控制类
  * @Auther: huanStephen
- * @Date: 2019/4/25 08:27
+ * @Date: 2019/4/25
  * @Description:
  */
 @Controller

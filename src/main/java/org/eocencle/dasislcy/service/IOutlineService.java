@@ -1,7 +1,8 @@
 package org.eocencle.dasislcy.service;
 
-import org.eocencle.dasislcy.component.PageAdapter;
 import org.eocencle.dasislcy.entity.OutlineEntity;
+
+import java.util.List;
 
 /**
  * 大纲service
@@ -37,10 +38,9 @@ public interface IOutlineService {
     void updateOutline(OutlineEntity outline);
 
     /**
-     * 根据科目id获取大纲
+     *根据科目id获取大纲
      * @param subjectId
-     * @param page
      * @return
      */
-    PageAdapter<OutlineEntity> getOutlineBySubjectId(Integer subjectId, PageAdapter<OutlineEntity> page);
+    List<OutlineEntity> getOutlineBySubjectId(Integer subjectId);
 }
