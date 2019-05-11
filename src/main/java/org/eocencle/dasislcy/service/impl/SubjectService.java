@@ -1,10 +1,15 @@
 package org.eocencle.dasislcy.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import org.eocencle.dasislcy.component.PageAdapter;
 import org.eocencle.dasislcy.dao.SubjectMapper;
 import org.eocencle.dasislcy.entity.SubjectEntity;
 import org.eocencle.dasislcy.service.ISubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * 科目service
@@ -37,5 +42,16 @@ public class SubjectService implements ISubjectService {
     @Override
     public void updateSubject(SubjectEntity subject) {
         this.subjectMapper.updateByPrimaryKeySelective(subject);
+    }
+
+    @Override
+    public PageAdapter<SubjectEntity> getSubjects(PageAdapter<SubjectEntity> page) {
+        PageHelper.startPage(page.getCurrPage(), page.getPageSize());
+        List<SubjectEntity> list = this.subjectMapper.selectAll();
+        PageInfo<SubjectEntity> info = new PageInfo<SubjectEntity>(list);
+        page.setList(list);
+        page.setTotal(new Long(info.getTotal()).intValue());
+
+        return page;
     }
 }

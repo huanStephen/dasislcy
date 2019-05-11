@@ -1,5 +1,6 @@
 package org.eocencle.dasislcy.service;
 
+import org.eocencle.dasislcy.component.PageAdapter;
 import org.eocencle.dasislcy.entity.SubjectEntity;
 
 /**
@@ -34,5 +35,12 @@ public interface ISubjectService {
      * @param subject
      */
     void updateSubject(SubjectEntity subject);
+
+    /**
+     * 获取科目列表
+     * @param page
+     * @return
+     */
+    PageAdapter<SubjectEntity> getSubjects(PageAdapter<SubjectEntity> page);
     
 }
