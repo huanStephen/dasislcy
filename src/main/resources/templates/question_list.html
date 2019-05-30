@@ -6,8 +6,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Kharna-Admin Dashboard</title>
 
-		<!--favicon -->
-		<link rel="icon" href="assets/img/favicon.ico" type="image/x-icon"/>
+		<!--Favicon -->
+		<link rel="icon" href="favicon.ico" type="image/x-icon"/>
 
 		<!--Bootstrap.min css-->
 		<link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
@@ -15,14 +15,17 @@
 		<!--Icons css-->
 		<link rel="stylesheet" href="assets/css/icons.css">
 
-		<!--Style css-->
-		<link rel="stylesheet" href="assets/css/style.css">
-
 		<!--mCustomScrollbar css-->
 		<link rel="stylesheet" href="assets/plugins/scroll-bar/jquery.mCustomScrollbar.css">
 
+		<!--Style css-->
+		<link rel="stylesheet" href="assets/css/style.css">
+
 		<!--Sidemenu css-->
 		<link rel="stylesheet" href="assets/plugins/toggle-menu/sidemenu.css">
+
+		<!--Morris css-->
+		<link rel="stylesheet" href="assets/plugins/morris/morris.css">
 
 	</head>
 
@@ -56,7 +59,7 @@
 								</div>
 								<div class="dropdown-list-content">
 									<a href="#" class="dropdown-item dropdown-item-unread">
-										<img alt="image" src="assets/img/avatar/avatar-1.jpeg.jpg" class="rounded-circle dropdown-item-img">
+										<img alt="image" src="assets/img/avatar/avatar-1.jpeg" class="rounded-circle dropdown-item-img">
 										<div class="dropdown-item-desc">
 											<div class="dropdownmsg d-flex">
 												<div class="">
@@ -69,7 +72,7 @@
 										</div>
 									</a>
 									<a href="#" class="dropdown-item dropdown-item-unread">
-										<img alt="image" src="assets/img/avatar/avatar-2.jpeg.jpg" class="rounded-circle dropdown-item-img">
+										<img alt="image" src="assets/img/avatar/avatar-2.jpeg" class="rounded-circle dropdown-item-img">
 										<div class="dropdown-item-desc">
 											<div class="dropdownmsg d-flex">
 												<div class="">
@@ -81,7 +84,7 @@
 										</div>
 									</a>
 									<a href="#" class="dropdown-item">
-										<img alt="image" src="assets/img/avatar/avatar-4.jpeg.jpg" class="rounded-circle dropdown-item-img">
+										<img alt="image" src="assets/img/avatar/avatar-4.jpeg" class="rounded-circle dropdown-item-img">
 										<div class="dropdown-item-desc">
 											<div class="dropdownmsg d-flex">
 												<div class="">
@@ -93,7 +96,7 @@
 										</div>
 									</a>
 									<a href="#" class="dropdown-item">
-										<img alt="image" src="assets/img/avatar/avatar-3.jpeg.jpg" class="rounded-circle dropdown-item-img">
+										<img alt="image" src="assets/img/avatar/avatar-3.jpeg" class="rounded-circle dropdown-item-img">
 										<div class="dropdown-item-desc">
 											<div class="dropdownmsg d-flex">
 												<div class="">
@@ -105,7 +108,7 @@
 										</div>
 									</a>
 									<a href="#" class="dropdown-item">
-										<img alt="image" src="assets/img/avatar/avatar-5.jpeg.jpg" class="rounded-circle dropdown-item-img">
+										<img alt="image" src="assets/img/avatar/avatar-5.jpeg" class="rounded-circle dropdown-item-img">
 										<div class="dropdown-item-desc">
 											<div class="dropdownmsg d-flex">
 												<div class="">
@@ -172,7 +175,7 @@
 							</a>
 						</li>
 						<li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg">
-							<img src="assets/img/avatar/avatar-1.jpeg.jpg" alt="profile-user" class="rounded-circle w-32">
+							<img src="assets/img/avatar/avatar-1.jpeg" alt="profile-user" class="rounded-circle w-32">
 							<div class="d-sm-none d-lg-inline-block">Jessica Lee</div></a>
 							<div class="dropdown-menu dropdown-menu-right">
 								<a href="profile.html" class="dropdown-item has-icon">
@@ -196,7 +199,7 @@
 					<div class="app-sidebar__user">
 					    <div class="dropdown">
 							<a class="nav-link pl-2 pr-2 leading-none d-flex" data-toggle="dropdown" href="#">
-								<img alt="image" src="assets/img/avatar/avatar-1.jpeg.jpg" class=" avatar-md rounded-circle">
+								<img alt="image" src="assets/img/avatar/avatar-1.jpeg" class=" avatar-md rounded-circle">
 								<span class="ml-2 d-lg-block">
 									<span class="text-white app-sidebar__user-name mt-5">Jessica Lee</span><br>
 									<span class="text-muted app-sidebar__user-name text-sm"> Web-Designer</span>
@@ -208,7 +211,7 @@
 						<li class="slide">
 							<a class="side-menu__item"  data-toggle="slide" href="#"><i class="side-menu__icon fa fa-desktop"></i><span class="side-menu__label">Dashboard</span><i class="angle fa fa-angle-right"></i></a>
 							<ul class="slide-menu">
-								<li><a class="slide-item" href="index.html"><span>Dashboard 01</span></a></li>
+								<li><a class="slide-item"  href="index.html"><span>Dashboard 01</span></a></li>
 								<li><a class="slide-item" href="index2.html"><span>Dashboard 02</span></a></li>
 								<li><a class="slide-item" href="index3.html"><span>Dashboard 03</span></a></li>
 							</ul>
@@ -305,40 +308,122 @@
 				</aside>
 
 				<div class="app-content">
-					<section class="section">
+					<div class="section">
                     	<ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Subject</li>
+                            <li class="breadcrumb-item"><a href="#">UI Element</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Mail-Inbox</li>
                         </ol>
 
-						<div class="section-body">
-							<div class="row" data-container="list">
-								<div data-row="list" class="col-12 col-sm-6 col-lg-6 col-xl-3">
-									<div class="card card-primary">
-										<div class="card-header">
-											<h4 data-el="name"></h4>
+						<div class="email-app mb-4">
+							<nav class="p-0">
+								<div class="card-body">
+									<a href="#" class="btn btn-primary btn-block mb-0">New Email</a>
+								</div>
+								<ul class="nav">
+									<li class="nav-item">
+										<a class="nav-link mr-0 border-top" href="#"><i class="fa fa-inbox"></i> 选择题 <span class="badge badge-primary">4</span></a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link mr-0" href="#"><i class="fa fa-star"></i> Stared</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link mr-0" href="#"><i class="fa fa-rocket"></i> Sent</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link mr-0" href="#"><i class="fa fa-trash-o"></i> Trash</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link mr-0" href="#"><i class="fa fa-bookmark"></i> Important</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link mr-0" href="#"><i class="fa fa-inbox"></i> Settings <span class="badge badge-danger">4</span></a>
+									</li>
+								</ul>
+							</nav>
+							<div class="inbox p-0">
+								<div class="card-body">
+									<div class="mailsearch mb-0">
+										<input class="form-control" type="search" placeholder="Search" aria-label="Search">
+										<button class="btn btn-primary" type="submit"><i class="ion ion-search"></i></button>
+									</div>
+									<div class="toolbar d-none d-lg-block ">
+										<div class="btn-group mt-3 ">
+											<button type="button" class="btn btn-sm btn-light">
+												<span class="fa fa-envelope"></span>
+											</button>
+											<button type="button" class="btn btn-sm btn-light">
+												<span class="fa fa-star"></span>
+											</button>
+											<button type="button" class="btn btn-sm btn-light">
+												<span class="fa fa-star-o"></span>
+											</button>
+											<button type="button" class="btn btn-sm btn-light">
+												<span class="fa fa-bookmark-o"></span>
+											</button>
 										</div>
-										<div data-el="description" class="card-body text-primary"></div>
-										<div class="card-footer">
-											<a href="toOutline_list" class="btn btn-outline-primary m-b-5 m-t-5 right">大纲</a>
-											<a href="toQuestion_list" class="btn btn-outline-primary m-b-5 m-t-5 right">试题</a>
+										<div class="btn-group mt-3 ">
+											<button type="button" class="btn btn-sm btn-light">
+												<span class="fa fa-mail-reply"></span>
+											</button>
+											<button type="button" class="btn btn-sm btn-light">
+												<span class="fa fa-mail-reply-all"></span>
+											</button>
+											<button type="button" class="btn btn-sm btn-light">
+												<span class="fa fa-mail-forward"></span>
+											</button>
+										</div>
+										<button type="button" class="mt-3 btn btn-sm btn-light">
+											<span class="fa fa-trash-o"></span>
+										</button>
+										<div class="btn-group mt-3 ">
+											<button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">
+												<span class="fa fa-tags"></span>
+												<span class="caret"></span>
+											</button>
+											<div class="dropdown-menu">
+												<a class="dropdown-item" href="#">add label <span class="badge badge-danger"> Home</span></a>
+												<a class="dropdown-item" href="#">add label <span class="badge badge-info"> Job</span></a>
+												<a class="dropdown-item" href="#">add label <span class="badge badge-success"> Clients</span></a>
+												<a class="dropdown-item" href="#">add label <span class="badge badge-warning"> News</span></a>
+											</div>
+										</div>
+										<div class="btn-group float-right mt-3 d-none d-lg-block">
+											<button type="button" class="btn btn-sm btn-light">
+												<span class="fa fa-chevron-left"></span>
+											</button>
+											<button type="button" class="btn btn-sm btn-light">
+												<span class="fa fa-chevron-right"></span>
+											</button>
 										</div>
 									</div>
 								</div>
-							</div>
 
-							<div class="row">
-								<div class="col-lg-12 col-md-12">
-									<div class="card">
-										<div class="card-body">
-											<nav id="page" aria-label="Page navigation example"></nav>
+								 <ul class="mail_list list-group list-unstyled" data-container="list">
+									<li data-row="list" class="list-group-item">
+										<div class="media">
+											<div class="pull-left">
+												<div class="controls">
+													<div class="checkbox">
+														<input type="checkbox" id="basic_checkbox_1">
+														<label for="basic_checkbox_1"></label>
+													</div>
+													<a href="javascript:void(0);" class="favourite text-muted hidden-sm-down" data-toggle="active"><i class="zmdi zmdi-star-outline"></i></a>
+												</div>
+											</div>
+											<div class="media-body">
+												<div class="media-heading">
+													<a href="javascript:void(0);" class="mr-2" data-el="title"></a>
+													<small class="float-right text-muted"><time class="hidden-sm-down" datetime="2017">12:35 AM</time><i class="zmdi zmdi-attachment-alt ml-2"></i> </small>
+												</div>
+												<p class="msg" data-el="options"></p>
+											</div>
 										</div>
-									</div>
-								</div>
+									</li>
+								</ul>
 							</div>
 						</div>
 
-					</section>
+					</div>
 				</div>
 
 				<footer class="main-footer">
@@ -368,30 +453,20 @@
 		<!--Scroll-up-bar.min js-->
 		<script src="assets/plugins/scroll-up-bar/dist/scroll-up-bar.min.js"></script>
 
-		<!--Sidemenu js-->
-		<script src="assets/plugins/toggle-menu/sidemenu.js"></script>
-
 		<!--mCustomScrollbar js-->
 		<script src="assets/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js"></script>
 
-		<!--Jquery.knob js-->
-		<script src="assets/plugins/othercharts/jquery.knob.js"></script>
-
-		<!--Jquery.sparkline.min js-->
-		<script src="assets/plugins/othercharts/jquery.sparkline.min.js"></script>
-		<script src="assets/js/othercharts.js"></script>
+		<!--Sidemenu js-->
+		<script src="assets/plugins/toggle-menu/sidemenu.js"></script>
 
 		<!--Scripts js-->
 		<script src="assets/js/scripts.js"></script>
-		<script src="assets/js/dataclick.js"></script>
-		<script src="assets/js/widgets.js"></script>
-		<script src="assets/js/apexcharts.js"></script>
 
 		<script src="assets/js/paging.js"></script>
 		<script src="assets/js/sepa.js"></script>
 		<script src="assets/js/sepa.component.js"></script>
 		<script src="assets/js/model.js"></script>
-		<script src="assets/js/page/subject_list.js"></script>
+		<script src="assets/js/page/question_list.js"></script>
 
 	</body>
 </html>
