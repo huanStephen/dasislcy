@@ -17,6 +17,12 @@ public class ClassEntity {
     private String name;
 
     /**
+     * 人数
+     */
+    @Column(name = "CNT")
+    private Short cnt;
+
+    /**
      * 创建时间
      */
     @Column(name = "CREATE_TIME")
@@ -58,6 +64,24 @@ public class ClassEntity {
      */
     public void setName(String name) {
         this.name = name == null ? null : name.trim();
+    }
+
+    /**
+     * 获取人数
+     *
+     * @return CNT - 人数
+     */
+    public Short getCnt() {
+        return cnt;
+    }
+
+    /**
+     * 设置人数
+     *
+     * @param cnt 人数
+     */
+    public void setCnt(Short cnt) {
+        this.cnt = cnt;
     }
 
     /**

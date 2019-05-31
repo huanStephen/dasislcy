@@ -1,8 +1,9 @@
 package org.eocencle.dasislcy.vo;
 
 /**
- * @Auther: shizh26250
- * @Date: 2018/12/3 13:23
+ * 前端返回结果类
+ * @Auther: huanStephen
+ * @Date: 2018/12/3
  * @Description:
  */
 public class Result<T> {

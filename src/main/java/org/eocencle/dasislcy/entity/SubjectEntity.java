@@ -17,6 +17,12 @@ public class SubjectEntity {
     private String name;
 
     /**
+     * 科目描述
+     */
+    @Column(name = "DESCRIPTION")
+    private String description;
+
+    /**
      * 创建时间
      */
     @Column(name = "CREATE_TIME")
@@ -58,6 +64,24 @@ public class SubjectEntity {
      */
     public void setName(String name) {
         this.name = name == null ? null : name.trim();
+    }
+
+    /**
+     * 获取科目描述
+     *
+     * @return DESCRIPTION - 科目描述
+     */
+    public String getDescription() {
+        return description;
+    }
+
+    /**
+     * 设置科目描述
+     *
+     * @param description 科目描述
+     */
+    public void setDescription(String description) {
+        this.description = description == null ? null : description.trim();
     }
 
     /**
