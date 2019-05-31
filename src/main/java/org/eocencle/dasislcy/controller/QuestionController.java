@@ -23,7 +23,7 @@ public class QuestionController {
     private IChoiceQuestionService choiceQuestionService;
 
     @RequestMapping("/getChoiceQuestions")
-    public Result<PageAdapter<ChoiceQuestionDto>> getChoiceQuestions(Integer currPage, Integer pageSize) {
+    public Result<PageAdapter<ChoiceQuestionDto>> getChoiceQuestions(Integer subjectId, Integer type, Integer currPage, Integer pageSize) {
         Result<PageAdapter<ChoiceQuestionDto>> result = new Result<>(Result.STATUS_SUCCESSED);
 
         if (null == currPage || 1 > currPage || null == pageSize || 1 > pageSize) {
@@ -35,7 +35,7 @@ public class QuestionController {
         PageAdapter<ChoiceQuestionDto> page = new PageAdapter<>();
         page.setCurrPage(currPage);
         page.setPageSize(pageSize);
-//        page = this.choiceQuestionService.get
+        page = this.choiceQuestionService.getChoiceQuestionsBySubjectId(subjectId, page);
 
         result.setData(page);
         return result;

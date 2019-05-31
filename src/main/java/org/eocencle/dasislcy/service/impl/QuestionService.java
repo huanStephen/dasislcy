@@ -12,12 +12,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * @Auther: shizh26250
- * @Date: 2019/3/29 16:10
+ * 试题service
+ * @Auther: huanStephen
+ * @Date: 2019/3/29
  * @Description:
  */
 @Service
-public class QuestionServiceImpl implements IQuestionService {
+public class QuestionService implements IQuestionService {
 
     @Autowired
     @SuppressWarnings("SpringJavaAutowiringInspection")

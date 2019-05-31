@@ -8,7 +8,7 @@
             initLoad: {
                 path: 'question/getChoiceQuestions',
                 params: {
-                    subjectId: 1,
+                    subjectId: 4,
                     type: 1,
                     currPage: 1,
                     pageSize: 10
@@ -19,8 +19,9 @@
             initRenderFilter: function(fieldName, value, $el, idx, obj) {
                 if (-1 != fieldName.indexOf('options')) {
                     var options = "";
-                    for (var option in value) {
-                        options += "&nbsp;&nbsp;&nbsp;" + option;
+                    var sort = ["A", "B", "C", "D", "E", "F", "G"];
+                    for (var i = 0; i < value.length; i ++) {
+                        options += "&nbsp;&nbsp;&nbsp;" + sort[i] + ".&nbsp;" + value[i].answer;
                     }
                     return options;
                 }
@@ -63,7 +64,7 @@
             },
 
             initRenderComplete: function(initData) {
-                $(".knob").knob();
+
             }
         }
     });

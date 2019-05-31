@@ -8,6 +8,7 @@ import org.eocencle.dasislcy.dao.ChoiceQuestionOptionMapper;
 import org.eocencle.dasislcy.dao.QuestionOutlineMapper;
 import org.eocencle.dasislcy.dao.SubjectQuestionMapper;
 import org.eocencle.dasislcy.dto.ChoiceQuestionDto;
+import org.eocencle.dasislcy.entity.ChoiceQuestionEntity;
 import org.eocencle.dasislcy.entity.ChoiceQuestionOptionEntity;
 import org.eocencle.dasislcy.entity.QuestionOutlineEntity;
 import org.eocencle.dasislcy.entity.SubjectQuestionEntity;
@@ -17,6 +18,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.entity.Example;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -123,12 +125,21 @@ public class ChoiceQuestionService implements IChoiceQuestionService {
         sqRecord.setSubjectId(subjectId);
 
         PageHelper.startPage(page.getCurrPage(), page.getPageSize());
-        List<SubjectQuestionEntity> list = this.subjectQuestionMapper.select(sqRecord);
-        PageInfo<SubjectQuestionEntity> info = new PageInfo<SubjectQuestionEntity>(list);
+        List<ChoiceQuestionEntity> list = this.choiceQuestionMapper.getChoiceQuestionsBySubjectId(subjectId);
+        PageInfo<ChoiceQuestionEntity> info = new PageInfo<ChoiceQuestionEntity>(list);
 
-//        page.setList(list);
+        List<ChoiceQuestionDto> rlist = new ArrayList<>();
+        ChoiceQuestionDto dto = null;
+        ChoiceQuestionOptionEntity searchRecord = new ChoiceQuestionOptionEntity();
+        for (ChoiceQuestionEntity question: list) {
+            dto = new ChoiceQuestionDto(question);
+            searchRecord.setQuestionId(question.getId());
+            dto.setOptions(this.choiceQuestionOptionMapper.select(searchRecord));
+            rlist.add(dto);
+        }
+        page.setList(rlist);
         page.setTotal(new Long(info.getTotal()).intValue());
 
-        return null;
+        return page;
     }
 }

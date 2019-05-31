@@ -11,4 +11,11 @@
     <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
     <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
   </resultMap>
+  
+  <select id="getChoiceQuestionsBySubjectId" parameterType="int" resultMap="BaseResultMap">
+    SELECT b.ID, b.TYPE, b.TITLE, b.CREATE_TIME, b.UPDATE_TIME FROM subject_question a
+    LEFT JOIN choice_question b
+    ON a.QUESTION_ID = b.ID
+    WHERE a.QUESTION_TYPE = 1 AND a.SUBJECT_ID = #{_parameter}
+  </select>
 </mapper>
