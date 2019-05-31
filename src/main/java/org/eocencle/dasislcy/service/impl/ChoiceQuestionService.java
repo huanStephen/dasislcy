@@ -1,5 +1,7 @@
 package org.eocencle.dasislcy.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.eocencle.dasislcy.component.PageAdapter;
 import org.eocencle.dasislcy.dao.ChoiceQuestionMapper;
 import org.eocencle.dasislcy.dao.ChoiceQuestionOptionMapper;
@@ -107,6 +109,25 @@ public class ChoiceQuestionService implements IChoiceQuestionService {
             return null;
         }
 
+
+        return null;
+    }
+
+    @Override
+    public PageAdapter<ChoiceQuestionDto> getChoiceQuestionsBySubjectId(Integer subjectId, PageAdapter<ChoiceQuestionDto> page) {
+        if (null == subjectId || 0 == subjectId) {
+            return null;
+        }
+
+        SubjectQuestionEntity sqRecord = new SubjectQuestionEntity();
+        sqRecord.setSubjectId(subjectId);
+
+        PageHelper.startPage(page.getCurrPage(), page.getPageSize());
+        List<SubjectQuestionEntity> list = this.subjectQuestionMapper.select(sqRecord);
+        PageInfo<SubjectQuestionEntity> info = new PageInfo<SubjectQuestionEntity>(list);
+
+//        page.setList(list);
+        page.setTotal(new Long(info.getTotal()).intValue());
 
         return null;
     }
