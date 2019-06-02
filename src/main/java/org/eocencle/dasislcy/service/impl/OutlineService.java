@@ -4,11 +4,14 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.eocencle.dasislcy.component.PageAdapter;
 import org.eocencle.dasislcy.dao.OutlineMapper;
+import org.eocencle.dasislcy.dto.OutlineDto;
 import org.eocencle.dasislcy.entity.OutlineEntity;
 import org.eocencle.dasislcy.service.IOutlineService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import tk.mybatis.mapper.entity.Example;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -45,10 +48,37 @@ public class OutlineService implements IOutlineService {
     }
 
     @Override
-    public List<OutlineEntity> getOutlineBySubjectId(Integer subjectId) {
+    public List<OutlineDto> getOutlineBySubjectId(Integer subjectId) {
+        if (null == subjectId || 0 == subjectId) {
+            return null;
+        }
+
         OutlineEntity record = new OutlineEntity();
         record.setSubjectId(subjectId);
+        Example example = new Example(OutlineEntity.class);
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andEqualTo("subjectId", subjectId);
+        criteria.andEqualTo("parentId", 0);
+        example.orderBy("sort").asc();
 
-        return this.outlineMapper.select(record);
+        List<OutlineEntity> list = this.outlineMapper.selectByExample(example);
+
+        List<OutlineDto> rlist = new ArrayList<>();
+        OutlineDto dto = null;
+        for (OutlineEntity outline: list) {
+            dto = new OutlineDto(outline);
+
+            Example childExample = new Example(OutlineEntity.class);
+            Example.Criteria childCriteria = example.createCriteria();
+            childCriteria.andEqualTo("subjectId", subjectId);
+            childCriteria.andEqualTo("parentId", outline.getId());
+            childExample.orderBy("sort").asc();
+
+            dto.setChildren(this.outlineMapper.selectByExample(childExample));
+
+            rlist.add(dto);
+        }
+
+        return rlist;
     }
 }

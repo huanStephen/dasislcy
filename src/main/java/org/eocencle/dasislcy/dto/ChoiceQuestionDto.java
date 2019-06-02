@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * 选择题DTO
  * @Auther: huanStephen
- * @Date: 2019/4/10 13:57
+ * @Date: 2019/4/10
  * @Description:
  */
 public class ChoiceQuestionDto extends ChoiceQuestionEntity {

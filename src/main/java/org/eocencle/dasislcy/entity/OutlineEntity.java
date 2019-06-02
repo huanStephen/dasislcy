@@ -8,43 +8,49 @@ public class OutlineEntity {
     @Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    protected Integer id;
 
     /**
      * 科目ID
      */
     @Column(name = "SUBJECT_ID")
-    private Integer subjectId;
+    protected Integer subjectId;
 
     /**
      * 父级ID
      */
     @Column(name = "PARENT_ID")
-    private Integer parentId;
+    protected Integer parentId;
 
     /**
      * 顺序
      */
     @Column(name = "SORT")
-    private Byte sort;
+    protected Byte sort;
+
+    /**
+     * 标题
+     */
+    @Column(name = "TITLE")
+    protected String title;
 
     /**
      * 描述
      */
     @Column(name = "DESCRIPTION")
-    private String description;
+    protected String description;
 
     /**
      * 创建时间
      */
     @Column(name = "CREATE_TIME")
-    private Date createTime;
+    protected Date createTime;
 
     /**
      * 更新时间
      */
     @Column(name = "UPDATE_TIME")
-    private Date updateTime;
+    protected Date updateTime;
 
     /**
      * @return ID
@@ -112,6 +118,24 @@ public class OutlineEntity {
      */
     public void setSort(Byte sort) {
         this.sort = sort;
+    }
+
+    /**
+     * 获取标题
+     *
+     * @return TITLE - 标题
+     */
+    public String getTitle() {
+        return title;
+    }
+
+    /**
+     * 设置标题
+     *
+     * @param title 标题
+     */
+    public void setTitle(String title) {
+        this.title = title == null ? null : title.trim();
     }
 
     /**

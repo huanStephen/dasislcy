@@ -1,5 +1,6 @@
 package org.eocencle.dasislcy.service;
 
+import org.eocencle.dasislcy.dto.OutlineDto;
 import org.eocencle.dasislcy.entity.OutlineEntity;
 
 import java.util.List;
@@ -42,5 +43,5 @@ public interface IOutlineService {
      * @param subjectId
      * @return
      */
-    List<OutlineEntity> getOutlineBySubjectId(Integer subjectId);
+    List<OutlineDto> getOutlineBySubjectId(Integer subjectId);
 }

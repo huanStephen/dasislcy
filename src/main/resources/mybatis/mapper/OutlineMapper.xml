@@ -9,6 +9,7 @@
     <result column="SUBJECT_ID" jdbcType="INTEGER" property="subjectId" />
     <result column="PARENT_ID" jdbcType="INTEGER" property="parentId" />
     <result column="SORT" jdbcType="TINYINT" property="sort" />
+    <result column="TITLE" jdbcType="CHAR" property="title" />
     <result column="DESCRIPTION" jdbcType="VARCHAR" property="description" />
     <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
     <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />

@@ -8,7 +8,7 @@
             initLoad: {
                 path: 'outline/getOutlines',
                 params: {
-                    subjectId: 1
+                    subjectId: 4
                 }
             },
             addParent: {
@@ -33,6 +33,10 @@
 
             initRenderFilter: function(fieldName, value, $el, idx, obj) {
                 return value;
+            },
+
+            initLoadAfter: function(data) {
+                return data;
             }
         }
     });
