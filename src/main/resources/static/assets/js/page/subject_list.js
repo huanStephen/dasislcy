@@ -13,9 +13,19 @@
                 }
             }
         },
+
         include: {
             initRenderFilter: function(fieldName, value, $el, idx, obj) {
+                if (-1 != fieldName.indexOf('id')) {
+                    return $el.attr('href') + value;
+                }
                 return value;
+            },
+
+            initRenderAttr: function(fieldName) {
+                if ('id' == fieldName) {
+                    return 'href';
+                }
             },
 
             initLoadAfter: function(data) {

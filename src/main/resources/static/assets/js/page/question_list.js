@@ -8,7 +8,7 @@
             initLoad: {
                 path: 'question/getChoiceQuestions',
                 params: {
-                    subjectId: 4,
+                    subjectId: getQueryString('id'),
                     type: 1,
                     currPage: 1,
                     pageSize: 10
@@ -24,6 +24,9 @@
                         options += "&nbsp;&nbsp;&nbsp;" + sort[i] + ".&nbsp;" + value[i].answer;
                     }
                     return options;
+                }
+                if (-1 != fieldName.indexOf('createTime')) {
+                    return new Date(value).Format('yyyy-MM-dd');
                 }
                 return value;
             },

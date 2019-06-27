@@ -8,7 +8,7 @@
             initLoad: {
                 path: 'outline/getOutlines',
                 params: {
-                    subjectId: 4
+                    subjectId: getQueryString('id')
                 }
             },
             addParent: {
