@@ -41,4 +41,16 @@ public class OutlineController {
         return result;
     }
 
+    @RequestMapping("/addOutline")
+    public Result<Boolean> addOutline(OutlineEntity outline) {
+        Result<Boolean> result = new Result<>(Result.STATUS_SUCCESSED);
+
+        this.outlineService.addOutline(outline);
+
+        result.setData(true);
+        result.setMsg("请求成功！");
+        return result;
+    }
+
+
 }

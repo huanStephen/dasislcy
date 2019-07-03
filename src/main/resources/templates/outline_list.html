@@ -322,7 +322,7 @@
 										<div class="card-body">
 											<div id="lg-clickable">
 												<div class="list-group" data-container="list">
-													<a href="javascript:void(0);" data-row="list" class="list-group-item list-group-item-action">
+													<a href="javascript:void(0);" data-row="list" data-operate="click-mainSelect" class="list-group-item list-group-item-action">
 														<span data-el="title"></span>
 													</a>
 												</div>
@@ -340,20 +340,6 @@
 												</div>
 											</div>
 											<a href="#" class="btn btn-sm btn-danger m-b-5 m-t-5">delete</a>
-										</div>
-									</div>
-
-									<div class="card">
-										<div class="card-body">
-											<a href="#" class="btn btn-lg btn-info m-b-5 m-t-5">save</a>
-											<a href="#" class="btn btn-lg btn-danger m-b-5 m-t-5">delete</a>
-											<div class="text-center mt-3">
-												<a class="btn btn-social-icon btn-info"><i class="fa fa-facebook"></i></a>
-												<a class="btn btn-social-icon btn-primary"><i class="fa fa-github"></i></a>
-												<a class="btn btn-social-icon btn-danger"><i class="fa fa-google-plus"></i></a>
-												<a class="btn btn-social-icon btn-success"><i class="fa fa-instagram"></i></a>
-												<a class="btn btn-social-icon btn-info"><i class="fa fa-linkedin"></i></a>
-											</div>
 										</div>
 									</div>
 								</div>
@@ -406,7 +392,7 @@
 				</footer>
 
 				<!-- Add Outline Modal -->
-				<div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog"  aria-hidden="true">
+				<div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-hidden="true">
 					<div class="modal-dialog" role="document">
 						<div class="modal-content">
 							<div class="modal-header">
@@ -428,7 +414,7 @@
 								</form>
 							</div>
 							<div class="modal-footer">
-								<button type="button" class="btn btn-primary" data-dismiss="modal" data-operate="click-addParent">Save</button>
+								<button type="button" class="btn btn-primary" data-dismiss="modal" data-operate="click-addParentClick">Save</button>
 								<button type="button" class="btn">Close</button>
 							</div>
 						</div>
@@ -465,6 +451,7 @@
 		<!--Scripts js-->
 		<script src="assets/js/scripts.js"></script>
 
+		<script src="assets/js/common.js"></script>
 		<script src="assets/js/paging.js"></script>
 		<script src="assets/js/sepa.js"></script>
 		<script src="assets/js/sepa.component.js"></script>
