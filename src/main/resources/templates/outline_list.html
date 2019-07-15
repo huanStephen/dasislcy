@@ -317,7 +317,7 @@
 								<div class="col-md-12 col-xl-3 col-lg-12">
 									<div class="card">
 										<div class="card-header">
-											<h4>Outline</h4>
+											<h4>大纲</h4>
 										</div>
 										<div class="card-body">
 											<div id="lg-clickable">
@@ -332,8 +332,8 @@
 													Add
 												</button>
 												<div class="dropdown-menu">
-													<a class="dropdown-item" href="javascript:void(0);" data-toggle="modal" data-target="#exampleModal3">Add</a>
-													<a class="dropdown-item" href="#">Insert</a>
+													<a class="dropdown-item" href="javascript:void(0);" data-type="addParent" data-toggle="modal" data-target="#addParentWin">添加章节</a>
+													<a class="dropdown-item" href="javascript:void(0);" data-type="insertParent" data-toggle="modal" data-target="#addParentWin">插入章节</a>
 													<div class="dropdown-divider"></div>
 													<a class="dropdown-item" href="#">Add child</a>
 													<a class="dropdown-item" href="#">Insert child</a>
@@ -392,11 +392,11 @@
 				</footer>
 
 				<!-- Add Outline Modal -->
-				<div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-hidden="true">
+				<div class="modal fade" id="addParentWin" tabindex="-1" role="dialog" aria-hidden="true">
 					<div class="modal-dialog" role="document">
 						<div class="modal-content">
 							<div class="modal-header">
-								<h5 class="modal-title" id="example-Modal3">Add outline</h5>
+								<h5 class="modal-title">添加章节</h5>
 								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 									<span aria-hidden="true">&times;</span>
 								</button>
@@ -404,11 +404,11 @@
 							<div class="modal-body">
 								<form>
 									<div class="form-group">
-										<label class="form-control-label">Name:</label>
+										<label class="form-control-label">章节名称:</label>
 										<input type="text" class="form-control" id="parentName">
 									</div>
 									<div class="form-group mb-0">
-										<label class="form-control-label">Description:</label>
+										<label class="form-control-label">章节描述:</label>
 										<textarea class="form-control" id="parentDescription"></textarea>
 									</div>
 								</form>
@@ -420,7 +420,6 @@
 						</div>
 					</div>
 				</div>
-
 			</div>
 		</div>
 

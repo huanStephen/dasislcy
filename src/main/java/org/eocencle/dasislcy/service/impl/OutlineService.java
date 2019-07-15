@@ -9,6 +9,7 @@ import org.eocencle.dasislcy.entity.OutlineEntity;
 import org.eocencle.dasislcy.service.IOutlineService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.entity.Example;
 
 import java.util.ArrayList;
@@ -33,7 +34,21 @@ public class OutlineService implements IOutlineService {
     }
 
     @Override
+    @Transactional
     public void addOutline(OutlineEntity outline) {
+        // 更新sort大于等于他的数据
+        Example example = new Example(OutlineEntity.class);
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andEqualTo("subjectId", outline.getSubjectId());
+        criteria.andEqualTo("parentId", outline.getParentId());
+        criteria.andGreaterThanOrEqualTo("sort", outline.getSort());
+
+        List<OutlineEntity> upList = this.outlineMapper.selectByExample(example);
+        for (OutlineEntity up: upList) {
+            up.setSort(up.getSort() + 1);
+            this.outlineMapper.updateByPrimaryKeySelective(up);
+        }
+
         this.outlineMapper.insertSelective(outline);
     }
 

@@ -31,14 +31,22 @@
             },
 
             addParentClick: function(event) {
-                var sort = this.mainContainer.children(':last').data('sort');
+                var type = this.addStatus;
+                var sort = null;
+                if ('addParent' == type) {
+                    sort = parseInt(this.mainContainer.children(':last').data('sort')) + 1;
+                } else if ('insertParent' == type) {
+                    sort = parseInt(this.mainContainer.children('.active').data('sort'));
+                }
                 var title = this.parentName.val();
                 var description = this.parentDescription.val();
                 this.comp('remote', ['addParent', function(config) {
-                    config.params.sort = parseInt(sort) + 1;
+                    config.params.sort = sort;
                     config.params.title = title;
                     config.params.description = description;
                 }]);
+                this.parentName.val('');
+                this.parentDescription.val('');
             }
         },
         include: {
@@ -46,6 +54,16 @@
                 '#parentName': 'parentName',
                 '#parentDescription': 'parentDescription',
                 'div[data-container="list"]': 'mainContainer'
+            },
+
+            events: {
+                'click->a[data-target="#addParentWin"]': 'openParentWinClick'
+            },
+
+            addStatus: '',
+
+            openParentWinClick: function(event) {
+                this.addStatus = this.$(event.target).data('type');
             },
 
             initRenderFilter: function(fieldName, value, $el, idx, obj) {
