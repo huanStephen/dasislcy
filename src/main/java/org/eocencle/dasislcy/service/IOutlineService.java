@@ -39,9 +39,10 @@ public interface IOutlineService {
     void updateOutline(OutlineEntity outline);
 
     /**
-     *根据科目id获取大纲
+     * 根据科目id获取大纲
      * @param subjectId
+     * @param level
      * @return
      */
-    List<OutlineDto> getOutlineBySubjectId(Integer subjectId);
+    List<OutlineDto> getOutlineBySubjectId(Integer subjectId, Integer level);
 }

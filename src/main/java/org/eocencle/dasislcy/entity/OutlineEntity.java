@@ -11,16 +11,10 @@ public class OutlineEntity {
     protected Integer id;
 
     /**
-     * 科目ID
+     * 章节ID
      */
-    @Column(name = "SUBJECT_ID")
-    protected Integer subjectId;
-
-    /**
-     * 父级ID
-     */
-    @Column(name = "PARENT_ID")
-    protected Integer parentId;
+    @Column(name = "CHAPTER_ID")
+    protected Integer chapterId;
 
     /**
      * 顺序
@@ -67,39 +61,21 @@ public class OutlineEntity {
     }
 
     /**
-     * 获取科目ID
+     * 获取章节ID
      *
-     * @return SUBJECT_ID - 科目ID
+     * @return CHAPTER_ID - 章节ID
      */
-    public Integer getSubjectId() {
-        return subjectId;
+    public Integer getChapterId() {
+        return chapterId;
     }
 
     /**
-     * 设置科目ID
+     * 设置章节ID
      *
-     * @param subjectId 科目ID
+     * @param chapterId 章节ID
      */
-    public void setSubjectId(Integer subjectId) {
-        this.subjectId = subjectId;
-    }
-
-    /**
-     * 获取父级ID
-     *
-     * @return PARENT_ID - 父级ID
-     */
-    public Integer getParentId() {
-        return parentId;
-    }
-
-    /**
-     * 设置父级ID
-     *
-     * @param parentId 父级ID
-     */
-    public void setParentId(Integer parentId) {
-        this.parentId = parentId;
+    public void setChapterId(Integer chapterId) {
+        this.chapterId = chapterId;
     }
 
     /**

@@ -43,9 +43,9 @@ public class DemoController {
         String reg_whole3 = "<div[^>]*><a[^>]*><p[^>]*>([^<>]*)</p[^>]*><p[^>]*>([^<>]*)</p[^>]*><p[^>]*>([^<>]*)</p[^>]*><p[^>]*>([^<>]*)</p[^>]*></a></div>";
         Pattern r3 = Pattern.compile(reg_whole3);
 
-        String path = "C:\\Users\\shizh\\Desktop\\h1\\词法";
+        String path = "C:\\Users\\dell\\Desktop\\试题\\h3-english\\";
 
-        for (int i = 1; i <= 465; i ++) {
+        for (int i = 1; i <= 951; i ++) {
             System.out.println(i);
             String content = null;
             try {
@@ -58,31 +58,33 @@ public class DemoController {
             ChoiceQuestionDto dto = null;
             if (m1.matches()) {
                 dto = plan1(m1);
-                FileUtil.move(path + i, "C:\\Users\\shizh\\Desktop\\ok");
+                FileUtil.move(path + i, "C:\\Users\\dell\\Desktop\\ok\\h3-english");
             } else {
                 Matcher m2 = r2.matcher(content);
 
                 if (m2.matches()) {
                     dto = plan2(m2);
-                    FileUtil.move(path + i, "C:\\Users\\shizh\\Desktop\\ok");
+                    FileUtil.move(path + i, "C:\\Users\\dell\\Desktop\\ok\\h3-english");
                 } else {
                     Matcher m3 = r3.matcher(content);
 
                     if (m3.matches()) {
                         dto = plan3(m3);
-                        FileUtil.move(path + i, "C:\\Users\\shizh\\Desktop\\ok");
+                        FileUtil.move(path + i, "C:\\Users\\dell\\Desktop\\ok\\h3-english");
                     }
                 }
             }
 
-            dto.setType(true);
+            if (null != dto) {
+                dto.setType(true);
 
-            SubjectQuestionEntity subjectQuestion = new SubjectQuestionEntity();
-            subjectQuestion.setQuestionId(dto.getId());
-            subjectQuestion.setQuestionType(1);
-            subjectQuestion.setSubjectId(4);
+                SubjectQuestionEntity subjectQuestion = new SubjectQuestionEntity();
+                subjectQuestion.setQuestionId(dto.getId());
+                subjectQuestion.setQuestionType(1);
+                subjectQuestion.setSubjectId(6);
 
-            this.questionService.addChoiceQuestion(dto, subjectQuestion);
+                this.questionService.addChoiceQuestion(dto, subjectQuestion);
+            }
         }
         return this.page;
     }

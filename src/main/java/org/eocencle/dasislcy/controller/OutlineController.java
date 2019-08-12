@@ -26,7 +26,7 @@ public class OutlineController {
     private IOutlineService outlineService;
 
     @RequestMapping("/getOutlines")
-    public Result<Map<String, Object>> getOutlines(Integer subjectId) {
+    public Result<Map<String, Object>> getOutlines(Integer subjectId, Integer level) {
         Result<Map<String, Object>> result = new Result<>(Result.STATUS_SUCCESSED);
 
         if (null == subjectId || 1 > subjectId) {
@@ -36,7 +36,7 @@ public class OutlineController {
         }
 
         Map<String, Object> data = new HashMap<String, Object>();
-        data.put("list", this.outlineService.getOutlineBySubjectId(subjectId));
+        data.put("list", this.outlineService.getOutlineBySubjectId(subjectId, level));
         result.setData(data);
         return result;
     }
@@ -52,5 +52,14 @@ public class OutlineController {
         return result;
     }
 
+    @RequestMapping("/delOutline")
+    public Result<Boolean> delOutline(Integer id) {
+        Result<Boolean> result = new Result<>(Result.STATUS_SUCCESSED);
 
+        this.outlineService.removeOutlineById(id);
+
+        result.setData(true);
+        result.setMsg("请求成功！");
+        return result;
+    }
 }

@@ -37,24 +37,40 @@ public class OutlineService implements IOutlineService {
     @Transactional
     public void addOutline(OutlineEntity outline) {
         // 更新sort大于等于他的数据
-        Example example = new Example(OutlineEntity.class);
-        Example.Criteria criteria = example.createCriteria();
-        criteria.andEqualTo("subjectId", outline.getSubjectId());
-        criteria.andEqualTo("parentId", outline.getParentId());
-        criteria.andGreaterThanOrEqualTo("sort", outline.getSort());
-
-        List<OutlineEntity> upList = this.outlineMapper.selectByExample(example);
-        for (OutlineEntity up: upList) {
-            up.setSort(up.getSort() + 1);
-            this.outlineMapper.updateByPrimaryKeySelective(up);
-        }
-
-        this.outlineMapper.insertSelective(outline);
+//        Example example = new Example(OutlineEntity.class);
+//        Example.Criteria criteria = example.createCriteria();
+//        criteria.andEqualTo("subjectId", outline.getSubjectId());
+//        criteria.andEqualTo("parentId", outline.getParentId());
+//        criteria.andGreaterThanOrEqualTo("sort", outline.getSort());
+//
+//        List<OutlineEntity> upList = this.outlineMapper.selectByExample(example);
+//        for (OutlineEntity up: upList) {
+//            up.setSort(up.getSort() + 1);
+//            this.outlineMapper.updateByPrimaryKeySelective(up);
+//        }
+//
+//        this.outlineMapper.insertSelective(outline);
     }
 
     @Override
     public void removeOutlineById(Integer id) {
-        this.outlineMapper.deleteByPrimaryKey(id);
+        // 检索id的记录，如果parentId为0则删除子集的数据，如果不为0则只删除本级数据
+//        OutlineEntity search = this.outlineMapper.selectByPrimaryKey(id);
+//
+//        if (null != search) {
+//            if (0 == search.getParentId()) {
+//                OutlineEntity record = new OutlineEntity();
+//                record.setSubjectId(search.getSubjectId());
+//                record.setParentId(id);
+//
+//                List<OutlineEntity> dels = this.outlineMapper.select(record);
+//                for (OutlineEntity del: dels) {
+//                    this.outlineMapper.deleteByPrimaryKey(del.getId());
+//                }
+//            }
+//
+//            this.outlineMapper.deleteByPrimaryKey(id);
+//        }
     }
 
     @Override
@@ -63,17 +79,15 @@ public class OutlineService implements IOutlineService {
     }
 
     @Override
-    public List<OutlineDto> getOutlineBySubjectId(Integer subjectId) {
+    public List<OutlineDto> getOutlineBySubjectId(Integer subjectId, Integer level) {
         if (null == subjectId || 0 == subjectId) {
             return null;
         }
 
-        OutlineEntity record = new OutlineEntity();
-        record.setSubjectId(subjectId);
         Example example = new Example(OutlineEntity.class);
         Example.Criteria criteria = example.createCriteria();
         criteria.andEqualTo("subjectId", subjectId);
-        criteria.andEqualTo("parentId", 0);
+        criteria.andEqualTo("parentId", level);
         example.orderBy("sort").asc();
 
         List<OutlineEntity> list = this.outlineMapper.selectByExample(example);

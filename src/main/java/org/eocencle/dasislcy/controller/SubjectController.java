@@ -5,8 +5,14 @@ import org.eocencle.dasislcy.entity.SubjectEntity;
 import org.eocencle.dasislcy.service.ISubjectService;
 import org.eocencle.dasislcy.vo.Result;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * 科目控制类
@@ -15,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @Description:
  */
 @RestController
-@RequestMapping("/subject")
+@RequestMapping("/wx/subject")
 public class SubjectController {
 
     @Autowired
@@ -38,6 +44,13 @@ public class SubjectController {
 
         result.setData(page);
         return result;
+    }
+
+    @InitBinder
+    public void initBinder(WebDataBinder binder) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true)); // true:允许输入空值，false:不能为空值
+
     }
 
 }

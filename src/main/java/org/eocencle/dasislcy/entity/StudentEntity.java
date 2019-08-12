@@ -1,5 +1,7 @@
 package org.eocencle.dasislcy.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 import javax.persistence.*;
 

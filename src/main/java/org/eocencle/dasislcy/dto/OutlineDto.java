@@ -21,8 +21,7 @@ public class OutlineDto extends OutlineEntity {
 
     public OutlineDto(OutlineEntity outline) {
         this.id = outline.getId();
-        this.subjectId = outline.getSubjectId();
-        this.parentId = outline.getParentId();
+        this.chapterId = outline.getChapterId();
         this.sort = outline.getSort();
         this.title = outline.getTitle();
         this.description = outline.getDescription();
