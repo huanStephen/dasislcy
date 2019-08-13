@@ -43,6 +43,40 @@ public class SubjectController {
         page = this.subjectService.getSubjects(page);
 
         result.setData(page);
+        result.setMsg("请求成功！");
+        return result;
+    }
+
+    @RequestMapping("/addSubject")
+    public Result<Boolean> addSubject(SubjectEntity subject) {
+        Result<Boolean> result = new Result<>(Result.STATUS_SUCCESSED);
+
+        this.subjectService.addSubject(subject);
+
+        result.setData(true);
+        result.setMsg("请求成功！");
+        return result;
+    }
+
+    @RequestMapping("/updateSubject")
+    public Result<Boolean> updateSubject(SubjectEntity subject) {
+        Result<Boolean> result = new Result<>(Result.STATUS_SUCCESSED);
+
+        this.subjectService.updateSubject(subject);
+
+        result.setData(true);
+        result.setMsg("请求成功！");
+        return result;
+    }
+
+    @RequestMapping("/delSubject")
+    public Result<Boolean> delSubject(Integer subjectId) {
+        Result<Boolean> result = new Result<>(Result.STATUS_SUCCESSED);
+
+        this.subjectService.removeSubjectById(subjectId);
+
+        result.setData(true);
+        result.setMsg("请求成功！");
         return result;
     }
 

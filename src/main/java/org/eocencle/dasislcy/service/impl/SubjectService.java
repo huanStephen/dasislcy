@@ -5,9 +5,12 @@ import com.github.pagehelper.PageInfo;
 import org.eocencle.dasislcy.component.PageAdapter;
 import org.eocencle.dasislcy.dao.SubjectMapper;
 import org.eocencle.dasislcy.entity.SubjectEntity;
+import org.eocencle.dasislcy.service.IChapterService;
+import org.eocencle.dasislcy.service.IOutlineService;
 import org.eocencle.dasislcy.service.ISubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -24,6 +27,10 @@ public class SubjectService implements ISubjectService {
     @SuppressWarnings("SpringJavaAutowiringInspection")
     private SubjectMapper subjectMapper;
 
+    @Autowired
+    @SuppressWarnings("SpringJavaAutowiringInspection")
+    private IChapterService chapterService;
+
     @Override
     public SubjectEntity getSubjectById(Integer id) {
         return this.subjectMapper.selectByPrimaryKey(id);
@@ -35,8 +42,12 @@ public class SubjectService implements ISubjectService {
     }
 
     @Override
+    @Transactional
     public void removeSubjectById(Integer id) {
+        // 删除科目
         this.subjectMapper.deleteByPrimaryKey(id);
+        // 删除章节
+        this.chapterService.removeChapterBySubjectId(id);
     }
 
     @Override

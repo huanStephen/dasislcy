@@ -11,6 +11,12 @@ public class OutlineEntity {
     protected Integer id;
 
     /**
+     * 科目ID
+     */
+    @Column(name = "SUBJECT_ID")
+    protected Integer subjectId;
+
+    /**
      * 章节ID
      */
     @Column(name = "CHAPTER_ID")
@@ -58,6 +64,24 @@ public class OutlineEntity {
      */
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    /**
+     * 获取科目ID
+     *
+     * @return SUBJECT_ID - 科目ID
+     */
+    public Integer getSubjectId() {
+        return subjectId;
+    }
+
+    /**
+     * 设置科目ID
+     *
+     * @param subjectId 科目ID
+     */
+    public void setSubjectId(Integer subjectId) {
+        this.subjectId = subjectId;
     }
 
     /**

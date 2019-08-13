@@ -33,6 +33,18 @@ public interface IOutlineService {
     void removeOutlineById(Integer id);
 
     /**
+     * 根据科目删除大纲
+     * @param subjectId
+     */
+    void removeOutlineBySubjectId(Integer subjectId);
+
+    /**
+     * 根据章节删除大纲
+     * @param chapterId
+     */
+    void removeOutlineByChapterId(Integer chapterId);
+
+    /**
      * 更新大纲
      * @param outline
      */

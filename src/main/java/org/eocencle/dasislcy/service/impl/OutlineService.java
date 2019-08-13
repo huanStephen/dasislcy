@@ -54,6 +54,7 @@ public class OutlineService implements IOutlineService {
 
     @Override
     public void removeOutlineById(Integer id) {
+        this.outlineMapper.deleteByPrimaryKey(id);
         // 检索id的记录，如果parentId为0则删除子集的数据，如果不为0则只删除本级数据
 //        OutlineEntity search = this.outlineMapper.selectByPrimaryKey(id);
 //
@@ -71,6 +72,20 @@ public class OutlineService implements IOutlineService {
 //
 //            this.outlineMapper.deleteByPrimaryKey(id);
 //        }
+    }
+
+    @Override
+    public void removeOutlineBySubjectId(Integer subjectId) {
+        OutlineEntity record = new OutlineEntity();
+        record.setSubjectId(subjectId);
+        this.outlineMapper.delete(record);
+    }
+
+    @Override
+    public void removeOutlineByChapterId(Integer chapterId) {
+        OutlineEntity record = new OutlineEntity();
+        record.setChapterId(chapterId);
+        this.outlineMapper.delete(record);
     }
 
     @Override
