@@ -47,6 +47,12 @@ public interface IChapterService {
      * @param page
      * @return
      */
-    PageAdapter<ChapterEntity> getChapters(PageAdapter<ChapterEntity> page);
+    /**
+     * 根据科目获取章节列表
+     * @param subjectId
+     * @param page
+     * @return
+     */
+    PageAdapter<ChapterEntity> getChapters(Integer subjectId, PageAdapter<ChapterEntity> page);
 
 }

@@ -10,6 +10,7 @@ import org.eocencle.dasislcy.service.IOutlineService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
 
@@ -30,6 +31,18 @@ public class ChapterService implements IChapterService {
 
     @Override
     public void addChapter(ChapterEntity chapter) {
+        Example example = new Example(ChapterEntity.class);
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andEqualTo("subjectId", chapter.getSubjectId());
+        example.orderBy("sort").desc();
+
+        List<ChapterEntity> list = this.chapterMapper.selectByExample(example);
+        if (null == list || 0 == list.size()) {
+            chapter.setSort(1);
+        } else {
+            chapter.setSort(list.get(list.size() - 1).getSort() + 1);
+        }
+
         this.chapterMapper.insertSelective(chapter);
     }
 
@@ -59,9 +72,14 @@ public class ChapterService implements IChapterService {
     }
 
     @Override
-    public PageAdapter<ChapterEntity> getChapters(PageAdapter<ChapterEntity> page) {
+    public PageAdapter<ChapterEntity> getChapters(Integer subjectId, PageAdapter<ChapterEntity> page) {
+        Example example = new Example(ChapterEntity.class);
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andEqualTo("subjectId", subjectId);
+        example.orderBy("sort").asc();
+
         PageHelper.startPage(page.getCurrPage(), page.getPageSize());
-        List<ChapterEntity> list = this.chapterMapper.selectAll();
+        List<ChapterEntity> list = this.chapterMapper.selectByExample(example);
         PageInfo<ChapterEntity> info = new PageInfo<ChapterEntity>(list);
         page.setList(list);
         page.setTotal(new Long(info.getTotal()).intValue());
