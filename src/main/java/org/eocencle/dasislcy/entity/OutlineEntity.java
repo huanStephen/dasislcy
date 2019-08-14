@@ -26,7 +26,7 @@ public class OutlineEntity {
      * 顺序
      */
     @Column(name = "SORT")
-    protected Byte sort;
+    protected Integer sort;
 
     /**
      * 标题
@@ -107,7 +107,7 @@ public class OutlineEntity {
      *
      * @return SORT - 顺序
      */
-    public Byte getSort() {
+    public Integer getSort() {
         return sort;
     }
 
@@ -116,7 +116,7 @@ public class OutlineEntity {
      *
      * @param sort 顺序
      */
-    public void setSort(Byte sort) {
+    public void setSort(Integer sort) {
         this.sort = sort;
     }
 

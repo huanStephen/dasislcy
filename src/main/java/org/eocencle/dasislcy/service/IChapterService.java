@@ -43,11 +43,6 @@ public interface IChapterService {
     void updateChapter(ChapterEntity chapter);
 
     /**
-     * 获取章节列表
-     * @param page
-     * @return
-     */
-    /**
      * 根据科目获取章节列表
      * @param subjectId
      * @param page

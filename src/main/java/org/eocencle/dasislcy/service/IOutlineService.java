@@ -1,5 +1,6 @@
 package org.eocencle.dasislcy.service;
 
+import org.eocencle.dasislcy.component.PageAdapter;
 import org.eocencle.dasislcy.dto.OutlineDto;
 import org.eocencle.dasislcy.entity.OutlineEntity;
 
@@ -57,4 +58,12 @@ public interface IOutlineService {
      * @return
      */
     List<OutlineDto> getOutlineBySubjectId(Integer subjectId, Integer level);
+
+    /**
+     * 根据章节id获取大纲
+     * @param chapterId
+     * @param page
+     * @return
+     */
+    PageAdapter<OutlineEntity> getOutlineByChapterId(Integer chapterId, PageAdapter<OutlineEntity> page);
 }

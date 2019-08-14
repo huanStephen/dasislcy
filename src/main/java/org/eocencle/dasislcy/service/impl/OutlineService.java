@@ -36,6 +36,18 @@ public class OutlineService implements IOutlineService {
     @Override
     @Transactional
     public void addOutline(OutlineEntity outline) {
+        Example example = new Example(OutlineEntity.class);
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andEqualTo("chapterId", outline.getChapterId());
+        example.orderBy("sort").desc();
+
+        List<OutlineEntity> list = this.outlineMapper.selectByExample(example);
+        if (null == list || 0 == list.size()) {
+            outline.setSort(1);
+        } else {
+            outline.setSort(list.get(list.size() - 1).getSort() + 1);
+        }
+        this.outlineMapper.insertSelective(outline);
         // 更新sort大于等于他的数据
 //        Example example = new Example(OutlineEntity.class);
 //        Example.Criteria criteria = example.createCriteria();
@@ -124,5 +136,21 @@ public class OutlineService implements IOutlineService {
         }
 
         return rlist;
+    }
+
+    @Override
+    public PageAdapter<OutlineEntity> getOutlineByChapterId(Integer chapterId, PageAdapter<OutlineEntity> page) {
+        Example example = new Example(OutlineEntity.class);
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andEqualTo("chapterId", chapterId);
+        example.orderBy("sort").asc();
+
+        PageHelper.startPage(page.getCurrPage(), page.getPageSize());
+        List<OutlineEntity> list = this.outlineMapper.selectByExample(example);
+        PageInfo<OutlineEntity> info = new PageInfo<OutlineEntity>(list);
+        page.setList(list);
+        page.setTotal(new Long(info.getTotal()).intValue());
+
+        return page;
     }
 }
