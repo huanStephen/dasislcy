@@ -31,6 +31,7 @@ public class ClassService implements IClassService {
 
     @Override
     public void addClass(ClassEntity cls) {
+        cls.setCnt(0);
         this.classMapper.insertSelective(cls);
     }
 
@@ -41,6 +42,8 @@ public class ClassService implements IClassService {
 
     @Override
     public void updateClass(ClassEntity cls) {
+        ClassEntity old = this.classMapper.selectByPrimaryKey(cls.getId());
+        cls.setCnt(old.getCnt());
         this.classMapper.updateByPrimaryKeySelective(cls);
     }
 

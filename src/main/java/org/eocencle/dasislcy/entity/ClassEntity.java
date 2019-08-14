@@ -20,7 +20,7 @@ public class ClassEntity {
      * 人数
      */
     @Column(name = "CNT")
-    private Short cnt;
+    private Integer cnt;
 
     /**
      * 创建时间
@@ -71,7 +71,7 @@ public class ClassEntity {
      *
      * @return CNT - 人数
      */
-    public Short getCnt() {
+    public Integer getCnt() {
         return cnt;
     }
 
@@ -80,7 +80,7 @@ public class ClassEntity {
      *
      * @param cnt 人数
      */
-    public void setCnt(Short cnt) {
+    public void setCnt(Integer cnt) {
         this.cnt = cnt;
     }
 
