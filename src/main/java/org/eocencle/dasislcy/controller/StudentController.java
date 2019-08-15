@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @Description:
  */
 @RestController
-@RequestMapping("/student")
+@RequestMapping("/wx/student")
 public class StudentController {
 
     @Autowired
@@ -43,6 +43,39 @@ public class StudentController {
         page = this.studentService.getStudentsByClassId(classId, page);
 
         result.setData(page);
+        return result;
+    }
+
+    @RequestMapping("/addStudent")
+    public Result<Boolean> addStudent(StudentEntity student) {
+        Result<Boolean> result = new Result<>(Result.STATUS_SUCCESSED);
+
+        this.studentService.addStudent(student);
+
+        result.setData(true);
+        result.setMsg("请求成功！");
+        return result;
+    }
+
+    @RequestMapping("/updateStudent")
+    public Result<Boolean> updateStudent(StudentEntity student) {
+        Result<Boolean> result = new Result<>(Result.STATUS_SUCCESSED);
+
+        this.studentService.updateStudent(student);
+
+        result.setData(true);
+        result.setMsg("请求成功！");
+        return result;
+    }
+
+    @RequestMapping("/delStudent")
+    public Result<Boolean> delStudent(Integer studentId) {
+        Result<Boolean> result = new Result<>(Result.STATUS_SUCCESSED);
+
+        this.studentService.removeStudentById(studentId);
+
+        result.setData(true);
+        result.setMsg("请求成功！");
         return result;
     }
 
