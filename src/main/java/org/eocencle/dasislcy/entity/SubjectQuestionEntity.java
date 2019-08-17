@@ -41,6 +41,12 @@ public class SubjectQuestionEntity {
     private Integer questionId;
 
     /**
+     * 权重
+     */
+    @Column(name = "WEIGHT")
+    private Integer weight;
+
+    /**
      * 创建时间
      */
     @Column(name = "CREATE_TIME")
@@ -154,6 +160,24 @@ public class SubjectQuestionEntity {
      */
     public void setQuestionId(Integer questionId) {
         this.questionId = questionId;
+    }
+
+    /**
+     * 获取权重
+     *
+     * @return WEIGHT - 权重
+     */
+    public Integer getWeight() {
+        return weight;
+    }
+
+    /**
+     * 设置权重
+     *
+     * @param weight 权重
+     */
+    public void setWeight(Integer weight) {
+        this.weight = weight;
     }
 
     /**

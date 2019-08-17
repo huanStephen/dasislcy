@@ -11,7 +11,36 @@
     <result column="OUTLINE_ID" jdbcType="INTEGER" property="outlineId" />
     <result column="QUESTION_TYPE" jdbcType="TINYINT" property="questionType" />
     <result column="QUESTION_ID" jdbcType="INTEGER" property="questionId" />
+    <result column="WEIGHT" jdbcType="TINYINT" property="weight" />
     <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
     <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
   </resultMap>
+
+  <resultMap id="SubjectQuestionRelationDto" type="org.eocencle.dasislcy.dto.SubjectQuestionRelationDto">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="SUBJECT_ID" jdbcType="INTEGER" property="subjectId" />
+    <result column="CHAPTER_ID" jdbcType="INTEGER" property="chapterId" />
+    <result column="OUTLINE_ID" jdbcType="INTEGER" property="outlineId" />
+    <result column="QUESTION_TYPE" jdbcType="TINYINT" property="questionType" />
+    <result column="QUESTION_ID" jdbcType="INTEGER" property="questionId" />
+    <result column="WEIGHT" jdbcType="TINYINT" property="weight" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="SUBJECT_NAME" jdbcType="CHAR" property="subjectName" />
+    <result column="CHAPTER_NAME" jdbcType="CHAR" property="chapterName" />
+    <result column="OUTLINE_NAME" jdbcType="CHAR" property="outlineName" />
+  </resultMap>
+
+  <select id="getSubjectQuestionMappings" parameterType="int" resultMap="SubjectQuestionRelationDto">
+    SELECT sq.ID,
+      sq.SUBJECT_ID, (SELECT s.`NAME` FROM `subject` s WHERE ID = sq.SUBJECT_ID) AS SUBJECT_NAME,
+      sq.CHAPTER_ID, (SELECT c.`TITLE` FROM `chapter` c WHERE ID = sq.CHAPTER_ID) AS CHAPTER_NAME,
+      sq.OUTLINE_ID, (SELECT o.`TITLE` FROM `outline` o WHERE ID = sq.OUTLINE_ID) AS OUTLINE_NAME,
+    sq.QUESTION_TYPE, sq.QUESTION_ID, sq.WEIGHT, sq.CREATE_TIME, sq.UPDATE_TIME
+   FROM subject_question sq
+   WHERE QUESTION_ID = #{_parameter}
+  </select>
 </mapper>

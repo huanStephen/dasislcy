@@ -47,9 +47,10 @@ public class ChoiceQuestionService implements IChoiceQuestionService {
     public ChoiceQuestionDto getChoiceQuestionById(Integer id) {
         ChoiceQuestionDto dto = new ChoiceQuestionDto(this.choiceQuestionMapper.selectByPrimaryKey(id));
 
-        ChoiceQuestionOptionEntity record = new ChoiceQuestionOptionEntity();
-        record.setQuestionId(id);
-        dto.setOptions(this.choiceQuestionOptionMapper.select(record));
+        Example example = new Example(ChoiceQuestionOptionEntity.class);
+        example.createCriteria().andEqualTo("questionId", id);
+        example.orderBy("sort").asc();
+        dto.setOptions(this.choiceQuestionOptionMapper.selectByExample(example));
 
         return dto;
     }
@@ -132,8 +133,10 @@ public class ChoiceQuestionService implements IChoiceQuestionService {
         ChoiceQuestionOptionEntity searchRecord = new ChoiceQuestionOptionEntity();
         for (ChoiceQuestionEntity question: list) {
             dto = new ChoiceQuestionDto(question);
-            searchRecord.setQuestionId(question.getId());
-            dto.setOptions(this.choiceQuestionOptionMapper.select(searchRecord));
+            Example example = new Example(ChoiceQuestionOptionEntity.class);
+            example.createCriteria().andEqualTo("questionId", question.getId());
+            example.orderBy("sort").asc();
+            dto.setOptions(this.choiceQuestionOptionMapper.selectByExample(example));
             rlist.add(dto);
         }
         page.setList(rlist);
