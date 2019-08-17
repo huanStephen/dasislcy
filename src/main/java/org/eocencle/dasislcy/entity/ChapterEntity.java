@@ -3,8 +3,8 @@ package org.eocencle.dasislcy.entity;
 import java.util.Date;
 import javax.persistence.*;
 
-@Table(name = "subject_question")
-public class SubjectQuestionEntity {
+@Table(name = "chapter")
+public class ChapterEntity {
     @Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,28 +17,22 @@ public class SubjectQuestionEntity {
     private Integer subjectId;
 
     /**
-     * 章节ID
+     * 顺序
      */
-    @Column(name = "CHAPTER_ID")
-    private Integer chapterId;
+    @Column(name = "SORT")
+    private Integer sort;
 
     /**
-     * 大纲ID
+     * 标题
      */
-    @Column(name = "OUTLINE_ID")
-    private Integer outlineId;
+    @Column(name = "TITLE")
+    private String title;
 
     /**
-     * 题目类型 1、单选题
+     * 描述
      */
-    @Column(name = "QUESTION_TYPE")
-    private Integer questionType;
-
-    /**
-     * 题目ID
-     */
-    @Column(name = "QUESTION_ID")
-    private Integer questionId;
+    @Column(name = "DESCRIPTION")
+    private String description;
 
     /**
      * 创建时间
@@ -85,75 +79,57 @@ public class SubjectQuestionEntity {
     }
 
     /**
-     * 获取章节ID
+     * 获取顺序
      *
-     * @return CHAPTER_ID - 章节ID
+     * @return SORT - 顺序
      */
-    public Integer getChapterId() {
-        return chapterId;
+    public Integer getSort() {
+        return sort;
     }
 
     /**
-     * 设置章节ID
+     * 设置顺序
      *
-     * @param chapterId 章节ID
+     * @param sort 顺序
      */
-    public void setChapterId(Integer chapterId) {
-        this.chapterId = chapterId;
+    public void setSort(Integer sort) {
+        this.sort = sort;
     }
 
     /**
-     * 获取大纲ID
+     * 获取标题
      *
-     * @return OUTLINE_ID - 大纲ID
+     * @return TITLE - 标题
      */
-    public Integer getOutlineId() {
-        return outlineId;
+    public String getTitle() {
+        return title;
     }
 
     /**
-     * 设置大纲ID
+     * 设置标题
      *
-     * @param outlineId 大纲ID
+     * @param title 标题
      */
-    public void setOutlineId(Integer outlineId) {
-        this.outlineId = outlineId;
+    public void setTitle(String title) {
+        this.title = title == null ? null : title.trim();
     }
 
     /**
-     * 获取题目类型 1、单选题
+     * 获取描述
      *
-     * @return QUESTION_TYPE - 题目类型 1、单选题
+     * @return DESCRIPTION - 描述
      */
-    public Integer getQuestionType() {
-        return questionType;
+    public String getDescription() {
+        return description;
     }
 
     /**
-     * 设置题目类型 1、单选题
+     * 设置描述
      *
-     * @param questionType 题目类型 1、单选题
+     * @param description 描述
      */
-    public void setQuestionType(Integer questionType) {
-        this.questionType = questionType;
-    }
-
-    /**
-     * 获取题目ID
-     *
-     * @return QUESTION_ID - 题目ID
-     */
-    public Integer getQuestionId() {
-        return questionId;
-    }
-
-    /**
-     * 设置题目ID
-     *
-     * @param questionId 题目ID
-     */
-    public void setQuestionId(Integer questionId) {
-        this.questionId = questionId;
+    public void setDescription(String description) {
+        this.description = description == null ? null : description.trim();
     }
 
     /**

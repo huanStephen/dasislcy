@@ -8,10 +8,7 @@ import org.eocencle.dasislcy.dao.ChoiceQuestionOptionMapper;
 import org.eocencle.dasislcy.dao.QuestionOutlineMapper;
 import org.eocencle.dasislcy.dao.SubjectQuestionMapper;
 import org.eocencle.dasislcy.dto.ChoiceQuestionDto;
-import org.eocencle.dasislcy.entity.ChoiceQuestionEntity;
-import org.eocencle.dasislcy.entity.ChoiceQuestionOptionEntity;
-import org.eocencle.dasislcy.entity.QuestionOutlineEntity;
-import org.eocencle.dasislcy.entity.SubjectQuestionEntity;
+import org.eocencle.dasislcy.entity.*;
 import org.eocencle.dasislcy.service.IChoiceQuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -116,16 +113,18 @@ public class ChoiceQuestionService implements IChoiceQuestionService {
     }
 
     @Override
-    public PageAdapter<ChoiceQuestionDto> getChoiceQuestionsBySubjectId(Integer subjectId, PageAdapter<ChoiceQuestionDto> page) {
-        if (null == subjectId || 0 == subjectId) {
+    public PageAdapter<ChoiceQuestionDto> getChoiceQuestionsBySubjectId(Integer subjectId, Integer chapterId, Integer outlineId, PageAdapter<ChoiceQuestionDto> page) {
+        if (null == subjectId) {
             return null;
         }
 
         SubjectQuestionEntity sqRecord = new SubjectQuestionEntity();
         sqRecord.setSubjectId(subjectId);
+        sqRecord.setChapterId(chapterId);
+        sqRecord.setOutlineId(outlineId);
 
         PageHelper.startPage(page.getCurrPage(), page.getPageSize());
-        List<ChoiceQuestionEntity> list = this.choiceQuestionMapper.getChoiceQuestionsBySubjectId(subjectId);
+        List<ChoiceQuestionEntity> list = this.choiceQuestionMapper.getChoiceQuestionsBySubjectId(sqRecord);
         PageInfo<ChoiceQuestionEntity> info = new PageInfo<ChoiceQuestionEntity>(list);
 
         List<ChoiceQuestionDto> rlist = new ArrayList<>();

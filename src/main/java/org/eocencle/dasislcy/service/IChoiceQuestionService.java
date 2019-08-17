@@ -47,10 +47,12 @@ public interface IChoiceQuestionService {
     PageAdapter<ChoiceQuestionDto> getChoiceQuestionsByOutlineIds(List<Integer> outlineIds);
 
     /**
-     * 根据科目id获取试题
+     * 根据科目、章节、大纲id获取试题
      * @param subjectId
+     * @param chapterId
+     * @param outlineId
      * @param page
      * @return
      */
-    PageAdapter<ChoiceQuestionDto> getChoiceQuestionsBySubjectId(Integer subjectId, PageAdapter<ChoiceQuestionDto> page);
+    PageAdapter<ChoiceQuestionDto> getChoiceQuestionsBySubjectId(Integer subjectId, Integer chapterId, Integer outlineId, PageAdapter<ChoiceQuestionDto> page);
 }

@@ -12,10 +12,17 @@
     <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
   </resultMap>
   
-  <select id="getChoiceQuestionsBySubjectId" parameterType="int" resultMap="BaseResultMap">
-    SELECT b.ID, b.TYPE, b.TITLE, b.CREATE_TIME, b.UPDATE_TIME FROM subject_question a
+  <select id="getChoiceQuestionsBySubjectId" parameterType="org.eocencle.dasislcy.entity.SubjectQuestionEntity" resultMap="BaseResultMap">
+    SELECT b.ID, b.TYPE, b.TITLE, b.CREATE_TIME, b.UPDATE_TIME
+    FROM subject_question a
     LEFT JOIN choice_question b
     ON a.QUESTION_ID = b.ID
-    WHERE a.QUESTION_TYPE = 1 AND a.SUBJECT_ID = #{_parameter}
+    WHERE a.QUESTION_TYPE = 1 AND a.SUBJECT_ID = #{subjectId}
+    <if test="null != chapterId and 0 != chapterId">
+      AND a.CHAPTER_ID = #{chapterId}
+    </if>
+    <if test="null != outlineId and 0 != outlineId">
+      AND a.OUTLINE_ID = #{outlineId}
+    </if>
   </select>
 </mapper>

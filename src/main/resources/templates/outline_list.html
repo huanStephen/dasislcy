@@ -317,7 +317,7 @@
 								<div class="col-md-12 col-xl-3 col-lg-12">
 									<div class="card">
 										<div class="card-header">
-											<h4>大纲</h4>
+											<h4>章节</h4>
 										</div>
 										<div class="card-body">
 											<div id="lg-clickable">
@@ -329,51 +329,45 @@
 											</div>
 											<div class="btn-group">
 												<button class="btn btn-success btn-sm m-b-5 m-t-5 dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-													Add
+													添加
 												</button>
 												<div class="dropdown-menu">
 													<a class="dropdown-item" href="javascript:void(0);" data-type="addParent" data-toggle="modal" data-target="#addParentWin">添加章节</a>
 													<a class="dropdown-item" href="javascript:void(0);" data-type="insertParent" data-toggle="modal" data-target="#addParentWin">插入章节</a>
 													<div class="dropdown-divider"></div>
-													<a class="dropdown-item" href="#">Add child</a>
-													<a class="dropdown-item" href="#">Insert child</a>
+													<a class="dropdown-item" href="javascript:void(0);" data-type="addChild" data-toggle="modal" data-target="#addChildWin">添加大纲</a>
+													<a class="dropdown-item" href="javascript:void(0);" data-type="insertChild" data-toggle="modal" data-target="#addChildWin">插入大纲</a>
 												</div>
 											</div>
-											<a href="#" class="btn btn-sm btn-danger m-b-5 m-t-5">delete</a>
+											<div class="btn-group">
+												<button class="btn btn-danger btn-sm m-b-5 m-t-5 dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+													删除
+												</button>
+												<div class="dropdown-menu">
+													<a class="dropdown-item" href="javascript:void(0);" data-operate="click-delParentClick">删除章节</a>
+													<div class="dropdown-divider"></div>
+													<a class="dropdown-item" href="javascript:void(0);" data-operate="click-delChildClick">删除大纲</a>
+												</div>
+											</div>
+											<!--<a href="#" class="btn btn-sm btn-danger m-b-5 m-t-5">delete</a>-->
 										</div>
 									</div>
 								</div>
 								<div class="col-lg-12 col-xl-9 col-md-12 col-sm-12">
 									<div class="card">
 										<div class="card-header">
-											<h4>Custom Lists</h4>
+											<h4>大纲</h4>
 										</div>
 										<div class="card-body">
 											<div id="lg-custom">
-												<div class="list-group">
-													<a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
+												<div class="list-group" data-child="detail">
+													<a href="javascript:void(0);" class="list-group-item list-group-item-action flex-column align-items-start"  data-operate="click-subSelect">
 														<div class="d-sm-flex w-100 justify-content-between">
-															<h5 class="mb-1">List group item heading</h5>
-															<small>3 days ago</small>
+															<h5 class="mb-1"></h5>
+															<small></small>
 														</div>
-														<p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-														<small>Donec id elit non mi porta.</small>
-													</a>
-													<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-														<div class="d-sm-flex w-100 justify-content-between">
-															<h5 class="mb-1">List group item heading</h5>
-															<small class="text-muted">3 days ago</small>
-														</div>
-														<p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-														<small class="text-muted">Donec id elit non mi porta.</small>
-													</a>
-													<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-														<div class="d-sm-flex w-100 justify-content-between">
-															<h5 class="mb-1">List group item heading</h5>
-															<small class="text-muted">3 days ago</small>
-														</div>
-														<p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-														<small class="text-muted">Donec id elit non mi porta.</small>
+														<p class="mb-1"></p>
+														<small></small>
 													</a>
 												</div>
 											</div>
@@ -396,8 +390,8 @@
 					<div class="modal-dialog" role="document">
 						<div class="modal-content">
 							<div class="modal-header">
-								<h5 class="modal-title">添加章节</h5>
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<h5 class="modal-title">添加/插入 章节</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close" data-operate="click-cancelParentClick">
 									<span aria-hidden="true">&times;</span>
 								</button>
 							</div>
@@ -414,8 +408,37 @@
 								</form>
 							</div>
 							<div class="modal-footer">
-								<button type="button" class="btn btn-primary" data-dismiss="modal" data-operate="click-addParentClick">Save</button>
-								<button type="button" class="btn">Close</button>
+								<button type="button" class="btn btn-primary" data-dismiss="modal" data-operate="click-addParentClick">保存</button>
+								<button type="button" class="btn" data-dismiss="modal" aria-label="Close" data-operate="click-cancelParentClick">取消</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="modal fade" id="addChildWin" tabindex="-1" role="dialog" aria-hidden="true">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title">添加/插入 大纲</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close" data-operate="click-cancelChildClick">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<form>
+									<div class="form-group">
+										<label class="form-control-label">大纲名称:</label>
+										<input type="text" class="form-control" id="childName">
+									</div>
+									<div class="form-group mb-0">
+										<label class="form-control-label">大纲描述:</label>
+										<textarea class="form-control" id="childDescription"></textarea>
+									</div>
+								</form>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-primary" data-dismiss="modal" data-operate="click-addChildClick">保存</button>
+								<button type="button" class="btn" data-dismiss="modal" aria-label="Close" data-operate="click-cancelChildClick">取消</button>
 							</div>
 						</div>
 					</div>
