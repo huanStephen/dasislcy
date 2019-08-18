@@ -26,13 +26,13 @@ public class StudentExamResultEntity {
      * 顺序
      */
     @Column(name = "SORT")
-    private Byte sort;
+    private Integer sort;
 
     /**
      * 题型 1、选择题
      */
     @Column(name = "QUESTION_TYPE")
-    private Byte questionType;
+    private Integer questionType;
 
     /**
      * 试题ID
@@ -113,7 +113,7 @@ public class StudentExamResultEntity {
      *
      * @return SORT - 顺序
      */
-    public Byte getSort() {
+    public Integer getSort() {
         return sort;
     }
 
@@ -122,7 +122,7 @@ public class StudentExamResultEntity {
      *
      * @param sort 顺序
      */
-    public void setSort(Byte sort) {
+    public void setSort(Integer sort) {
         this.sort = sort;
     }
 
@@ -131,7 +131,7 @@ public class StudentExamResultEntity {
      *
      * @return QUESTION_TYPE - 题型 1、选择题
      */
-    public Byte getQuestionType() {
+    public Integer getQuestionType() {
         return questionType;
     }
 
@@ -140,7 +140,7 @@ public class StudentExamResultEntity {
      *
      * @param questionType 题型 1、选择题
      */
-    public void setQuestionType(Byte questionType) {
+    public void setQuestionType(Integer questionType) {
         this.questionType = questionType;
     }
 

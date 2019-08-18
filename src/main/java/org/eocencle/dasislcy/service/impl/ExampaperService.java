@@ -68,4 +68,15 @@ public class ExampaperService implements IExampaperService {
     public PageAdapter<ExampaperEntity> getExampapersByOutlineId(Integer outlineId, PageAdapter<ExampaperEntity> page) {
         return null;
     }
+
+    @Override
+    public PageAdapter<ExampaperEntity> getExampapers(PageAdapter<ExampaperEntity> page) {
+        PageHelper.startPage(page.getCurrPage(), page.getPageSize());
+        List<ExampaperEntity> list = this.exampaperMapper.selectAll();
+        PageInfo<ExampaperEntity> info = new PageInfo<ExampaperEntity>(list);
+        page.setList(list);
+        page.setTotal(new Long(info.getTotal()).intValue());
+
+        return page;
+    }
 }

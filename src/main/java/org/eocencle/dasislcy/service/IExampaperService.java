@@ -51,4 +51,11 @@ public interface IExampaperService {
      * @return
      */
     PageAdapter<ExampaperEntity> getExampapersByOutlineId(Integer outlineId, PageAdapter<ExampaperEntity> page);
+
+    /**
+     * 获取试卷
+     * @param page
+     * @return
+     */
+    PageAdapter<ExampaperEntity> getExampapers(PageAdapter<ExampaperEntity> page);
 }
