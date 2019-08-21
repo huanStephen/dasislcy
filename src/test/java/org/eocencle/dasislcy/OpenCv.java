@@ -9,11 +9,6 @@ import java.util.*;
 import static org.opencv.core.CvType.CV_8U;
 import static org.opencv.imgproc.Imgproc.MORPH_RECT;
 
-
-/**
- * @author  answercard
- * @email lsw_demail@163.com
- */
 public class OpenCv {
     static {
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
