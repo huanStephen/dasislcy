@@ -41,10 +41,22 @@ public class StudentExamResultEntity {
     private Integer examquestionId;
 
     /**
-     * 答案
+     * 标准答案
      */
     @Column(name = "ANSWER")
-    private String answer;
+    private Integer answer;
+
+    /**
+     * 实际答案
+     */
+    @Column(name = "ACTUAL")
+    private Integer actual;
+
+    /**
+     * 是否正确 1、正确 2、错误
+     */
+    @Column(name = "HAS_TRUE")
+    private Integer hasTrue;
 
     /**
      * 创建时间
@@ -163,21 +175,57 @@ public class StudentExamResultEntity {
     }
 
     /**
-     * 获取答案
+     * 获取标准答案
      *
-     * @return ANSWER - 答案
+     * @return ANSWER - 标准答案
      */
-    public String getAnswer() {
+    public Integer getAnswer() {
         return answer;
     }
 
     /**
-     * 设置答案
+     * 设置标准答案
      *
-     * @param answer 答案
+     * @param answer 标准答案
      */
-    public void setAnswer(String answer) {
-        this.answer = answer == null ? null : answer.trim();
+    public void setAnswer(Integer answer) {
+        this.answer = answer;
+    }
+
+    /**
+     * 获取实际答案
+     *
+     * @return ACTUAL - 实际答案
+     */
+    public Integer getActual() {
+        return actual;
+    }
+
+    /**
+     * 设置实际答案
+     *
+     * @param actual 实际答案
+     */
+    public void setActual(Integer actual) {
+        this.actual = actual;
+    }
+
+    /**
+     * 获取是否正确 1、正确 2、错误
+     *
+     * @return HAS_TRUE - 是否正确 1、正确 2、错误
+     */
+    public Integer getHasTrue() {
+        return hasTrue;
+    }
+
+    /**
+     * 设置是否正确 1、正确 2、错误
+     *
+     * @param hasTrue 是否正确 1、正确 2、错误
+     */
+    public void setHasTrue(Integer hasTrue) {
+        this.hasTrue = hasTrue;
     }
 
     /**

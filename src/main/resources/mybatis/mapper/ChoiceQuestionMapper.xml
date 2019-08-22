@@ -6,8 +6,9 @@
       WARNING - @mbg.generated
     -->
     <id column="ID" jdbcType="INTEGER" property="id" />
-    <result column="TYPE" jdbcType="BIT" property="type" />
+    <result column="TYPE" jdbcType="TINYINT" property="type" />
     <result column="TITLE" jdbcType="VARCHAR" property="title" />
+    <result column="ANSWER" jdbcType="INTEGER" property="answer" />
     <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
     <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
   </resultMap>

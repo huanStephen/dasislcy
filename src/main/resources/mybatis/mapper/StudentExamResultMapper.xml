@@ -11,7 +11,9 @@
     <result column="SORT" jdbcType="TINYINT" property="sort" />
     <result column="QUESTION_TYPE" jdbcType="TINYINT" property="questionType" />
     <result column="EXAMQUESTION_ID" jdbcType="INTEGER" property="examquestionId" />
-    <result column="ANSWER" jdbcType="VARCHAR" property="answer" />
+    <result column="ANSWER" jdbcType="INTEGER" property="answer" />
+    <result column="ACTUAL" jdbcType="INTEGER" property="actual" />
+    <result column="HAS_TRUE" jdbcType="INTEGER" property="hasTrue" />
     <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
     <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
   </resultMap>

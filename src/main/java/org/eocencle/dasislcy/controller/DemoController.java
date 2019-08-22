@@ -76,7 +76,7 @@ public class DemoController {
             }
 
             if (null != dto) {
-                dto.setType(true);
+                dto.setType(1);
 
                 SubjectQuestionEntity subjectQuestion = new SubjectQuestionEntity();
                 subjectQuestion.setQuestionId(dto.getId());
@@ -95,7 +95,7 @@ public class DemoController {
         ChoiceQuestionDto dto = new ChoiceQuestionDto();
         List<ChoiceQuestionOptionEntity> options = new ArrayList<ChoiceQuestionOptionEntity>();
         dto.setTitle(m.group(1));
-        dto.setType(true);
+        dto.setType(1);
         option = m.group(2);
 
         Pattern r = Pattern.compile(reg_option1);
@@ -135,7 +135,7 @@ public class DemoController {
         ChoiceQuestionDto dto = new ChoiceQuestionDto();
         List<ChoiceQuestionOptionEntity> options = new ArrayList<ChoiceQuestionOptionEntity>();
         dto.setTitle(m.group(1));
-        dto.setType(true);
+        dto.setType(1);
         option1 = m.group(2);
         option2 = m.group(3);
 
@@ -181,7 +181,7 @@ public class DemoController {
         List<ChoiceQuestionOptionEntity> options = new ArrayList<ChoiceQuestionOptionEntity>();
         title = m.group(1) + "\n" + m.group(2);
         dto.setTitle(title);
-        dto.setType(true);
+        dto.setType(1);
         option1 = m.group(3);
         option2 = m.group(4);
 

@@ -11,16 +11,22 @@ public class ChoiceQuestionEntity {
     private Integer id;
 
     /**
-     * 是否是单选题，1、是 2、否
+     * 类型：1、选择题
      */
     @Column(name = "TYPE")
-    private Boolean type;
+    private Integer type;
 
     /**
-     * 题干
+     * 标题
      */
     @Column(name = "TITLE")
     private String title;
+
+    /**
+     * 标准答案
+     */
+    @Column(name = "ANSWER")
+    private Integer answer;
 
     /**
      * 创建时间
@@ -49,39 +55,57 @@ public class ChoiceQuestionEntity {
     }
 
     /**
-     * 获取是否是单选题，1、是 2、否
+     * 获取类型：1、选择题
      *
-     * @return TYPE - 是否是单选题，1、是 2、否
+     * @return TYPE - 类型：1、选择题
      */
-    public Boolean getType() {
+    public Integer getType() {
         return type;
     }
 
     /**
-     * 设置是否是单选题，1、是 2、否
+     * 设置类型：1、选择题
      *
-     * @param type 是否是单选题，1、是 2、否
+     * @param type 类型：1、选择题
      */
-    public void setType(Boolean type) {
+    public void setType(Integer type) {
         this.type = type;
     }
 
     /**
-     * 获取题干
+     * 获取标题
      *
-     * @return TITLE - 题干
+     * @return TITLE - 标题
      */
     public String getTitle() {
         return title;
     }
 
     /**
-     * 设置题干
+     * 设置标题
      *
-     * @param title 题干
+     * @param title 标题
      */
     public void setTitle(String title) {
         this.title = title == null ? null : title.trim();
+    }
+
+    /**
+     * 获取标准答案
+     *
+     * @return ANSWER - 标准答案
+     */
+    public Integer getAnswer() {
+        return answer;
+    }
+
+    /**
+     * 设置标准答案
+     *
+     * @param answer 标准答案
+     */
+    public void setAnswer(Integer answer) {
+        this.answer = answer;
     }
 
     /**
