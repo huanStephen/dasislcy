@@ -20,6 +20,7 @@ import java.util.List;
 
 /**
  * 选择题service
+ *
  * @Auther: huanStephen
  * @Date: 2019/4/28
  * @Description:
@@ -60,7 +61,7 @@ public class ChoiceQuestionService implements IChoiceQuestionService {
     public void addChoiceQuestion(ChoiceQuestionDto choiceQuestion, SubjectQuestionEntity subjectQuestion) {
         this.choiceQuestionMapper.insertSelective(choiceQuestion);
 
-        for (ChoiceQuestionOptionEntity option: choiceQuestion.getOptions()) {
+        for (ChoiceQuestionOptionEntity option : choiceQuestion.getOptions()) {
             option.setQuestionId(choiceQuestion.getId());
             this.choiceQuestionOptionMapper.insertSelective(option);
         }
@@ -85,13 +86,14 @@ public class ChoiceQuestionService implements IChoiceQuestionService {
     public void updateSubject(ChoiceQuestionDto choiceQuestion) {
         this.choiceQuestionMapper.updateByPrimaryKey(choiceQuestion);
 
-        for (ChoiceQuestionOptionEntity option: choiceQuestion.getOptions()) {
+        for (ChoiceQuestionOptionEntity option : choiceQuestion.getOptions()) {
             this.choiceQuestionOptionMapper.updateByPrimaryKeySelective(option);
         }
     }
 
     /**
      * 这个方法获取所有题型不应该放在选择题里
+     *
      * @param outlineIds
      * @return
      */
@@ -131,7 +133,7 @@ public class ChoiceQuestionService implements IChoiceQuestionService {
         List<ChoiceQuestionDto> rlist = new ArrayList<>();
         ChoiceQuestionDto dto = null;
         ChoiceQuestionOptionEntity searchRecord = new ChoiceQuestionOptionEntity();
-        for (ChoiceQuestionEntity question: list) {
+        for (ChoiceQuestionEntity question : list) {
             dto = new ChoiceQuestionDto(question);
             Example example = new Example(ChoiceQuestionOptionEntity.class);
             example.createCriteria().andEqualTo("questionId", question.getId());

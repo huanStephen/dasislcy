@@ -1,40 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.eocencle.dasislcy.dao.SubjectQuestionMapper">
-  <resultMap id="BaseResultMap" type="org.eocencle.dasislcy.entity.SubjectQuestionEntity">
-    <!--
-      WARNING - @mbg.generated
-    -->
-    <id column="ID" jdbcType="INTEGER" property="id" />
-    <result column="SUBJECT_ID" jdbcType="INTEGER" property="subjectId" />
-    <result column="CHAPTER_ID" jdbcType="INTEGER" property="chapterId" />
-    <result column="OUTLINE_ID" jdbcType="INTEGER" property="outlineId" />
-    <result column="QUESTION_TYPE" jdbcType="TINYINT" property="questionType" />
-    <result column="QUESTION_ID" jdbcType="INTEGER" property="questionId" />
-    <result column="WEIGHT" jdbcType="TINYINT" property="weight" />
-    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
-  </resultMap>
+    <resultMap id="BaseResultMap" type="org.eocencle.dasislcy.entity.SubjectQuestionEntity">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="ID" jdbcType="INTEGER" property="id"/>
+        <result column="SUBJECT_ID" jdbcType="INTEGER" property="subjectId"/>
+        <result column="CHAPTER_ID" jdbcType="INTEGER" property="chapterId"/>
+        <result column="OUTLINE_ID" jdbcType="INTEGER" property="outlineId"/>
+        <result column="QUESTION_TYPE" jdbcType="TINYINT" property="questionType"/>
+        <result column="QUESTION_ID" jdbcType="INTEGER" property="questionId"/>
+        <result column="WEIGHT" jdbcType="TINYINT" property="weight"/>
+        <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime"/>
+    </resultMap>
 
-  <resultMap id="SubjectQuestionRelationDto" type="org.eocencle.dasislcy.dto.SubjectQuestionRelationDto">
-    <!--
-      WARNING - @mbg.generated
-    -->
-    <id column="ID" jdbcType="INTEGER" property="id" />
-    <result column="SUBJECT_ID" jdbcType="INTEGER" property="subjectId" />
-    <result column="CHAPTER_ID" jdbcType="INTEGER" property="chapterId" />
-    <result column="OUTLINE_ID" jdbcType="INTEGER" property="outlineId" />
-    <result column="QUESTION_TYPE" jdbcType="TINYINT" property="questionType" />
-    <result column="QUESTION_ID" jdbcType="INTEGER" property="questionId" />
-    <result column="WEIGHT" jdbcType="TINYINT" property="weight" />
-    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
-    <result column="SUBJECT_NAME" jdbcType="CHAR" property="subjectName" />
-    <result column="CHAPTER_NAME" jdbcType="CHAR" property="chapterName" />
-    <result column="OUTLINE_NAME" jdbcType="CHAR" property="outlineName" />
-  </resultMap>
+    <resultMap id="SubjectQuestionRelationDto" type="org.eocencle.dasislcy.dto.SubjectQuestionRelationDto">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="ID" jdbcType="INTEGER" property="id"/>
+        <result column="SUBJECT_ID" jdbcType="INTEGER" property="subjectId"/>
+        <result column="CHAPTER_ID" jdbcType="INTEGER" property="chapterId"/>
+        <result column="OUTLINE_ID" jdbcType="INTEGER" property="outlineId"/>
+        <result column="QUESTION_TYPE" jdbcType="TINYINT" property="questionType"/>
+        <result column="QUESTION_ID" jdbcType="INTEGER" property="questionId"/>
+        <result column="WEIGHT" jdbcType="TINYINT" property="weight"/>
+        <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime"/>
+        <result column="SUBJECT_NAME" jdbcType="CHAR" property="subjectName"/>
+        <result column="CHAPTER_NAME" jdbcType="CHAR" property="chapterName"/>
+        <result column="OUTLINE_NAME" jdbcType="CHAR" property="outlineName"/>
+    </resultMap>
 
-  <select id="getSubjectQuestionMappings" parameterType="int" resultMap="SubjectQuestionRelationDto">
+    <select id="getSubjectQuestionMappings" parameterType="int" resultMap="SubjectQuestionRelationDto">
     SELECT sq.ID,
       sq.SUBJECT_ID, (SELECT s.`NAME` FROM `subject` s WHERE ID = sq.SUBJECT_ID) AS SUBJECT_NAME,
       sq.CHAPTER_ID, (SELECT c.`TITLE` FROM `chapter` c WHERE ID = sq.CHAPTER_ID) AS CHAPTER_NAME,

@@ -9,7 +9,6 @@ import org.eocencle.dasislcy.dto.SubjectQuestionRelationDto;
 import org.eocencle.dasislcy.entity.SubjectEntity;
 import org.eocencle.dasislcy.entity.SubjectQuestionEntity;
 import org.eocencle.dasislcy.service.IChapterService;
-import org.eocencle.dasislcy.service.IOutlineService;
 import org.eocencle.dasislcy.service.ISubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +18,7 @@ import java.util.List;
 
 /**
  * 科目service
+ *
  * @Auther: huanStephen
  * @Date: 2019/4/28
  * @Description:

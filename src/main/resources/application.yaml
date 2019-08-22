@@ -10,7 +10,10 @@ spring:
      name: dasislcy
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-
+    username: dasislcy
+    password: data1234
+    url: jdbc:mysql://123.206.210.122:8001/dasislcy?characterEncoding=utf-8&useSSL=false
+    type: com.alibaba.druid.pool.DruidDataSource
 
   thymeleaf:
     prefix: classpath:/templates/
