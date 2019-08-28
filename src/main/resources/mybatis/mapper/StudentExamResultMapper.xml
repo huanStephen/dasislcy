@@ -17,4 +17,8 @@
         <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime"/>
         <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime"/>
     </resultMap>
+
+    <select id="getByStuIdAndExamId" resultType="org.eocencle.dasislcy.entity.StudentExamResultEntity" >
+        select * from student_exam_result where STUDENT_ID = ${stuId} and EXAMPAPER_ID = ${examId}
+    </select>
 </mapper>
