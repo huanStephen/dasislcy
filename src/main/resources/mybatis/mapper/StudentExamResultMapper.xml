@@ -18,7 +18,11 @@
         <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime"/>
     </resultMap>
 
-    <select id="getByStuIdAndExamId" resultType="org.eocencle.dasislcy.entity.StudentExamResultEntity" >
-        select * from student_exam_result where STUDENT_ID = ${stuId} and EXAMPAPER_ID = ${examId}
+    <select id="getByStuIdAndExamId" resultMap="BaseResultMap">
+        select * from student_exam_result where STUDENT_ID = #{param1} and EXAMPAPER_ID = #{param2}
+    </select>
+
+    <select id="getByStuId" parameterType="Integer" resultMap="BaseResultMap">
+        select * from student_exam_result where STUDENT_ID = #{studentId}
     </select>
 </mapper>

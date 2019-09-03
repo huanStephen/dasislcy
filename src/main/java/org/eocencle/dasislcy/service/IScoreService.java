@@ -1,5 +1,8 @@
 package org.eocencle.dasislcy.service;
 
+import org.eocencle.dasislcy.dto.StudentAbilityDto;
+import org.eocencle.dasislcy.dto.StudentExamResultDto;
+
 /**
  * Author: Xukai
  * Description: 试题分数计算Service
@@ -9,13 +12,20 @@ package org.eocencle.dasislcy.service;
 public interface IScoreService {
 
     /**
-     * 根据学生ID和试卷ID获得此次考试分数
+     * 根据学生ID和试卷ID获得此次考试结果
      *
      * @param stuId
      * @param examId
      * @return
      */
-    Float getScoreByStuIdAndExamId(Integer stuId, Integer examId);
+    StudentExamResultDto getScoreByStuIdAndExamId(Integer stuId, Integer examId);
 
 
+    /**
+     * 根据学生ID获得学生能力概况
+     *
+     * @param stuId
+     * @return
+     */
+    StudentAbilityDto getStudentAbilityByStuId(Integer stuId);
 }

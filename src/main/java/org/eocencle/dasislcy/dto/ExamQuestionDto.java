@@ -6,9 +6,15 @@ import org.eocencle.dasislcy.entity.ExamquestionEntity;
 import java.util.List;
 
 public class ExamQuestionDto extends ExamquestionEntity {
-    // 试题title
+    
+    /**
+     * 试题title
+     */
     private String title;
-    // 选项
+
+    /**
+     * 选项
+     */
     private List<ChoiceQuestionOptionEntity> options;
 
     public String getTitle() {
