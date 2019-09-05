@@ -6,13 +6,16 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.eocencle.dasislcy.component.PageAdapter;
+import org.eocencle.dasislcy.dao.ChapterMapper;
+import org.eocencle.dasislcy.dao.OutlineMapper;
 import org.eocencle.dasislcy.dao.SubjectMapper;
 import org.eocencle.dasislcy.dao.SubjectQuestionMapper;
 import org.eocencle.dasislcy.dto.SubjectQuestionRelationDto;
+import org.eocencle.dasislcy.entity.ChapterEntity;
+import org.eocencle.dasislcy.entity.OutlineEntity;
 import org.eocencle.dasislcy.entity.SubjectEntity;
 import org.eocencle.dasislcy.entity.SubjectQuestionEntity;
 import org.eocencle.dasislcy.service.IChapterService;
-import org.eocencle.dasislcy.service.IOutlineService;
 import org.eocencle.dasislcy.service.ISubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,6 +37,14 @@ public class SubjectService implements ISubjectService {
     @Autowired
     @SuppressWarnings("SpringJavaAutowiringInspection")
     private SubjectMapper subjectMapper;
+
+    @Autowired
+    @SuppressWarnings("SpringJavaAutowiringInspection")
+    private ChapterMapper chapterMapper;
+
+    @Autowired
+    @SuppressWarnings("SpringJavaAutowiringInspection")
+    private OutlineMapper outlineMapper;
 
     @Autowired
     private IChapterService chapterService;
@@ -115,28 +126,35 @@ public class SubjectService implements ISubjectService {
     }
 
     @Override
+    @Transactional
     public void importSubjectFile(String filePath) {
         Workbook wb = null;
         try {
-            wb = getWorkbook(new FileInputStream(filePath), "subject.xlsx");
+            wb = getWorkbook(filePath);
         } catch (Exception e) {
             e.printStackTrace();
         }
         Sheet sheet = wb.getSheetAt(0);
 
         Row row = sheet.getRow(2);
+        SubjectEntity subject = new SubjectEntity();
         if (null != row) {
-            System.out.println("科目名称：" + row.getCell(2).getStringCellValue());
+            subject.setName(row.getCell(2).getStringCellValue());
         }
         row = sheet.getRow(3);
         if (null != row) {
-            System.out.println("科目描述：" + row.getCell(2).getStringCellValue());
+            subject.setDescription(row.getCell(2).getStringCellValue());
         }
+
+        this.subjectMapper.insertSelective(subject);
 
         boolean finish = false, cellB = false, cellC = false, cellD = false;
         String title = "";
         int rowNo = 6;
         Cell cell = null;
+        ChapterEntity chapter = null;
+        OutlineEntity outline = null;
+        int chapterSort = 1, outlineSort = 1;
         do {
             cellB = false;
             cellC = false;
@@ -152,14 +170,25 @@ public class SubjectService implements ISubjectService {
                 }
 
                 if ("章节名称".equals(title)) {
-                    System.out.println("章节名称：" + row.getCell(2).getStringCellValue());
+                    chapter = new ChapterEntity();
+                    chapter.setSubjectId(subject.getId());
+                    chapter.setTitle(row.getCell(2).getStringCellValue());
+                    chapter.setSort(chapterSort ++);
                 } else if ("章节描述".equals(title)) {
-                    System.out.println("章节描述：" + row.getCell(2).getStringCellValue());
-                } else if ("语法点".equals(title)) {
-                    System.out.println("大纲：" + row.getCell(3).getStringCellValue());
-                } else if ("知识点".equals(title)) {
-                    System.out.println("大纲：" + row.getCell(3).getStringCellValue());
+                    chapter.setDescription(row.getCell(2).getStringCellValue());
+                    this.chapterMapper.insertSelective(chapter);
+                } else if ("语法点".equals(title) || "知识点".equals(title)) {
+                    if (CellType.BLANK != row.getCell(3).getCellTypeEnum()) {
+                        outline = new OutlineEntity();
+                        outline.setSubjectId(subject.getId());
+                        outline.setChapterId(chapter.getId());
+                        outline.setSort(outlineSort ++);
+                        outline.setTitle(row.getCell(3).getStringCellValue());
+                        this.outlineMapper.insertSelective(outline);
+                    }
                 }
+            } else {
+                cellB = true;
             }
 
             if (null == row) {
@@ -182,13 +211,15 @@ public class SubjectService implements ISubjectService {
     }
 
     /**
-     * 描述：根据文件后缀，自适应上传文件的版本
-     * @param inStr 将file.getInputStream()获取的输入流
-     * @param fileName file.getOriginalFilename()获取的原文件名
+     * 根据文件后缀，自适应上传文件的版本
+     * @param filePath
+     * @return
+     * @throws Exception
      */
-    private Workbook getWorkbook(InputStream inStr, String fileName) throws Exception{
+    private Workbook getWorkbook(String filePath) throws Exception {
         Workbook wb = null;
-        String fileType = fileName.substring(fileName.lastIndexOf("."));
+        String fileType = filePath.substring(filePath.lastIndexOf("."), filePath.length());
+        InputStream inStr = new FileInputStream(filePath);
         if(excel2003L.equals(fileType)){
             wb = new HSSFWorkbook(inStr);  //2003-
         }else if(excel2007U.equals(fileType)){
