@@ -1,7 +1,5 @@
 package org.eocencle.dasislcy.service.impl;
 
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -23,7 +21,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 科目service
@@ -111,11 +111,11 @@ public class SubjectService implements ISubjectService {
 
     @Override
     public PageAdapter<SubjectEntity> getSubjects(PageAdapter<SubjectEntity> page) {
-        PageHelper.startPage(page.getCurrPage(), page.getPageSize());
-        List<SubjectEntity> list = this.subjectMapper.selectAll();
-        PageInfo<SubjectEntity> info = new PageInfo<SubjectEntity>(list);
-        page.setList(list);
-        page.setTotal(new Long(info.getTotal()).intValue());
+        Map<String, Integer> params = new HashMap<String, Integer>();
+        params.put("start", (page.getCurrPage() - 1) * page.getPageSize());
+        params.put("pageSize", page.getPageSize());
+
+        page.setList(this.subjectMapper.getSubjects(params));
 
         return page;
     }
