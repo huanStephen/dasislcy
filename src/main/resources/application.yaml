@@ -12,7 +12,7 @@ spring:
     url: jdbc:mysql://cdb-57uroysm.bj.tencentcdb.com:10160/dasislcy?characterEncoding=utf-8&useSSL=false
     driver-class-name: com.mysql.jdbc.Driver
     username: dasislcy
-    password: data1234
+    password: dasislcy#123.
 #    type: com.alibaba.druid.pool.DruidDataSource
 
   thymeleaf:
