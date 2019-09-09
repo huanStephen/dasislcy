@@ -71,4 +71,10 @@ public interface ISubjectService {
      * @return
      */
     List<SubjectQuestionRelationDto> getSubjectQuestionMappings(Integer questionId);
+
+    /**
+     * 导入科目文件
+     * @param filePath
+     */
+    void importSubjectFile(String filePath);
 }

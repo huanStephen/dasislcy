@@ -11,4 +11,10 @@
     <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
     <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
   </resultMap>
+  
+  <select id="getSubjects" parameterType="map" resultMap="BaseResultMap">
+    SELECT ID, NAME, DESCRIPTION, CREATE_TIME, UPDATE_TIME
+    FROM subject
+    LIMIT #{start}, #{pageSize}
+  </select>
 </mapper>
