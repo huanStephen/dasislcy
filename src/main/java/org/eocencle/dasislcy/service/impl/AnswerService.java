@@ -5,9 +5,11 @@ import com.github.pagehelper.PageInfo;
 import org.eocencle.dasislcy.component.PageAdapter;
 import org.eocencle.dasislcy.dao.ExamquestionMapper;
 import org.eocencle.dasislcy.dao.StudentExamResultMapper;
+import org.eocencle.dasislcy.dao.StudentExampaperMapper;
 import org.eocencle.dasislcy.dto.StudentExamQuestionDto;
 import org.eocencle.dasislcy.entity.ExamquestionEntity;
 import org.eocencle.dasislcy.entity.StudentExamResultEntity;
+import org.eocencle.dasislcy.entity.StudentExampaperEntity;
 import org.eocencle.dasislcy.service.IAnswerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,6 +26,10 @@ import java.util.List;
  */
 @Service
 public class AnswerService implements IAnswerService {
+
+    @Autowired
+    @SuppressWarnings("SpringJavaAutowiringInspection")
+    private StudentExampaperMapper studentExampaperMapper;
 
     @Autowired
     @SuppressWarnings("SpringJavaAutowiringInspection")
@@ -71,9 +77,13 @@ public class AnswerService implements IAnswerService {
 
     @Override
     public StudentExamResultEntity getStudentExamResultByExamquestionId(Integer studentId, Integer exampaperId, Integer examquestionId) {
+        StudentExampaperEntity exampaper = new StudentExampaperEntity();
+        exampaper.setStudentId(studentId);
+        exampaper.setExampaperId(exampaperId);
+        List<StudentExampaperEntity> paperList = this.studentExampaperMapper.select(exampaper);
+
         StudentExamResultEntity record = new StudentExamResultEntity();
-        record.setStudentId(studentId);
-        record.setExampaperId(exampaperId);
+        record.setStudentExampaperId(paperList.get(0).getId());
         record.setExamquestionId(examquestionId);
 
         List<StudentExamResultEntity> list = this.studentExamResultMapper.select(record);
@@ -88,6 +98,13 @@ public class AnswerService implements IAnswerService {
     @Override
     @Transactional
     public void generateStudentExamCardByExampagerId(Integer studentId, Integer exampaperId) {
+        // 创建学生试卷
+        StudentExampaperEntity exampaper = new StudentExampaperEntity();
+        exampaper.setStudentId(studentId);
+        exampaper.setExampaperId(exampaperId);
+        this.studentExampaperMapper.insertSelective(exampaper);
+
+        // 添加考试结果表
         ExamquestionEntity record = new ExamquestionEntity();
         record.setExampaperId(exampaperId);
 
@@ -95,8 +112,8 @@ public class AnswerService implements IAnswerService {
 
         StudentExamQuestionDto dto = null;
         for (ExamquestionEntity entity: list) {
-            dto = new StudentExamQuestionDto((entity));
-            dto.setStudentId(studentId);
+            dto = new StudentExamQuestionDto(entity);
+            dto.setStudentExampaperId(exampaper.getId());
             this.studentExamResultMapper.insertSelective(dto);
         }
     }

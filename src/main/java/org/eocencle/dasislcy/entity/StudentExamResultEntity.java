@@ -11,16 +11,10 @@ public class StudentExamResultEntity {
     private Integer id;
 
     /**
-     * 学生ID
+     * 学生试卷ID
      */
-    @Column(name = "STUDENT_ID")
-    private Integer studentId;
-
-    /**
-     * 试卷ID
-     */
-    @Column(name = "EXAMPAPER_ID")
-    private Integer exampaperId;
+    @Column(name = "STUDENT_EXAMPAPER_ID")
+    private Integer studentExampaperId;
 
     /**
      * 顺序
@@ -85,39 +79,21 @@ public class StudentExamResultEntity {
     }
 
     /**
-     * 获取学生ID
+     * 获取学生试卷ID
      *
-     * @return STUDENT_ID - 学生ID
+     * @return STUDENT_EXAMPAPER_ID - 学生试卷ID
      */
-    public Integer getStudentId() {
-        return studentId;
+    public Integer getStudentExampaperId() {
+        return studentExampaperId;
     }
 
     /**
-     * 设置学生ID
+     * 设置学生试卷ID
      *
-     * @param studentId 学生ID
+     * @param studentExampaperId 学生试卷ID
      */
-    public void setStudentId(Integer studentId) {
-        this.studentId = studentId;
-    }
-
-    /**
-     * 获取试卷ID
-     *
-     * @return EXAMPAPER_ID - 试卷ID
-     */
-    public Integer getExampaperId() {
-        return exampaperId;
-    }
-
-    /**
-     * 设置试卷ID
-     *
-     * @param exampaperId 试卷ID
-     */
-    public void setExampaperId(Integer exampaperId) {
-        this.exampaperId = exampaperId;
+    public void setStudentExampaperId(Integer studentExampaperId) {
+        this.studentExampaperId = studentExampaperId;
     }
 
     /**
