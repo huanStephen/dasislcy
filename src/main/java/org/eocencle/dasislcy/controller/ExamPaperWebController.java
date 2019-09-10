@@ -1,8 +1,10 @@
 package org.eocencle.dasislcy.controller;
 
 import org.eocencle.dasislcy.component.PageAdapter;
+import org.eocencle.dasislcy.dto.ExamQuestionDto;
 import org.eocencle.dasislcy.entity.ExampaperEntity;
 import org.eocencle.dasislcy.service.IExampaperService;
+import org.eocencle.dasislcy.service.IExamquestionService;
 import org.eocencle.dasislcy.vo.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +16,9 @@ public class ExamPaperWebController {
 
     @Autowired
     private IExampaperService exampaperService;
+
+    @Autowired
+    private IExamquestionService examquestionService;
 
     @RequestMapping("/getExamPapers")
     public Result<PageAdapter<ExampaperEntity>> getExamPapers(Integer currPage, Integer pageSize) {
@@ -29,6 +34,26 @@ public class ExamPaperWebController {
         page.setCurrPage(currPage);
         page.setPageSize(pageSize);
         page = this.exampaperService.getExampapers(page);
+
+        result.setData(page);
+        result.setMsg("请求成功！");
+        return result;
+    }
+
+    @RequestMapping("/getExamQuestions")
+    public Result<PageAdapter<ExamQuestionDto>> getExamQuestions(Integer exampaperId, Integer currPage, Integer pageSize) {
+        Result<PageAdapter<ExamQuestionDto>> result = new Result<>(Result.STATUS_SUCCESSED);
+
+        if (null == currPage || 1 > currPage || null == pageSize || 1 > pageSize) {
+            result.setStatus(Result.STATUS_FAILED);
+            result.setMsg("分页有误！");
+            return result;
+        }
+
+        PageAdapter<ExamQuestionDto> page = new PageAdapter<>();
+        page.setCurrPage(currPage);
+        page.setPageSize(pageSize);
+        page = this.examquestionService.getExamquestionByExampaperId(exampaperId, page);
 
         result.setData(page);
         result.setMsg("请求成功！");

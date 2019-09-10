@@ -3,8 +3,8 @@ package org.eocencle.dasislcy.entity;
 import javax.persistence.*;
 import java.util.Date;
 
-@Table(name = "exam_outline")
-public class ExamOutlineEntity {
+@Table(name = "student_exampaper")
+public class StudentExampaperEntity {
     @Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,28 +23,16 @@ public class ExamOutlineEntity {
     private Integer exampaperId;
 
     /**
-     * 试题ID
+     * 考试结果记录
      */
-    @Column(name = "EXAMQUESTION_ID")
-    private Integer examquestionId;
+    @Column(name = "RESULT_RECORD")
+    private String resultRecord;
 
     /**
-     * 大纲ID
+     * 考试大纲记录
      */
-    @Column(name = "OUTLINE_ID")
-    private Integer outlineId;
-
-    /**
-     * 应得分数
-     */
-    @Column(name = "DESERVED")
-    private Byte deserved;
-
-    /**
-     * 实得分数
-     */
-    @Column(name = "ACTUALLY")
-    private Byte actually;
+    @Column(name = "OUTLINE_RECORD")
+    private String outlineRecord;
 
     /**
      * 创建时间
@@ -109,75 +97,39 @@ public class ExamOutlineEntity {
     }
 
     /**
-     * 获取试题ID
+     * 获取考试结果记录
      *
-     * @return EXAMQUESTION_ID - 试题ID
+     * @return RESULT_RECORD - 考试结果记录
      */
-    public Integer getExamquestionId() {
-        return examquestionId;
+    public String getResultRecord() {
+        return resultRecord;
     }
 
     /**
-     * 设置试题ID
+     * 设置考试结果记录
      *
-     * @param examquestionId 试题ID
+     * @param resultRecord 考试结果记录
      */
-    public void setExamquestionId(Integer examquestionId) {
-        this.examquestionId = examquestionId;
+    public void setResultRecord(String resultRecord) {
+        this.resultRecord = resultRecord == null ? null : resultRecord.trim();
     }
 
     /**
-     * 获取大纲ID
+     * 获取考试大纲记录
      *
-     * @return OUTLINE_ID - 大纲ID
+     * @return OUTLINE_RECORD - 考试大纲记录
      */
-    public Integer getOutlineId() {
-        return outlineId;
+    public String getOutlineRecord() {
+        return outlineRecord;
     }
 
     /**
-     * 设置大纲ID
+     * 设置考试大纲记录
      *
-     * @param outlineId 大纲ID
+     * @param outlineRecord 考试大纲记录
      */
-    public void setOutlineId(Integer outlineId) {
-        this.outlineId = outlineId;
-    }
-
-    /**
-     * 获取应得分数
-     *
-     * @return DESERVED - 应得分数
-     */
-    public Byte getDeserved() {
-        return deserved;
-    }
-
-    /**
-     * 设置应得分数
-     *
-     * @param deserved 应得分数
-     */
-    public void setDeserved(Byte deserved) {
-        this.deserved = deserved;
-    }
-
-    /**
-     * 获取实得分数
-     *
-     * @return ACTUALLY - 实得分数
-     */
-    public Byte getActually() {
-        return actually;
-    }
-
-    /**
-     * 设置实得分数
-     *
-     * @param actually 实得分数
-     */
-    public void setActually(Byte actually) {
-        this.actually = actually;
+    public void setOutlineRecord(String outlineRecord) {
+        this.outlineRecord = outlineRecord == null ? null : outlineRecord.trim();
     }
 
     /**

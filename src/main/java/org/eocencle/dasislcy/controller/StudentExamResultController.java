@@ -1,7 +1,7 @@
 package org.eocencle.dasislcy.controller;
 
-import org.eocencle.dasislcy.dto.StudentExamResultDto;
-import org.eocencle.dasislcy.service.IScoreService;
+import org.eocencle.dasislcy.entity.StudentExampaperEntity;
+import org.eocencle.dasislcy.service.IStudentExamService;
 import org.eocencle.dasislcy.vo.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,22 +19,14 @@ import org.springframework.web.bind.annotation.RestController;
 public class StudentExamResultController {
 
     @Autowired
-    private IScoreService scoreService;
+    private IStudentExamService scoreService;
 
     @GetMapping("/getScoreByStuIdAndExamId")
-    public Result<StudentExamResultDto> getScoreByStuIdAndExamId(Integer stuId, Integer examId) {
-        Result<StudentExamResultDto> result = new Result<>(Result.STATUS_SUCCESSED);
-        StudentExamResultDto scoreByStuIdAndExamId = scoreService.getScoreByStuIdAndExamId(stuId, examId);
-        result.setData(scoreByStuIdAndExamId);
+    public Result<StudentExampaperEntity> getScoreByStuIdAndExamId(Integer stuId, Integer examId) {
+        Result<StudentExampaperEntity> result = new Result<>(Result.STATUS_SUCCESSED);
+        StudentExampaperEntity studentExampaperEntity = scoreService.getExamAnalyzeByStuAndExamId(1);
+        result.setData(studentExampaperEntity);
         return result;
     }
 
-    @GetMapping("/getStudentAbilityByStuId")
-    public Result<StudentExamResultDto> getStudentAbilityByStuId(Integer stuId) {
-        Result<StudentExamResultDto> result = new Result<>(Result.STATUS_SUCCESSED);
-
-
-
-        return result;
-    }
 }

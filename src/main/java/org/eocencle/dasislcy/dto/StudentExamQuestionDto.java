@@ -16,7 +16,6 @@ public class StudentExamQuestionDto extends StudentExamResultEntity {
     }
 
     public StudentExamQuestionDto(ExamquestionEntity entity) {
-        this.setExampaperId(entity.getExampaperId());
         this.setExamquestionId(entity.getQuestionId());
         this.setQuestionType(entity.getQuestionType());
         this.setSort(entity.getSort());

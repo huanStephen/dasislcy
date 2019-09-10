@@ -3,7 +3,6 @@ package org.eocencle.dasislcy.dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.eocencle.dasislcy.entity.StudentExamResultEntity;
 
 import java.util.Date;
 
@@ -17,16 +16,6 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class StudentExamResultDto {
-
-    /**
-     * 学生ID
-     */
-    private Integer studentId;
-
-    /**
-     * 试卷ID
-     */
-    private Integer exampaperId;
 
     /**
      * 题目总数
@@ -57,11 +46,5 @@ public class StudentExamResultDto {
      * 创建时间
      */
     private Date createTime;
-
-    public void getParmsFromEntity(StudentExamResultEntity studentExamResultEntity) {
-        this.studentId = studentExamResultEntity.getStudentId();
-        this.exampaperId = studentExamResultEntity.getExampaperId();
-        this.createTime = studentExamResultEntity.getCreateTime();
-    }
 
 }
