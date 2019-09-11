@@ -6,23 +6,19 @@
           WARNING - @mbg.generated
         -->
         <id column="ID" jdbcType="INTEGER" property="id"/>
-        <result column="STUDENT_ID" jdbcType="INTEGER" property="studentId"/>
-        <result column="EXAMPAPER_ID" jdbcType="INTEGER" property="exampaperId"/>
+        <result column="STUDENT_EXAMPAPER_ID" jdbcType="INTEGER" property="studentExampaperId"/>
         <result column="SORT" jdbcType="TINYINT" property="sort"/>
         <result column="QUESTION_TYPE" jdbcType="TINYINT" property="questionType"/>
         <result column="EXAMQUESTION_ID" jdbcType="INTEGER" property="examquestionId"/>
         <result column="ANSWER" jdbcType="INTEGER" property="answer"/>
         <result column="ACTUAL" jdbcType="INTEGER" property="actual"/>
-        <result column="HAS_TRUE" jdbcType="INTEGER" property="hasTrue"/>
+        <result column="HAS_TRUE" jdbcType="BIT" property="hasTrue"/>
         <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime"/>
         <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime"/>
     </resultMap>
 
-    <select id="getByStuIdAndExamId" resultMap="BaseResultMap">
-        select * from student_exam_result where STUDENT_ID = #{param1} and EXAMPAPER_ID = #{param2}
+    <select id="getByStuAndExampaperId" resultMap="BaseResultMap">
+        select * from student_exam_result where STUDENT_EXAMPAPER_ID = #{stuAndExampaperId}
     </select>
 
-    <select id="getByStuId" parameterType="Integer" resultMap="BaseResultMap">
-        select * from student_exam_result where STUDENT_ID = #{studentId}
-    </select>
 </mapper>

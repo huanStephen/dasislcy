@@ -7,16 +7,12 @@ import java.util.List;
 
 public interface StudentExamResultMapper extends Mapper<StudentExamResultEntity> {
 
-
     /**
-     * 根据学生ID和试卷ID获得试卷结果list
+     * 根据学生试卷ID获得所有试卷结果list
      *
-     * @param stuId
-     * @param examId
+     * @param stuAndExampaperId
      * @return
      */
-    List<StudentExamResultEntity> getByStuIdAndExamId(Integer stuId, Integer examId);
-
-    List<StudentExamResultEntity> getByStuId(Integer stuId, Integer examId);
+    List<StudentExamResultEntity> getByStuAndExampaperId(Integer stuAndExampaperId);
 
 }

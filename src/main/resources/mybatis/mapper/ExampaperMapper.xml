@@ -11,4 +11,15 @@
         <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime"/>
         <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime"/>
     </resultMap>
+
+    <select id="getById" resultMap="BaseResultMap">
+        select * from exampaper where ID = #{id}
+    </select>
+
+    <select id="getByIds" resultMap="BaseResultMap">
+        select * from exampaper where ID in
+        <foreach item="id" index="index" collection="list" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </select>
 </mapper>

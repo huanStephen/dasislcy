@@ -6,15 +6,18 @@
           WARNING - @mbg.generated
         -->
         <id column="ID" jdbcType="INTEGER" property="id"/>
-        <result column="STUDENT_ID" jdbcType="INTEGER" property="studentId"/>
+        <result column="STUDENT_EXAMPAPER_ID" jdbcType="INTEGER" property="studentExampaperId"/>
         <result column="SUBJECT_ID" jdbcType="INTEGER" property="subjectId"/>
         <result column="CHAPTER_ID" jdbcType="INTEGER" property="chapterId"/>
         <result column="OUTLINE_ID" jdbcType="INTEGER" property="outlineId"/>
-        <result column="EXAMPAPER_ID" jdbcType="INTEGER" property="exampaperId"/>
         <result column="EXAMQUESTION_ID" jdbcType="INTEGER" property="examquestionId"/>
         <result column="DESERVED" jdbcType="TINYINT" property="deserved"/>
         <result column="ACTUALLY" jdbcType="TINYINT" property="actually"/>
         <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime"/>
         <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime"/>
     </resultMap>
+
+    <select id="getByStuAndExampaperId" resultMap="BaseResultMap">
+        select * from student_exam_outline where STUDENT_EXAMPAPER_ID = #{stuAndExampaperId}
+    </select>
 </mapper>
