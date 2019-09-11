@@ -10,6 +10,11 @@ spring:
      name: dasislcy
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 100MB
+      max-request-size: 100MB
 
 
   thymeleaf:
@@ -47,6 +52,10 @@ servlet:
 #自定义
 main:
   page: index
+  upload-dir: /usr/local/dasislcy/file/upload
+  template-dir: /usr/local/dasislcy/file/template
+#  upload-dir: E:/test/file
+#  template-dir: E:/test/file
 
 
 
