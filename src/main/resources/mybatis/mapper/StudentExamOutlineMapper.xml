@@ -16,4 +16,8 @@
         <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime"/>
         <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime"/>
     </resultMap>
+
+    <select id="getByStuAndExampaperId" resultMap="BaseResultMap">
+        select * from student_exam_outline where STUDENT_EXAMPAPER_ID = #{stuAndExampaperId}
+    </select>
 </mapper>

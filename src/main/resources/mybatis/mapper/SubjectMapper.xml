@@ -17,4 +17,11 @@
     FROM subject
     LIMIT #{start}, #{pageSize}
   </select>
+
+    <select id="getByIds" resultMap="BaseResultMap">
+        select * from subject where ID in
+        <foreach item="id" index="index" collection="list" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </select>
 </mapper>

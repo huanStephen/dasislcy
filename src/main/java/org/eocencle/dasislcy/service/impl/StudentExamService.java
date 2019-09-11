@@ -1,14 +1,11 @@
 package org.eocencle.dasislcy.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
-import org.eocencle.dasislcy.dao.QuestionScoreMapper;
-import org.eocencle.dasislcy.dao.StudentExamResultMapper;
-import org.eocencle.dasislcy.dao.StudentExampaperMapper;
+import org.eocencle.dasislcy.dao.*;
+import org.eocencle.dasislcy.dto.StudentExamOutlineDto;
 import org.eocencle.dasislcy.dto.StudentExamResultDto;
 import org.eocencle.dasislcy.dto.StudentExampaperDto;
-import org.eocencle.dasislcy.entity.QuestionScoreEntity;
-import org.eocencle.dasislcy.entity.StudentExamResultEntity;
-import org.eocencle.dasislcy.entity.StudentExampaperEntity;
+import org.eocencle.dasislcy.entity.*;
 import org.eocencle.dasislcy.service.IStudentExamService;
 import org.eocencle.dasislcy.util.BigdecimalUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +28,16 @@ public class StudentExamService implements IStudentExamService {
     private StudentExamResultMapper studentExamResultMapper;
 
     @Autowired
+    private StudentExamOutlineMapper studentExamOutlineMapper;
+
+    @Autowired
     private StudentExampaperMapper studentExampaperMapper;
+
+    @Autowired
+    private ExampaperMapper exampaperMapper;
+
+    @Autowired
+    private SubjectMapper subjectMapper;
 
     @Autowired
     private QuestionScoreMapper questionScoreMapper;
@@ -42,8 +48,8 @@ public class StudentExamService implements IStudentExamService {
         Map<Integer, Integer> typeScoreMap = questionScoreList.stream()
                 .collect(Collectors.toMap(QuestionScoreEntity::getQuestionType, QuestionScoreEntity::getScore, (bean1, bean2) -> bean1));
         StudentExampaperEntity studentExampaper = studentExampaperMapper.getById(stuAndExamId);
-        List<StudentExamResultEntity> studentExamResultList = studentExamResultMapper.getByStuAndExampaperId(studentExampaper.getId());
         // 封装考试结果
+        List<StudentExamResultEntity> studentExamResultList = studentExamResultMapper.getByStuAndExampaperId(stuAndExamId);
         StudentExamResultDto studentExamResultDto = new StudentExamResultDto();
         studentExamResultDto.setQuestionCount(studentExamResultList.size());
         Integer totalScore = 0;
@@ -65,7 +71,21 @@ public class StudentExamService implements IStudentExamService {
         studentExamResultDto.setCreateTime(studentExamResultList.get(0).getCreateTime());
         studentExampaper.setResultRecord(JSONObject.toJSONString(studentExamResultDto));
         // 封装考试大纲分析
+        ExampaperEntity exampaper = exampaperMapper.getById(studentExampaper.getExampaperId());
+        Integer subjectId = exampaper.getSubjectId();
 
+        List<StudentExamOutlineEntity> studentExamOutlineList = studentExamOutlineMapper.getByStuAndExampaperId(stuAndExamId);
+        List<StudentExamOutlineEntity> effectiveExamOutlineList = studentExamOutlineList.stream().filter(bean -> bean.getSubjectId().equals(subjectId)).collect(Collectors.toList());
+        Integer countDeserved = effectiveExamOutlineList.stream().map(StudentExamOutlineEntity::getDeserved)
+                .reduce(0, (x, y) -> x + y);
+        Integer countActually = effectiveExamOutlineList.stream().map(StudentExamOutlineEntity::getActually)
+                .reduce(0, (x, y) -> x + y);
+        String ratio = BigdecimalUtils.div(countActually.toString(), countDeserved.toString(), 4);
+        StudentExamOutlineDto studentExamOutlineDto = new StudentExamOutlineDto(effectiveExamOutlineList.get(0));
+        studentExamOutlineDto.setCountDeserved(countDeserved);
+        studentExamOutlineDto.setCountActually(countActually);
+        studentExamOutlineDto.setRatio(ratio);
+        studentExampaper.setOutlineRecord(JSONObject.toJSONString(studentExamOutlineDto));
         return studentExampaperMapper.updateRecord(studentExampaper);
     }
 
@@ -75,12 +95,20 @@ public class StudentExamService implements IStudentExamService {
         return studentExampaper;
     }
 
-
     @Override
     public List<StudentExampaperDto> getExamsByStuId(Integer stuId) {
         List<StudentExampaperEntity> exampaperList = studentExampaperMapper.getByStuId(stuId);
+        List<Integer> exampaperIds = exampaperList.stream().map(StudentExampaperEntity::getExampaperId).collect(Collectors.toList());
+        List<ExampaperEntity> exampaperEntityList = exampaperMapper.getByIds(exampaperIds);
+        Map<Integer, String> exampaperId2ExamNameMap = exampaperEntityList.stream().collect(Collectors.toMap(ExampaperEntity::getId, ExampaperEntity::getName, (x, y) -> x));
+        Map<Integer, Integer> exampaperId2SubjectIdMap = exampaperEntityList.stream().collect(Collectors.toMap(ExampaperEntity::getId, ExampaperEntity::getSubjectId, (x, y) -> x));
+        List<Integer> subjectIdList = exampaperEntityList.stream().map(ExampaperEntity::getSubjectId).collect(Collectors.toList());
+        List<SubjectEntity> subjectList = subjectMapper.getByIds(subjectIdList);
+        Map<Integer, String> subjectId2SubjectNameMap = subjectList.stream().collect(Collectors.toMap(SubjectEntity::getId, SubjectEntity::getName, (x, y) -> x));
         List<StudentExampaperDto> studentExampaperDtoList = exampaperList.stream()
-                .map(t -> new StudentExampaperDto(t.getId(), t.getStudentId(), t.getExampaperId(), "", ""))
+                .map(t -> new StudentExampaperDto(t.getId(), t.getStudentId(), t.getExampaperId(),
+                        exampaperId2ExamNameMap.get(t.getExampaperId()),
+                        subjectId2SubjectNameMap.get(exampaperId2SubjectIdMap.get(t.getExampaperId()))))
                 .collect(Collectors.toList());
         return studentExampaperDtoList;
     }

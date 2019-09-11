@@ -8,7 +8,7 @@ import java.util.List;
 public interface StudentExamResultMapper extends Mapper<StudentExamResultEntity> {
 
     /**
-     * 根据学生ID获得所有试卷结果list
+     * 根据学生试卷ID获得所有试卷结果list
      *
      * @param stuAndExampaperId
      * @return

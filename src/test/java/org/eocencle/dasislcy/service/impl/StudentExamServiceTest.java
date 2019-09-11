@@ -33,6 +33,7 @@ public class StudentExamServiceTest {
         log.info(studentExampaperEntity.getStudentId().toString());
         log.info(studentExampaperEntity.getExampaperId().toString());
         log.info(studentExampaperEntity.getResultRecord());
+        log.info(studentExampaperEntity.getOutlineRecord());
     }
 
     @Test
