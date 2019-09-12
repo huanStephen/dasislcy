@@ -9,6 +9,7 @@ import java.util.List;
 
 /**
  * 科目service
+ *
  * @Auther: huanStephen
  * @Date: 2019/4/25
  * @Description:
@@ -17,6 +18,7 @@ public interface ISubjectService {
 
     /**
      * 获取科目
+     *
      * @param id
      * @return
      */
@@ -24,42 +26,49 @@ public interface ISubjectService {
 
     /**
      * 添加科目
+     *
      * @param subject
      */
     void addSubject(SubjectEntity subject);
 
     /**
      * 添加科目试题映射
+     *
      * @param mapping
      */
     void addSubjectQuestionMapping(SubjectQuestionEntity mapping);
 
     /**
      * 删除科目
+     *
      * @param id
      */
     void removeSubjectById(Integer id);
 
     /**
      * 删除科目试题映射
+     *
      * @param mappingId
      */
     void removeSubjectQuestionMapping(Integer mappingId);
 
     /**
      * 更新科目
+     *
      * @param subject
      */
     void updateSubject(SubjectEntity subject);
 
     /**
      * 更新科目映射
+     *
      * @param mapping
      */
     void updateSubjectQuestionMapping(SubjectQuestionEntity mapping);
 
     /**
      * 获取科目列表
+     *
      * @param page
      * @return
      */
@@ -67,6 +76,7 @@ public interface ISubjectService {
 
     /**
      * 获取科目试题映射列表
+     *
      * @param questionId
      * @return
      */

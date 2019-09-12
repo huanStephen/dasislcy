@@ -1,7 +1,7 @@
 package org.eocencle.dasislcy.entity;
 
-import java.util.Date;
 import javax.persistence.*;
+import java.util.Date;
 
 @Table(name = "exam_outline")
 public class ExamOutlineEntity {

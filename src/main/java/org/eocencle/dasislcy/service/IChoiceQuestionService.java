@@ -8,6 +8,7 @@ import java.util.List;
 
 /**
  * 选择题service
+ *
  * @Auther: huanStephen
  * @Date: 2019/4/25
  * @Description:
@@ -16,6 +17,7 @@ public interface IChoiceQuestionService {
 
     /**
      * 获取选择题
+     *
      * @param id
      * @return
      */
@@ -23,24 +25,28 @@ public interface IChoiceQuestionService {
 
     /**
      * 添加选择题
+     *
      * @param choiceQuestion
      */
     void addChoiceQuestion(ChoiceQuestionDto choiceQuestion, SubjectQuestionEntity subjectQuestion);
 
     /**
      * 删除选择题
+     *
      * @param id
      */
     void removeChoiceQuestionById(Integer id);
 
     /**
      * 更新选择题
+     *
      * @param choiceQuestion
      */
     void updateSubject(ChoiceQuestionDto choiceQuestion);
 
     /**
      * 根据大纲ids获取试题
+     *
      * @param outlineIds
      * @return
      */
@@ -48,6 +54,7 @@ public interface IChoiceQuestionService {
 
     /**
      * 根据科目、章节、大纲id获取试题
+     *
      * @param subjectId
      * @param chapterId
      * @param outlineId
