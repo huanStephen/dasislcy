@@ -2,6 +2,7 @@ package org.eocencle.dasislcy.vo;
 
 /**
  * 前端返回结果类
+ *
  * @Auther: huanStephen
  * @Date: 2018/12/3
  * @Description:
@@ -13,6 +14,7 @@ public class Result<T> {
 
     // 成功
     public static final Integer STATUS_SUCCESSED = 1;
+
     // 失败
     public static final Integer STATUS_FAILED = 0;
 

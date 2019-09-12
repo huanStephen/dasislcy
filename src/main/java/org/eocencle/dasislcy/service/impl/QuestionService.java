@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 /**
  * 试题service
+ *
  * @Auther: huanStephen
  * @Date: 2019/3/29
  * @Description:
@@ -37,7 +38,7 @@ public class QuestionService implements IQuestionService {
     public void addChoiceQuestion(ChoiceQuestionDto dto, SubjectQuestionEntity subjectQuestion) {
         this.choiceQuestionMapper.insertSelective(dto);
 
-        for (ChoiceQuestionOptionEntity option: dto.getOptions()) {
+        for (ChoiceQuestionOptionEntity option : dto.getOptions()) {
             option.setQuestionId(dto.getId());
             this.choiceQuestionOptionMapper.insertSelective(option);
         }

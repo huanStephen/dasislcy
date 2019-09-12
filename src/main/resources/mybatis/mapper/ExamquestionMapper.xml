@@ -1,38 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.eocencle.dasislcy.dao.ExamquestionMapper">
-  <resultMap id="BaseResultMap" type="org.eocencle.dasislcy.entity.ExamquestionEntity">
-    <!--
-      WARNING - @mbg.generated
-    -->
-    <id column="ID" jdbcType="INTEGER" property="id" />
-    <result column="EXAMPAPER_ID" jdbcType="INTEGER" property="exampaperId" />
-    <result column="SORT" jdbcType="TINYINT" property="sort" />
-    <result column="QUESTION_TYPE" jdbcType="TINYINT" property="questionType" />
-    <result column="QUESTION_ID" jdbcType="INTEGER" property="questionId" />
-    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
-  </resultMap>
+    <resultMap id="BaseResultMap" type="org.eocencle.dasislcy.entity.ExamquestionEntity">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="ID" jdbcType="INTEGER" property="id"/>
+        <result column="EXAMPAPER_ID" jdbcType="INTEGER" property="exampaperId"/>
+        <result column="SORT" jdbcType="TINYINT" property="sort"/>
+        <result column="QUESTION_TYPE" jdbcType="TINYINT" property="questionType"/>
+        <result column="QUESTION_ID" jdbcType="INTEGER" property="questionId"/>
+        <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime"/>
+    </resultMap>
 
-  <resultMap id="ExamQuestionDto" type="org.eocencle.dasislcy.dto.ExamQuestionDto">
-    <!--
-      WARNING - @mbg.generated
-    -->
-    <id column="ID" jdbcType="INTEGER" property="id" />
-    <result column="EXAMPAPER_ID" jdbcType="INTEGER" property="exampaperId" />
-    <result column="SORT" jdbcType="TINYINT" property="sort" />
-    <result column="QUESTION_TYPE" jdbcType="TINYINT" property="questionType" />
-    <result column="QUESTION_ID" jdbcType="INTEGER" property="questionId" />
-    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
-    <result column="TITLE" jdbcType="VARCHAR" property="title"/>
-  </resultMap>
-  
-  <select id="getExamquestionMaxSort" parameterType="int" resultType="int">
+    <resultMap id="ExamQuestionDto" type="org.eocencle.dasislcy.dto.ExamQuestionDto">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="ID" jdbcType="INTEGER" property="id"/>
+        <result column="EXAMPAPER_ID" jdbcType="INTEGER" property="exampaperId"/>
+        <result column="SORT" jdbcType="TINYINT" property="sort"/>
+        <result column="QUESTION_TYPE" jdbcType="TINYINT" property="questionType"/>
+        <result column="QUESTION_ID" jdbcType="INTEGER" property="questionId"/>
+        <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime"/>
+        <result column="TITLE" jdbcType="VARCHAR" property="title"/>
+    </resultMap>
+
+    <select id="getExamquestionMaxSort" parameterType="int" resultType="int">
     SELECT MAX(sort) FROM examquestion WHERE EXAMPAPER_ID = #{_parameter}
   </select>
-  
-  <select id="getExamQuestions" parameterType="int" resultMap="ExamQuestionDto">
+
+    <select id="getExamQuestions" parameterType="int" resultMap="ExamQuestionDto">
     SELECT q.ID, q.EXAMPAPER_ID, q.SORT, q.QUESTION_TYPE, q.QUESTION_ID, q.CREATE_TIME, q.UPDATE_TIME, c.TITLE
     FROM examquestion q
     LEFT JOIN choice_question c

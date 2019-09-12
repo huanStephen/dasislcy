@@ -27,6 +27,7 @@ import java.util.Map;
 
 /**
  * 科目service
+ *
  * @Auther: huanStephen
  * @Date: 2019/4/28
  * @Description:
@@ -53,8 +54,8 @@ public class SubjectService implements ISubjectService {
     @SuppressWarnings("SpringJavaAutowiringInspection")
     private SubjectQuestionMapper subjectQuestionMapper;
 
-    private final static String excel2003L =".xls";    //2003- 版本的excel
-    private final static String excel2007U =".xlsx";   //2007+ 版本的excel
+    private final static String excel2003L = ".xls";    //2003- 版本的excel
+    private final static String excel2007U = ".xlsx";   //2007+ 版本的excel
 
     @Override
     public SubjectEntity getSubjectById(Integer id) {
@@ -173,7 +174,7 @@ public class SubjectService implements ISubjectService {
                     chapter = new ChapterEntity();
                     chapter.setSubjectId(subject.getId());
                     chapter.setTitle(row.getCell(2).getStringCellValue());
-                    chapter.setSort(chapterSort ++);
+                    chapter.setSort(chapterSort++);
                 } else if ("章节描述".equals(title)) {
                     chapter.setDescription(row.getCell(2).getStringCellValue());
                     this.chapterMapper.insertSelective(chapter);
@@ -182,7 +183,7 @@ public class SubjectService implements ISubjectService {
                         outline = new OutlineEntity();
                         outline.setSubjectId(subject.getId());
                         outline.setChapterId(chapter.getId());
-                        outline.setSort(outlineSort ++);
+                        outline.setSort(outlineSort++);
                         outline.setTitle(row.getCell(3).getStringCellValue());
 
                         rowNo ++;
@@ -211,12 +212,13 @@ public class SubjectService implements ISubjectService {
 
             finish = cellB && cellC && cellD;
 
-            rowNo ++;
+            rowNo++;
         } while (!finish);
     }
 
     /**
      * 根据文件后缀，自适应上传文件的版本
+     *
      * @param filePath
      * @return
      * @throws Exception
@@ -225,11 +227,11 @@ public class SubjectService implements ISubjectService {
         Workbook wb = null;
         String fileType = filePath.substring(filePath.lastIndexOf("."), filePath.length());
         InputStream inStr = new FileInputStream(filePath);
-        if(excel2003L.equals(fileType)){
+        if (excel2003L.equals(fileType)) {
             wb = new HSSFWorkbook(inStr);  //2003-
-        }else if(excel2007U.equals(fileType)){
+        } else if (excel2007U.equals(fileType)) {
             wb = new XSSFWorkbook(inStr);  //2007+
-        }else{
+        } else {
             throw new Exception("解析的文件格式有误！");
         }
         return wb;

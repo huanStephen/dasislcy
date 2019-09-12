@@ -17,6 +17,7 @@ import java.util.List;
 
 /**
  * 大纲service
+ *
  * @Auther: huanStephen
  * @Date: 2019/4/28
  * @Description:
@@ -121,7 +122,7 @@ public class OutlineService implements IOutlineService {
 
         List<OutlineDto> rlist = new ArrayList<>();
         OutlineDto dto = null;
-        for (OutlineEntity outline: list) {
+        for (OutlineEntity outline : list) {
             dto = new OutlineDto(outline);
 
             Example childExample = new Example(OutlineEntity.class);
