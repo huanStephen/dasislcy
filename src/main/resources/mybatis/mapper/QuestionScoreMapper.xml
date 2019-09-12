@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.eocencle.dasislcy.dao.QuestionScoreMapper">
-  <resultMap id="BaseResultMap" type="org.eocencle.dasislcy.entity.QuestionScoreEntity">
-    <!--
-      WARNING - @mbg.generated
-    -->
-    <id column="ID" jdbcType="INTEGER" property="id" />
-    <result column="QUESTION_TYPE" jdbcType="TINYINT" property="questionType" />
-    <result column="SCORE" jdbcType="TINYINT" property="score" />
-  </resultMap>
+    <resultMap id="BaseResultMap" type="org.eocencle.dasislcy.entity.QuestionScoreEntity">
+        <id column="ID" jdbcType="INTEGER" property="id"/>
+        <result column="QUESTION_TYPE" jdbcType="TINYINT" property="questionType"/>
+        <result column="SCORE" jdbcType="TINYINT" property="score"/>
+    </resultMap>
+
+    <select id="getByType" parameterType="Integer" resultMap="BaseResultMap">
+      select * from question_score where QUESTION_TYPE = #{type}
+    </select>
+
+    <select id="getAll" resultMap="BaseResultMap">
+      select * from question_score
+    </select>
 </mapper>

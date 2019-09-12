@@ -20,6 +20,7 @@ import java.util.List;
 
 /**
  * 答卷service
+ *
  * @Auther: huanStephen
  * @Date: 2019/4/26
  * @Description:
@@ -111,7 +112,7 @@ public class AnswerService implements IAnswerService {
         List<ExamquestionEntity> list = this.examquestionMapper.select(record);
 
         StudentExamQuestionDto dto = null;
-        for (ExamquestionEntity entity: list) {
+        for (ExamquestionEntity entity : list) {
             dto = new StudentExamQuestionDto(entity);
             dto.setStudentExampaperId(exampaper.getId());
             this.studentExamResultMapper.insertSelective(dto);

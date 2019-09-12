@@ -1,20 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.eocencle.dasislcy.dao.SubjectMapper">
-  <resultMap id="BaseResultMap" type="org.eocencle.dasislcy.entity.SubjectEntity">
-    <!--
-      WARNING - @mbg.generated
-    -->
-    <id column="ID" jdbcType="INTEGER" property="id" />
-    <result column="NAME" jdbcType="CHAR" property="name" />
-    <result column="DESCRIPTION" jdbcType="VARCHAR" property="description" />
-    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
-  </resultMap>
-  
-  <select id="getSubjects" parameterType="map" resultMap="BaseResultMap">
+    <resultMap id="BaseResultMap" type="org.eocencle.dasislcy.entity.SubjectEntity">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="ID" jdbcType="INTEGER" property="id"/>
+        <result column="NAME" jdbcType="CHAR" property="name"/>
+        <result column="DESCRIPTION" jdbcType="VARCHAR" property="description"/>
+        <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime"/>
+    </resultMap>
+
+    <select id="getSubjects" parameterType="map" resultMap="BaseResultMap">
     SELECT ID, NAME, DESCRIPTION, CREATE_TIME, UPDATE_TIME
     FROM subject
     LIMIT #{start}, #{pageSize}
   </select>
+
+    <select id="getByIds" resultMap="BaseResultMap">
+        select * from subject where ID in
+        <foreach item="id" index="index" collection="list" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </select>
 </mapper>

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.eocencle.dasislcy.dao.ClassMapper">
-  <resultMap id="BaseResultMap" type="org.eocencle.dasislcy.entity.ClassEntity">
-    <!--
-      WARNING - @mbg.generated
-    -->
-    <id column="ID" jdbcType="INTEGER" property="id" />
-    <result column="NAME" jdbcType="VARCHAR" property="name" />
-    <result column="CNT" jdbcType="SMALLINT" property="cnt" />
-    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
-  </resultMap>
+    <resultMap id="BaseResultMap" type="org.eocencle.dasislcy.entity.ClassEntity">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="ID" jdbcType="INTEGER" property="id"/>
+        <result column="NAME" jdbcType="VARCHAR" property="name"/>
+        <result column="CNT" jdbcType="SMALLINT" property="cnt"/>
+        <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime"/>
+    </resultMap>
 </mapper>

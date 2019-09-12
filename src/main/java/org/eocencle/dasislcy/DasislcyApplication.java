@@ -5,11 +5,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import tk.mybatis.spring.annotation.MapperScan;
 
 @SpringBootApplication
-@MapperScan(value="org.eocencle.dasislcy.dao")
+@MapperScan(value = "org.eocencle.dasislcy.dao")
 public class DasislcyApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(DasislcyApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(DasislcyApplication.class, args);
+    }
 
 }

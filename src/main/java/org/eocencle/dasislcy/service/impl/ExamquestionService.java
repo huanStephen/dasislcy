@@ -7,7 +7,6 @@ import org.eocencle.dasislcy.dao.ChoiceQuestionOptionMapper;
 import org.eocencle.dasislcy.dao.ExamquestionMapper;
 import org.eocencle.dasislcy.dto.ExamQuestionDto;
 import org.eocencle.dasislcy.entity.ChoiceQuestionOptionEntity;
-import org.eocencle.dasislcy.entity.ExampaperEntity;
 import org.eocencle.dasislcy.entity.ExamquestionEntity;
 import org.eocencle.dasislcy.service.IExamquestionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +18,7 @@ import java.util.List;
 
 /**
  * 试题service
+ *
  * @Auther: huanStephen
  * @Date: 2019/4/28
  * @Description:
@@ -59,8 +59,8 @@ public class ExamquestionService implements IExamquestionService {
         if (null != maxSort) {
             sort = maxSort;
         }
-        for (ExamquestionEntity examquestion: examquestions) {
-            sort ++;
+        for (ExamquestionEntity examquestion : examquestions) {
+            sort++;
             examquestion.setSort(sort);
             examquestion.setQuestionType(1);
             this.examquestionMapper.insertSelective(examquestion);
@@ -83,7 +83,7 @@ public class ExamquestionService implements IExamquestionService {
         List<ExamQuestionDto> list = this.examquestionMapper.getExamQuestions(exampaperId);
         PageInfo<ExamQuestionDto> info = new PageInfo<ExamQuestionDto>(list);
 
-        for (ExamQuestionDto question: list) {
+        for (ExamQuestionDto question : list) {
             Example example = new Example(ChoiceQuestionOptionEntity.class);
             example.createCriteria().andEqualTo("questionId", question.getQuestionId());
             example.orderBy("sort").asc();

@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.eocencle.dasislcy.dao.StudentExamOutlineMapper">
-  <resultMap id="BaseResultMap" type="org.eocencle.dasislcy.entity.StudentExamOutlineEntity">
-    <!--
-      WARNING - @mbg.generated
-    -->
-    <id column="ID" jdbcType="INTEGER" property="id" />
-    <result column="STUDENT_EXAMPAPER_ID" jdbcType="INTEGER" property="studentExampaperId" />
-    <result column="SUBJECT_ID" jdbcType="INTEGER" property="subjectId" />
-    <result column="CHAPTER_ID" jdbcType="INTEGER" property="chapterId" />
-    <result column="OUTLINE_ID" jdbcType="INTEGER" property="outlineId" />
-    <result column="EXAMQUESTION_ID" jdbcType="INTEGER" property="examquestionId" />
-    <result column="DESERVED" jdbcType="TINYINT" property="deserved" />
-    <result column="ACTUALLY" jdbcType="TINYINT" property="actually" />
-    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
-  </resultMap>
+    <resultMap id="BaseResultMap" type="org.eocencle.dasislcy.entity.StudentExamOutlineEntity">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="ID" jdbcType="INTEGER" property="id"/>
+        <result column="STUDENT_EXAMPAPER_ID" jdbcType="INTEGER" property="studentExampaperId"/>
+        <result column="SUBJECT_ID" jdbcType="INTEGER" property="subjectId"/>
+        <result column="CHAPTER_ID" jdbcType="INTEGER" property="chapterId"/>
+        <result column="OUTLINE_ID" jdbcType="INTEGER" property="outlineId"/>
+        <result column="EXAMQUESTION_ID" jdbcType="INTEGER" property="examquestionId"/>
+        <result column="DESERVED" jdbcType="TINYINT" property="deserved"/>
+        <result column="ACTUALLY" jdbcType="TINYINT" property="actually"/>
+        <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime"/>
+    </resultMap>
+
+    <select id="getByStuAndExampaperId" resultMap="BaseResultMap">
+        select * from student_exam_outline where STUDENT_EXAMPAPER_ID = #{stuAndExampaperId}
+    </select>
 </mapper>
