@@ -10,6 +10,9 @@ spring:
      name: dasislcy
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:10160/dasislcy?characterEncoding=utf8&useSSL=false
+    username: username
+    password: password
   servlet:
     multipart:
       enabled: true
@@ -39,15 +42,6 @@ pagehelper:
   reasonable: true
   support-methods-arguments: true
   params: count=countSql
-
-servlet:
-  multipart:
-    max-file-size: 100Mb
-    max-request-size: 100Mb
-    session:
-      timeout: -100000  # 十天
-    cookie:
-      max-age: 130000s
 
 #自定义
 main:
