@@ -137,12 +137,12 @@ public class SubjectService implements ISubjectService {
         }
         Sheet sheet = wb.getSheetAt(0);
 
-        Row row = sheet.getRow(2);
+        Row row = sheet.getRow(1);
         SubjectEntity subject = new SubjectEntity();
         if (null != row) {
             subject.setName(row.getCell(2).getStringCellValue());
         }
-        row = sheet.getRow(3);
+        row = sheet.getRow(2);
         if (null != row) {
             subject.setDescription(row.getCell(2).getStringCellValue());
         }
@@ -151,7 +151,7 @@ public class SubjectService implements ISubjectService {
 
         boolean finish = false, cellB = false, cellC = false, cellD = false;
         String title = "";
-        int rowNo = 6;
+        int rowNo = 3;
         Cell cell = null;
         ChapterEntity chapter = null;
         OutlineEntity outline = null;
@@ -185,6 +185,11 @@ public class SubjectService implements ISubjectService {
                         outline.setChapterId(chapter.getId());
                         outline.setSort(outlineSort++);
                         outline.setTitle(row.getCell(3).getStringCellValue());
+
+                        rowNo ++;
+                        row = sheet.getRow(rowNo);
+                        outline.setDescription(row.getCell(3).getStringCellValue());
+
                         this.outlineMapper.insertSelective(outline);
                     }
                 }
