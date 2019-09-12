@@ -212,16 +212,16 @@
 						<i class="angle fa fa-angle-right"></i>
 					</a>
 				</li>
+                <li>
+                    <a class="side-menu__item active" href="javascript:void(0);">
+                        <i class="side-menu__icon fa fa-flask"></i>
+                        <span class="side-menu__label">科目</span>
+                    </a>
+                </li>
 				<li>
 					<a class="side-menu__item" href="/toExampaper_list">
 						<i class="side-menu__icon fa fa-flask"></i>
 						<span class="side-menu__label">试卷</span>
-					</a>
-				</li>
-				<li>
-					<a class="side-menu__item active" href="javascript:void(0);">
-						<i class="side-menu__icon fa fa-flask"></i>
-						<span class="side-menu__label">科目</span>
 					</a>
 				</li>
 			</ul>
@@ -229,25 +229,23 @@
 
 		<div class="app-content">
 			<section class="section">
-				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="#">主页</a></li>
-					<li class="breadcrumb-item active" aria-current="page">科目列表</li>
-					<!--<div class="pull-right" style="margin-left: 600px;">-->
-						<!--<form enctype="multipart/form-data" >-->
-							<!--<input type="file" name="file"><br/>-->
-							<!--<button type="submit" class="btn btn-primary m-b-5 m-t-5"><i class="fa fa-upload"></i> 上传 </button>-->
-						<!--</form>-->
-						<!--<button href="#" class="btn btn-primary m-b-5 m-t-5"><i class="fa fa-download"></i> 下载 </button>-->
-					<!--</div>-->
-					<!--<div  class="pull-right" style="margin-left: 400px;">-->
-						<form id="form1" action="/web/subject/upload_subject" target="frame1" enctype="multipart/form-data" method="post">
-							<input style="margin-left: 400px;" type="file" name="file">
-							<button onclick="upload()" class="btn btn-primary m-b-5 m-t-5"><i class="fa fa-upload"></i> 上传 </button>
-						</form>
-						<iframe hidden="hidden" name="frame1" frameborder="0" height="40"></iframe>
-						<a href="/web/subject/download_template" style="margin-left: 30px;" class="btn btn-primary m-b-5 m-t-5"><i class="fa fa-download"></i> 下载 </a>
-					<!--</div>-->
-				</ol>
+                <div class="card-header" style="background-color: transparent;">
+                    <div class="float-right" style="display: block;">
+                        <form style="display: inline-block;" id="form1" action="/web/subject/upload_subject" target="frame1" enctype="multipart/form-data" method="post">
+                            <input type="text" name="viewfile" id="viewfile" class="viewfile" style="background-color: transparent; border: 0px;"/>
+                            <input hidden="hidden" type="file" id="file" name="file" onchange="document.getElementById('viewfile').value=this.value;"
+                                   accept="application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+                            <label for="file" class="btn btn-primary m-b-5 m-t-5" style="margin-right: 20px;">选择文件</label>
+                            <button onclick="upload()" class="btn btn-primary m-b-5 m-t-5"><i class="fa fa-upload"></i> 上传 </button>
+                        </form>
+                        <iframe hidden="hidden" name="frame1" frameborder="0" height="40"></iframe>
+                        <a style="margin-left: 20px;" href="/web/subject/download_template" class="btn btn-primary m-b-5 m-t-5"><i class="fa fa-download"></i> 下载 </a>
+                    </div>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">主页</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">科目列表</li>
+                    </ol>
+                </div>
 
 				<div class="section-body">
 					<div class="row" data-container="list">
@@ -333,44 +331,25 @@
 
 <script type="text/javascript">
     function upload() {
-        $("#form1").submit();
-        var t = setInterval(function() {
-            //获取iframe标签里body元素里的文字。即服务器响应过来的"上传成功"或"上传失败"
-            var word = $("iframe[name='frame1']").contents().find("body").text();
-            if (word != "") {
-                alert(word);        //弹窗提示是否上传成功
-                clearInterval(t);   //清除定时器
-            }
-        }, 200);
+        var fileName =  document.getElementById('viewfile').value;
+        var index = fileName.lastIndexOf('.');
+        var suffix = fileName.substring(index);
+        var fileType = [".xlsx",".xls"];
+        if(fileType.indexOf(suffix) < 0) {
+            alert("文件格式错误，仅支持xlsx、xls格式")
+        } else {
+            $("#form1").submit();
+            var t = setInterval(function() {
+                //获取iframe标签里body元素里的文字。即服务器响应过来的"上传成功"或"上传失败"
+                var word = $("iframe[name='frame1']").contents().find("body").text();
+                if (word != "") {
+                    alert("文件上传成功");        //弹窗提示是否上传成功
+                    clearInterval(t);   //清除定时器
+                }
+            }, 200);
+        }
     }
 
-    // $(function(){
-    //     var options = {
-    //         type: 'POST',
-    //         url: '/web/subject/upload_subject',
-    //         success:showResponse,
-    //         dataType: 'json',
-    //         error : function(xhr, status, err) {
-    //             alert("文件上传失败");
-    //         }
-    //     };
-    //     $("#form1").submit(function(){
-    //         $(this).ajaxSubmit(options);
-    //         return false;   //防止表单自动提交
-    //     });
-    // });
-	//
-    // function upload(){
-    //     $("#form1").submit();
-    // }
-	//
-    // function showResponse(responseText, statusText, xhr, $form1){
-    //     if(responseText.status == "1"){
-    //         alert(responseText.msg);
-    //     } else {
-    //         alert(responseText.msg);
-    //     }
-    // }
 </script>
 
 </body>
