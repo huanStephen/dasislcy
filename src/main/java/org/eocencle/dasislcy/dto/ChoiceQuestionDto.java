@@ -20,6 +20,7 @@ public class ChoiceQuestionDto extends ChoiceQuestionEntity {
         this.setId(entity.getId());
         this.setType(entity.getType());
         this.setTitle(entity.getTitle());
+        this.setAnswer(entity.getAnswer());
         this.setCreateTime(entity.getCreateTime());
         this.setUpdateTime(entity.getUpdateTime());
     }
