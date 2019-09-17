@@ -42,7 +42,7 @@ public interface IChoiceQuestionService {
      *
      * @param choiceQuestion
      */
-    void updateSubject(ChoiceQuestionDto choiceQuestion);
+    void updateChoiceQuestion(ChoiceQuestionDto choiceQuestion);
 
     /**
      * 根据大纲ids获取试题

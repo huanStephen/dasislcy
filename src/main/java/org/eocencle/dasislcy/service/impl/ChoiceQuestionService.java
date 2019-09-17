@@ -83,7 +83,7 @@ public class ChoiceQuestionService implements IChoiceQuestionService {
 
     @Override
     @Transactional
-    public void updateSubject(ChoiceQuestionDto choiceQuestion) {
+    public void updateChoiceQuestion(ChoiceQuestionDto choiceQuestion) {
         this.choiceQuestionMapper.updateByPrimaryKey(choiceQuestion);
 
         for (ChoiceQuestionOptionEntity option : choiceQuestion.getOptions()) {

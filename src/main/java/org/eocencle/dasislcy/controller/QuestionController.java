@@ -118,4 +118,23 @@ public class QuestionController {
         result.setData(true);
         return result;
     }
+
+    @RequestMapping("/updateQuestionAnswer")
+    public Result<Boolean> updateQuestionAnswer(Integer questionId, Integer answer) {
+        Result<Boolean> result = new Result<>(Result.STATUS_SUCCESSED);
+
+        if (null == questionId) {
+            result.setStatus(Result.STATUS_FAILED);
+            result.setMsg("试题ID有误！");
+            return result;
+        }
+
+        ChoiceQuestionEntity record = this.choiceQuestionService.getChoiceQuestionById(questionId);
+        record.setAnswer(answer);
+        this.choiceQuestionService.updateChoiceQuestion(new ChoiceQuestionDto(record));
+
+        result.setData(true);
+        result.setMsg("请求成功！");
+        return result;
+    }
 }
