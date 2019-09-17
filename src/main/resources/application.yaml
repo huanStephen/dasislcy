@@ -46,10 +46,12 @@ pagehelper:
 #自定义
 main:
   page: index
-  upload-dir: /usr/local/dasislcy/file/upload
+  upload-dir: /usr/local/dasislcy/file/upload/subject
   template-dir: /usr/local/dasislcy/file/template
+  answersheet-dir: /usr/local/dasislcy/file/upload/answersheet
 #  upload-dir: E:/test/file
 #  template-dir: E:/test/file
+#  answersheet-dir: F:/test/file
 
 
 

@@ -66,4 +66,10 @@ public interface IExampaperService {
      * @return
      */
     PageAdapter<ExampaperEntity> getExampapers(PageAdapter<ExampaperEntity> page);
+
+    /**
+     * 上传答题卡
+     * @param filePath
+     */
+    void importAnswerSheet(String filePath);
 }

@@ -81,4 +81,9 @@ public class ExampaperService implements IExampaperService {
 
         return page;
     }
+
+    @Override
+    public void importAnswerSheet(String filePath) {
+        // 答题卡识别
+    }
 }

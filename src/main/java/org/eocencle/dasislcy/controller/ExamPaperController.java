@@ -8,12 +8,16 @@ import org.eocencle.dasislcy.service.IExampaperService;
 import org.eocencle.dasislcy.service.IExamquestionService;
 import org.eocencle.dasislcy.vo.Result;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
-import java.util.Arrays;
+import java.io.File;
+import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -28,6 +32,9 @@ public class ExamPaperController {
 
     @Autowired
     private IExamquestionService examquestionService;
+
+    @Value("${main.answersheet-dir}")
+    private String answerSheetDir;
 
     @RequestMapping("/getExamPapers")
     public Result<PageAdapter<ExampaperEntity>> getExamPapers(Integer currPage, Integer pageSize) {
@@ -144,6 +151,33 @@ public class ExamPaperController {
 
         result.setData(true);
         result.setMsg("请求成功！");
+        return result;
+    }
+
+    /**
+     * 答题卡上传
+     * @param answersheet
+     * @return
+     */
+    @RequestMapping("/uploadAnswerSheet")
+    public Result<Boolean> uploadAnswerSheet(@RequestParam("answersheet") MultipartFile answersheet){
+        Result<Boolean> result = new Result<>(Result.STATUS_SUCCESSED);
+
+        try {
+            String path = this.answerSheetDir + "/" + new Date().getTime() + answersheet.getOriginalFilename();
+            File newFile = new File(path);
+            //通过CommonsMultipartFile的方法直接写文件
+            answersheet.transferTo(newFile);
+            this.exampaperService.importAnswerSheet(path);
+
+            result.setData(true);
+            result.setMsg("答题卡上传成功！");
+        } catch (IOException e) {
+            result.setData(false);
+            result.setMsg("答题卡上传失败！");
+            e.printStackTrace();
+        }
+
         return result;
     }
 
