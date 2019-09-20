@@ -341,11 +341,14 @@
             $("#form1").submit();
             var t = setInterval(function() {
                 //获取iframe标签里body元素里的文字。即服务器响应过来的"上传成功"或"上传失败"
-                var word = $("iframe[name='frame1']").contents().find("body").text();
-                if (word != "") {
+                var word = $("iframe[name='frame1']").contents().find("body").text().substr(10, 1);
+                if (word == "1") {
                     alert("文件上传成功");        //弹窗提示是否上传成功
                     clearInterval(t);   //清除定时器
-                }
+                } else {
+                    alert("文件上传失败");        //弹窗提示是否上传成功
+                    clearInterval(t);   //清除定时器
+				}
             }, 200);
         }
     }

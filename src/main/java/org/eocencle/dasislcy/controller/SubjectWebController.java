@@ -40,6 +40,10 @@ public class SubjectWebController {
         Result<Boolean> result = new Result<>(Result.STATUS_SUCCESSED);
 
         try {
+            String fileName = file.getOriginalFilename();
+            if (!fileName.endsWith(".xlsx") && !fileName.endsWith(".xls")) {
+                throw new RuntimeException("文件格式错误！");
+            }
             String path=uploadDir + "/" + new Date().getTime() + file.getOriginalFilename();
             File newFile=new File(path);
             //通过CommonsMultipartFile的方法直接写文件
@@ -48,7 +52,8 @@ public class SubjectWebController {
 
             result.setData(true);
             result.setMsg("文件上传成功！");
-        } catch (IOException e) {
+        } catch (Exception e) {
+            result.setStatus(Result.STATUS_FAILED);
             result.setData(false);
             result.setMsg("文件上传失败！");
             e.printStackTrace();
