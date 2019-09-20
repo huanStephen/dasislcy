@@ -236,7 +236,7 @@
                             <input hidden="hidden" type="file" id="file" name="file" onchange="document.getElementById('viewfile').value=this.value;"
                                    accept="application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
                             <label for="file" class="btn btn-primary m-b-5 m-t-5" style="margin-right: 20px;">选择文件</label>
-                            <button onclick="upload()" class="btn btn-primary m-b-5 m-t-5"><i class="fa fa-upload"></i> 上传 </button>
+                            <button type="button" onclick="upload()" class="btn btn-primary m-b-5 m-t-5"><i class="fa fa-upload"></i> 上传 </button>
                         </form>
                         <iframe hidden="hidden" name="frame1" frameborder="0" height="40"></iframe>
                         <a style="margin-left: 20px;" href="/web/subject/download_template" class="btn btn-primary m-b-5 m-t-5"><i class="fa fa-download"></i> 下载 </a>
@@ -327,7 +327,7 @@
 <script src="assets/js/sepa.js"></script>
 <script src="assets/js/sepa.component.js"></script>
 <script src="assets/js/model.js"></script>
-<script src="assets/js/page/subject_list.js"></script>
+<!--<script src="assets/js/page/subject_list.js"></script>-->
 
 <script type="text/javascript">
     function upload() {
@@ -341,11 +341,14 @@
             $("#form1").submit();
             var t = setInterval(function() {
                 //获取iframe标签里body元素里的文字。即服务器响应过来的"上传成功"或"上传失败"
-                var word = $("iframe[name='frame1']").contents().find("body").text();
-                if (word != "") {
+                var word = $("iframe[name='frame1']").contents().find("body").text().substr(10, 1);
+                if (word == "1") {
                     alert("文件上传成功");        //弹窗提示是否上传成功
                     clearInterval(t);   //清除定时器
-                }
+                } else {
+                    alert("文件上传失败");        //弹窗提示是否上传成功
+                    clearInterval(t);   //清除定时器
+				}
             }, 200);
         }
     }
