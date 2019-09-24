@@ -6,7 +6,9 @@ import org.eocencle.dasislcy.component.PageAdapter;
 import org.eocencle.dasislcy.dao.ExampaperMapper;
 import org.eocencle.dasislcy.entity.ExampaperEntity;
 import org.eocencle.dasislcy.service.IExampaperService;
+import org.eocencle.dasislcy.util.LinuxUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -24,6 +26,9 @@ public class ExampaperService implements IExampaperService {
     @Autowired
     @SuppressWarnings("SpringJavaAutowiringInspection")
     private ExampaperMapper exampaperMapper;
+
+    @Value("${main.answersheet-sh}")
+    private String answersheetSh;
 
     @Override
     public ExampaperEntity getExampaperById(Integer id) {
@@ -85,5 +90,6 @@ public class ExampaperService implements IExampaperService {
     @Override
     public void importAnswerSheet(String filePath) {
         // 答题卡识别
+        LinuxUtil.executeLinuxCmd("python3 " + this.answersheetSh + " " + filePath);
     }
 }
