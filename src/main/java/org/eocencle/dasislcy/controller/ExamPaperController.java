@@ -160,7 +160,7 @@ public class ExamPaperController {
      * @return
      */
     @RequestMapping("/uploadAnswerSheet")
-    public Result<Boolean> uploadAnswerSheet(@RequestParam("answersheet") MultipartFile answersheet){
+    public Result<Boolean> uploadAnswerSheet(@RequestParam("answersheet") MultipartFile answersheet, Integer studentId, Integer exampaperId){
         Result<Boolean> result = new Result<>(Result.STATUS_SUCCESSED);
 
         try {
@@ -168,7 +168,7 @@ public class ExamPaperController {
             File newFile = new File(path);
             //通过CommonsMultipartFile的方法直接写文件
             answersheet.transferTo(newFile);
-            this.exampaperService.importAnswerSheet(path);
+            this.exampaperService.parseAnswerSheet(path,studentId, exampaperId);
 
             result.setData(true);
             result.setMsg("答题卡上传成功！");

@@ -88,8 +88,8 @@ public class ExampaperService implements IExampaperService {
     }
 
     @Override
-    public void importAnswerSheet(String filePath) {
+    public void parseAnswerSheet(String filePath, Integer studentId, Integer exampaperId) {
         // 答题卡识别
-        LinuxUtil.executeLinuxCmd("python3 " + this.answersheetSh + " " + filePath);
+        LinuxUtil.executeLinuxCmd("python3 " + this.answersheetSh + " " + filePath + " " + studentId + " " + exampaperId);
     }
 }
